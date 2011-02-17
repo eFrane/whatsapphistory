@@ -9,9 +9,9 @@ into a HTML Package.
 1.  get the WhatsApp History of a user
 2.  put all the files into one folder or have a Zip-File containing all the files
 3.  run
-        python whatsapphistory.py <path_to_folder> [<outputdir>]
+        python whatsapphistory.py <path-to-folder> [<outputdir>]
 
-<path_to_folder> is either the path to the folder where all the files from
+<path-to-folder> is either the path to the folder where all the files from
 your emailed WhatsApp History reside or the complete path (including the filename)
 to a Zip-File with the same contents.
 
