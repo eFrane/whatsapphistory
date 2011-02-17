@@ -134,4 +134,4 @@ if isZip:
       if os.path.isfile(fp):
           os.unlink(fp)
     except:
-      print 'error.'
+      print 'Could not completely delete temporary files. Temp folder was',temp
