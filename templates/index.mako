@@ -18,15 +18,24 @@
 -->
 <html>
  <head>
-  <title>WhatsApp Chat History between ${chatterA} and ${chatterB}</title>
+  <title>WhatsApp Chat History</title>
  </head>
  <body>
-  <h1>WhatsApp Chat History between ${chatterA} and ${chatterB}</h1>
-  <nav>
-   <ul>
-
-   </ul>
-  </nav>
+  <h1>WhatsApp Chat History</h1>
+  <a href="full.htm">View complete History in one file.</a>
+  <div id="calendar">
+   % for month in months:
+     <div class="month" id="month-${month}">
+      <h2><a href="months/month-${month}.htm">${month}</a></h2>
+      <ul>
+       % for day in month:
+         <li><a href="days/day-${day}.htm">${day}</a>
+       % endfor
+      </ul>
+     </div>
+   % endfor
+  </div>
+  <a href="full.htm">View complete History in one file.</a>
   <footer>
    Generated with <a href="http://github.com/eFrane/whatsapphistory">whatsapphistory.py</a>
    ${version} on ${builddate}
