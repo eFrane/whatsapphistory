@@ -15,7 +15,7 @@
 #  You should have received a copy of the GNU Affero General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os, sys, re, zipfile, tempfile
+import os, sys, re, zipfile, tempfile, datetime, time
 
 # get folder or zip file
 if len(sys.argv) >= 2:
@@ -46,20 +46,27 @@ temp = os.getcwd()
 # find the chatlog and parse it line-by-line
 dirlist = os.listdir(temp)
 for file in dirlist:
-  if file.find(".txt", len(file)-5) > 0:
+  if file.find('.txt', len(file)-5) > 0:
     log = open(os.path.join(temp, file), 'r')
     lines = log.readlines()
     log.close()
     for line in lines:
-      lineData = re.split('^([0-9/]*) ([0-9:]+ (?:AM|PM)): ([a-zA-Z ]+):(.*\n)', line, re.DOTALL)
+      lineData = re.split('^((?:[0-9/]*) (?:[0-9:]+ (?:AM|PM))): ([a-zA-Z ]+): (.*\n)', line, re.DOTALL)
       # lineData[0]: empty
-      # lineData[1]: date
-      # lineData[2]: timestamp
-      # lineData[3]: author
-      # lineData[4]: message
-      # lineData[5]: empty
+      # lineData[1]: timestamp
+      # lineData[2]: author
+      # lineData[3]: message
+      # lineData[4]: empty
 
-      print lineData
+      for index, data in enumerate(lineData):
+        if index == 1:
+          # fix date format
+          data = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', data)
+          data = re.sub(r'^([0-9]{2})/((?:[0-9]?)(?=/)(?:[0-9/]+))', r'\1/0\2', data)
+          data = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', data)
+
+          timestamp = time.strptime(data, '%m/%d/%y %I:%M:%S %p')
+          print timestamp
 
 # clean temp folder
 #if isZip:
