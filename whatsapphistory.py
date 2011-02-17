@@ -92,7 +92,36 @@ for file in dirlist:
 
         messages.append(message)
 
-      # push data into templates
+      # break messages into months and days
+      months = []
+      for message in messages:
+        for month in months:
+          if month.number == message.timestamp.monthinyear():
+            for day in month.days
+              if day.number == message.timestamp.dayinmonth():
+                day.messages.append(message)
+              else:
+                nday = Day()
+                nday.messages = []
+                nday.number = message.timestamp.dayinmonth()
+
+                nday.messages.append(message)
+                month.days.append(day)
+          else:
+            nmonth = Month()
+            nday   = Day()
+
+            nmonth.number = message.timestamp.monthinyear()
+            nmonth.name   = time.strftime(message.timestamp, '')
+            nmonth.days   = []
+
+            nday.messages = []
+            nday.number   = message.timestamp.dayinmonth()
+
+            nday.messages.append(message)
+            nmonth.days.append(day)
+            months.append(nmonth)
+
 
       #for message in messages:
 
