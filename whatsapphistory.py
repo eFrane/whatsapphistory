@@ -59,6 +59,7 @@ for file in dirlist:
       # lineData[4]: empty
 
       for index, data in enumerate(lineData):
+        timestamp, author, message = 0, 0, 0
         if index == 1:
           # fix date format
           data = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', data)
@@ -66,7 +67,12 @@ for file in dirlist:
           data = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', data)
 
           timestamp = time.strptime(data, '%m/%d/%y %I:%M:%S %p')
-          print timestamp
+        if index == 2:
+          author = data
+
+        if index == 3:
+          message = data
+
 
 # clean temp folder
 #if isZip:
