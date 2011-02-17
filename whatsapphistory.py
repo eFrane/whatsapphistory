@@ -61,8 +61,8 @@ for file in dirlist:
       # lineData[3]: message
       # lineData[4]: empty
 
+      timestamp, author, message = 0, 0, 0
       for index, data in enumerate(lineData):
-        timestamp, author, message = 0, 0, 0
         if index == 1:
           # fix date format
           data = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', data)
