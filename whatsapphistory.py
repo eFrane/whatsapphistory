@@ -15,6 +15,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os, sys, re, zipfile, tempfile, time
+from datetime import datetime
 from mako.template import Template
 
 class Message:
@@ -24,10 +25,22 @@ class Message:
     self.text      = text
 
 class Month:
-  pass
+  def __init__(self, number, year, name):
+    self.number = number
+    self.year   = year
+    self.name   = name
+    self.days   = []
+
+  def day(self, d):
+    self.days.append(d)
 
 class Day:
-  pass
+  def __init__(self, number):
+    self.number = number
+    self.messages = []
+
+  def message(self, m):
+    self.messages.append(m)
 
 # get folder or zip file
 if len(sys.argv) >= 2:
@@ -76,11 +89,12 @@ for file in dirlist:
       lineData[3]: message
       lineData[4]: empty
       """
+
       if len(linedata) == 5:
         stamp = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', linedata[1])
         stamp = re.sub(r'^([0-9]{2})/((?:[0-9]?)(?=/)(?:[0-9/]+))', r'\1/0\2', stamp)
         stamp = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', stamp)
-        timestamp = time.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
+        timestamp = datetime.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
 
         messages.append(Message(timestamp, linedata[2], linedata[3]))
 
@@ -89,19 +103,19 @@ for file in dirlist:
     for message in messages:
       print months
       if len(months) == 0:
-        nmonth = Month()
-        nday   = Day()
+        nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, datetime.strftime(message.timestamp, '%B'))
+        nday   = Day(message.timestamp.tm_day)
 
-        nmonth.number = message.timestamp.tm_mon
-        nmonth.year   = message.timestamp.tm_year
-        nmonth.name   = time.strftime('%B', message.timestamp)
-        nmonth.days   = []
+#        nmonth.number = message.timestamp.tm_mon
+#        nmonth.year   = message.timestamp.tm_year
+#        nmonth.name   = time.strftime('%B', message.timestamp)
+#        nmonth.days   = []
 
-        nday.messages = []
-        nday.number   = message.timestamp.tm_mday
+#        nday.messages = []
+#        nday.number   = message.timestamp.tm_mday
 
-        nday.messages.append(message)
-        nmonth.days.append(nday)
+        nday.message(message)
+        nmonth.day(nday)
         months.append(nmonth)
       else:
         for month in months:
@@ -109,32 +123,21 @@ for file in dirlist:
           &  month.year   == message.timestamp.tm_year:
             for day in month.days:
               if day.number == message.timestamp.tm_mday:
-                day.messages.append(message)
+                day.message(message)
               else:
-                nday = Day()
-                nday.messages = []
-                nday.number = message.timestamp.tm_mday
+                nday = Day(message.timestamp.tm_mday)
 
-                nday.messages.append(message)
+                nday.message(message)
                 month.days.append(nday)
           else:
-            nmonth = Month()
-            nday   = Day()
-
-            nmonth.number = message.timestamp.tm_mon
-            nmonth.year   = message.timestamp.tm_year
-            nmonth.name   = time.strftime('%B', message.timestamp)
-            nmonth.days   = []
-
-            nday.messages = []
-            nday.number   = message.timestamp.tm_mday
-
-            nday.messages.append(message)
-            nmonth.days.append(nday)
+            nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, datetime.strftime(message.timestamp, '%B'))
+            nday   = Day(message.timestamp.tm_day)
+	    nday.message(message)
+            nmonth.day(nday)
             months.append(nmonth)
 
     #for message in messages:
-    print months
+    #print months
 
 # clean temp folder
 if isZip:
