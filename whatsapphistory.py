@@ -25,19 +25,21 @@ class Message:
     self.text      = text
 
 class Month:
+  days = []
+
   def __init__(self, number, year, name):
     self.number = number
     self.year   = year
     self.name   = name
-    self.days   = []
 
   def day(self, d):
     self.days.append(d)
 
 class Day:
+  messages = []
+
   def __init__(self, number):
     self.number = number
-    self.messages = []
 
   def message(self, m):
     self.messages.append(m)
@@ -109,37 +111,29 @@ for file in dirlist:
         nmonth.day(nday)
         months.append(nmonth)
       else:
-
-
-
-      """
         for month in months:
-          if month.number == message.timestamp.month \
-          &  month.year   == message.timestamp.year:
+          if month.number == message.timestamp.month & month.year == message.timestamp.year:
             for day in month.days:
               if day.number == message.timestamp.day:
                 day.message(message)
               else:
                 nday = Day(message.timestamp.day)
-
                 nday.message(message)
-                month.days.append(nday)
+                month.day(nday)
+              break
           else:
+            nmonth = nday = None
             nmonth = Month(message.timestamp.month, message.timestamp.year, datetime.strftime(message.timestamp, '%B'))
-            nday   = Day(message.timestamp.day)
+            nday = Day(message.timestamp.day)
             nday.message(message)
             nmonth.day(nday)
             months.append(nmonth)
-      """
-    #for message in messages:
-    #print months
-    print months
+          break
+
+    # parse into templates
+    monthfiles = []
     for month in months:
-      print month.year,month.name
-      for day in month.days:
-        print day.number
-        for message in day.messages:
-          print message.author, message.text
+      dayfiles = []
 
 
 # clean temp folder
