@@ -96,40 +96,51 @@ for file in dirlist:
         stamp = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', stamp)
         timestamp = datetime.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
 
-        messages.append(Message(timestamp.timetuple(), linedata[2], linedata[3]))
+        messages.append(Message(timestamp, linedata[2], linedata[3]))
 
     # break messages into months and days
     months = []
     for message in messages:
-      print months
       if len(months) == 0:
-        nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, time.strftime('%B', message.timestamp))
-        nday   = Day(message.timestamp.tm_day)
+        nmonth = Month(message.timestamp.month, message.timestamp.year, datetime.strftime(message.timestamp, '%B'))
+        nday   = Day(message.timestamp.day)
 
         nday.message(message)
         nmonth.day(nday)
         months.append(nmonth)
       else:
+
+
+
+      """
         for month in months:
-          if month.number == message.timestamp.tm_mon \
-          &  month.year   == message.timestamp.tm_year:
+          if month.number == message.timestamp.month \
+          &  month.year   == message.timestamp.year:
             for day in month.days:
-              if day.number == message.timestamp.tm_mday:
+              if day.number == message.timestamp.day:
                 day.message(message)
               else:
-                nday = Day(message.timestamp.tm_mday)
+                nday = Day(message.timestamp.day)
 
                 nday.message(message)
                 month.days.append(nday)
           else:
-            nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, time.strftime('%B', message.timestamp))
-            nday   = Day(message.timestamp.tm_day)
-	    nday.message(message)
+            nmonth = Month(message.timestamp.month, message.timestamp.year, datetime.strftime(message.timestamp, '%B'))
+            nday   = Day(message.timestamp.day)
+            nday.message(message)
             nmonth.day(nday)
             months.append(nmonth)
-
+      """
     #for message in messages:
     #print months
+    print months
+    for month in months:
+      print month.year,month.name
+      for day in month.days:
+        print day.number
+        for message in day.messages:
+          print message.author, message.text
+
 
 # clean temp folder
 if isZip:
