@@ -67,7 +67,7 @@ for file in dirlist:
     log.close()
     messages = []
     for line in lines:
-      lineData = re.split('^((?:[0-9/]*) (?:[0-9:]+ (?:AM|PM))): ([a-zA-Z ]+): (.*\n)', line, re.DOTALL)
+      linedata = re.split('^.*?(?=[0-9/: a-zA-Z]+)((?:[0-9/]*) (?:[0-9:]+ (?:AM|PM))): ([a-zA-Z ]+): (.*\n)', line, re.DOTALL)
 
       """
       lineData[0]: empty
@@ -76,81 +76,69 @@ for file in dirlist:
       lineData[3]: message
       lineData[4]: empty
       """
-      for index, data in enumerate(lineData):
-#        message = Message()
+      if len(linedata) == 5:
+        stamp = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', linedata[1])
+        stamp = re.sub(r'^([0-9]{2})/((?:[0-9]?)(?=/)(?:[0-9/]+))', r'\1/0\2', stamp)
+        stamp = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', stamp)
+        timestamp = time.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
 
-        timestamp = ''
-        author    = ''
-        text      = ''
-
-        if index == 1:
-          # fix date format
-          data = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', data)
-          data = re.sub(r'^([0-9]{2})/((?:[0-9]?)(?=/)(?:[0-9/]+))', r'\1/0\2', data)
-          data = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', data)
-
-          timestamp = time.strptime(data, '%m/%d/%y %I:%M:%S %p')
-        if index == 2:
-          author = data
-
-        if index == 3:
-          text = data
-
-        messages.append(Message(timestamp, author, text))
+        messages.append(Message(timestamp, linedata[2], linedata[3]))
 
     # break messages into months and days
     months = []
     for message in messages:
+      print months
       if len(months) == 0:
         nmonth = Month()
         nday   = Day()
 
         nmonth.number = message.timestamp.tm_mon
-        nmonth.year   = message.timestmap.tm_year
-        nmonth.name   = time.strftime(message.timestamp, '')
+        nmonth.year   = message.timestamp.tm_year
+        nmonth.name   = time.strftime('%B', message.timestamp)
         nmonth.days   = []
 
         nday.messages = []
         nday.number   = message.timestamp.tm_mday
 
         nday.messages.append(message)
-        nmonth.days.append(day)
+        nmonth.days.append(nday)
         months.append(nmonth)
+      else:
+        for month in months:
+          if month.number == message.timestamp.tm_mon \
+          &  month.year   == message.timestamp.tm_year:
+            for day in month.days:
+              if day.number == message.timestamp.tm_mday:
+                day.messages.append(message)
+              else:
+                nday = Day()
+                nday.messages = []
+                nday.number = message.timestamp.tm_mday
 
-      for month in months:
-        if month.number == message.timestamp.tm_mon \
-        &  month.year   == message.timestamp.tm_year:
-          for day in month.days:
-            if day.number == message.timestamp.tm_mday:
-              day.messages.append(message)
-            else:
-              nday = Day()
-              nday.messages = []
-              nday.number = message.timestamp.tm_mday
+                nday.messages.append(message)
+                month.days.append(nday)
+          else:
+            nmonth = Month()
+            nday   = Day()
 
-              nday.messages.append(message)
-              month.days.append(day)
-        else:
-          nmonth = Month()
-          nday   = Day()
+            nmonth.number = message.timestamp.tm_mon
+            nmonth.year   = message.timestamp.tm_year
+            nmonth.name   = time.strftime('%B', message.timestamp)
+            nmonth.days   = []
 
-          nmonth.number = message.timestamp.tm_mon
-          nmonth.year   = message.timestmap.tm_year
-          nmonth.name   = time.strftime(message.timestamp, '')
-          nmonth.days   = []
+            nday.messages = []
+            nday.number   = message.timestamp.tm_mday
 
-          nday.messages = []
-          nday.number   = message.timestamp.tm_mday
-
-          nday.messages.append(message)
-          nmonth.days.append(day)
-          months.append(nmonth)
+            nday.messages.append(message)
+            nmonth.days.append(nday)
+            months.append(nmonth)
 
     #for message in messages:
     print months
 
 # clean temp folder
 if isZip:
+  print 'Cleaning Zip-Temp'
   for f in os.listdir(temp):
     fp = os.path.join(temp, f)
     try:
@@ -158,3 +146,4 @@ if isZip:
           os.unlink(fp)
     except:
       print 'Could not completely delete temporary files. Temp folder was',temp
+
