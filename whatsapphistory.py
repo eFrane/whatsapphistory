@@ -96,23 +96,15 @@ for file in dirlist:
         stamp = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', stamp)
         timestamp = datetime.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
 
-        messages.append(Message(timestamp, linedata[2], linedata[3]))
+        messages.append(Message(timestamp.timetuple(), linedata[2], linedata[3]))
 
     # break messages into months and days
     months = []
     for message in messages:
       print months
       if len(months) == 0:
-        nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, datetime.strftime(message.timestamp, '%B'))
+        nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, time.strftime('%B', message.timestamp))
         nday   = Day(message.timestamp.tm_day)
-
-#        nmonth.number = message.timestamp.tm_mon
-#        nmonth.year   = message.timestamp.tm_year
-#        nmonth.name   = time.strftime('%B', message.timestamp)
-#        nmonth.days   = []
-
-#        nday.messages = []
-#        nday.number   = message.timestamp.tm_mday
 
         nday.message(message)
         nmonth.day(nday)
@@ -130,7 +122,7 @@ for file in dirlist:
                 nday.message(message)
                 month.days.append(nday)
           else:
-            nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, datetime.strftime(message.timestamp, '%B'))
+            nmonth = Month(message.timestamp.tm_mon, message.timestamp.tm_year, time.strftime('%B', message.timestamp))
             nday   = Day(message.timestamp.tm_day)
 	    nday.message(message)
             nmonth.day(nday)
