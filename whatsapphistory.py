@@ -18,7 +18,10 @@ import os, sys, re, zipfile, tempfile, time
 from mako.template import Template
 
 class Message:
-  pass
+  def __init__(self, timestamp, author, text):
+    self.timestamp = timestamp
+    self.author    = author
+    self.text      = text
 
 class Month:
   pass
@@ -62,6 +65,7 @@ for file in dirlist:
     log = open(os.path.join(temp, file), 'r')
     lines = log.readlines()
     log.close()
+    messages = []
     for line in lines:
       lineData = re.split('^((?:[0-9/]*) (?:[0-9:]+ (?:AM|PM))): ([a-zA-Z ]+): (.*\n)', line, re.DOTALL)
 
@@ -72,59 +76,78 @@ for file in dirlist:
       lineData[3]: message
       lineData[4]: empty
       """
-
-      messages = []
       for index, data in enumerate(lineData):
-        message = Message()
+#        message = Message()
+
+        timestamp = ''
+        author    = ''
+        text      = ''
+
         if index == 1:
           # fix date format
           data = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', data)
           data = re.sub(r'^([0-9]{2})/((?:[0-9]?)(?=/)(?:[0-9/]+))', r'\1/0\2', data)
           data = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', data)
 
-          message.timestamp = time.strptime(data, '%m/%d/%y %I:%M:%S %p')
-
+          timestamp = time.strptime(data, '%m/%d/%y %I:%M:%S %p')
         if index == 2:
-          message.author = data
+          author = data
 
         if index == 3:
-          message.text = data
+          text = data
 
-        messages.append(message)
+        messages.append(Message(timestamp, author, text))
 
-      # break messages into months and days
-      months = []
-      for message in messages:
-        for month in months:
-          if month.number == message.timestamp.monthinyear():
-            for day in month.days
-              if day.number == message.timestamp.dayinmonth():
-                day.messages.append(message)
-              else:
-                nday = Day()
-                nday.messages = []
-                nday.number = message.timestamp.dayinmonth()
+    # break messages into months and days
+    months = []
+    for message in messages:
+      if len(months) == 0:
+        nmonth = Month()
+        nday   = Day()
 
-                nday.messages.append(message)
-                month.days.append(day)
-          else:
-            nmonth = Month()
-            nday   = Day()
+        nmonth.number = message.timestamp.tm_mon
+        nmonth.year   = message.timestmap.tm_year
+        nmonth.name   = time.strftime(message.timestamp, '')
+        nmonth.days   = []
 
-            nmonth.number = message.timestamp.monthinyear()
-            nmonth.name   = time.strftime(message.timestamp, '')
-            nmonth.days   = []
+        nday.messages = []
+        nday.number   = message.timestamp.tm_mday
 
-            nday.messages = []
-            nday.number   = message.timestamp.dayinmonth()
+        nday.messages.append(message)
+        nmonth.days.append(day)
+        months.append(nmonth)
 
-            nday.messages.append(message)
-            nmonth.days.append(day)
-            months.append(nmonth)
+      for month in months:
+        if month.number == message.timestamp.tm_mon \
+        &  month.year   == message.timestamp.tm_year:
+          for day in month.days:
+            if day.number == message.timestamp.tm_mday:
+              day.messages.append(message)
+            else:
+              nday = Day()
+              nday.messages = []
+              nday.number = message.timestamp.tm_mday
 
+              nday.messages.append(message)
+              month.days.append(day)
+        else:
+          nmonth = Month()
+          nday   = Day()
 
-      #for message in messages:
+          nmonth.number = message.timestamp.tm_mon
+          nmonth.year   = message.timestmap.tm_year
+          nmonth.name   = time.strftime(message.timestamp, '')
+          nmonth.days   = []
 
+          nday.messages = []
+          nday.number   = message.timestamp.tm_mday
+
+          nday.messages.append(message)
+          nmonth.days.append(day)
+          months.append(nmonth)
+
+    #for message in messages:
+    print months
 
 # clean temp folder
 if isZip:
