@@ -14,9 +14,10 @@
 #  You should have received a copy of the GNU Affero General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import os, sys, re, zipfile, tempfile, time
+import os, sys, re, zipfile, tempfile, time, codecs, shutil
 from datetime import datetime
 from mako.template import Template
+from mako.lookup import TemplateLookup
 
 class Message:
   def __init__(self, timestamp, author, text):
@@ -54,10 +55,10 @@ else:
 # determine destination
 if len(sys.argv) == 3:
   dest = os.path.realpath(sys.argv[2])
-  if os.path.exists(dest) == False:
-    os.makedirs(dest)
 else:
-  dest = os.getcwd()
+  dest = os.path.join(os.getcwd(), 'dest')
+if os.path.exists(os.path.join(dest, 'assets')) == False:
+  os.makedirs(os.path.join(dest, 'assets'))
 
 # check for zip and unpack into temp folder
 isZip = False
@@ -74,13 +75,15 @@ else:
 print 'Generating refurbished WhatsApp History in',dest
 
 # find the chatlog and parse it line-by-line
+print 'Locating the chatlog file and parsing it...'
 dirlist = os.listdir(temp)
+messages = []
 for file in dirlist:
   if file.endswith('.txt'):
-    log = open(os.path.join(temp, file), 'r')
+    log = codecs.open(os.path.join(temp, file), encoding='utf-8', mode='r')
     lines = log.readlines()
     log.close()
-    messages = []
+
     for line in lines:
       linedata = re.split('^.*?(?=[0-9/: a-zA-Z]+)((?:[0-9/]*) (?:[0-9:]+ (?:AM|PM))): ([a-zA-Z ]+): (.*\n)', line, re.DOTALL)
 
@@ -98,43 +101,52 @@ for file in dirlist:
         stamp = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', stamp)
         timestamp = datetime.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
 
-        messages.append(Message(timestamp, linedata[2], linedata[3]))
+        messages.append(Message(timestamp, linedata[2].strip(), linedata[3].strip()))
+print 'Done.'
 
-    # break messages into months and days
-    months = []
-    for message in messages:
-      if len(months) == 0:
-        nmonth = Month(message.timestamp.month, message.timestamp.year, datetime.strftime(message.timestamp, '%B'))
-        nday   = Day(message.timestamp.day)
+# parse messages into history
+print 'Rendering the messages and attachments...'
+messages.reverse()
 
-        nday.message(message)
-        nmonth.day(nday)
-        months.append(nmonth)
-      else:
-        for month in months:
-          if month.number == message.timestamp.month & month.year == message.timestamp.year:
-            for day in month.days:
-              if day.number == message.timestamp.day:
-                day.message(message)
-              else:
-                nday = Day(message.timestamp.day)
-                nday.message(message)
-                month.day(nday)
-              break
-          else:
-            nmonth = nday = None
-            nmonth = Month(message.timestamp.month, message.timestamp.year, datetime.strftime(message.timestamp, '%B'))
-            nday = Day(message.timestamp.day)
-            nday.message(message)
-            nmonth.day(nday)
-            months.append(nmonth)
-          break
+pmessages = ''
+copy = []
 
-    # parse into templates
-    monthfiles = []
-    for month in months:
-      dayfiles = []
+tlookup  = TemplateLookup(['templates'], output_encoding='utf-8', encoding_errors='replace')
+for message in messages:
+  tmessage = tlookup.get_template('message.mako')
+  mcontent = ''
 
+#  if (message.text.find('vCard attached') > 0):
+#    # insert vcard info
+#    vcard = message.text.replace('vCard attached: ', '')
+#    print vcard
+
+  if (message.text.find('.jpg <attached>') > 0):
+    # copy image and replace <attached> string with image link
+    image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <attached>', r'\1', message.text)
+    copy.append(image)
+    mcontent = '<img src="assets/{0}" />'.format(image)
+  else:
+    mcontent  = message.text
+
+  pmessages += tmessage.render_unicode(author=message.author, \
+                                       timestamp=message.timestamp, \
+                                       text=mcontent)
+print 'Done.'
+
+print 'Copying assets...'
+for f in copy:
+  shutil.copy(os.path.join(temp, f), os.path.join(dest, 'assets'))
+
+shutil.copy(os.path.join('templates', 'style.css'), os.path.join(dest, 'assets'))
+print 'Done'
+
+print 'Generating the final html...'
+tout = tlookup.get_template('full.mako')
+of = codecs.open(os.path.join(dest, 'index.htm'), encoding='utf-8', mode='w')
+of.write(tout.render_unicode(messages=pmessages))
+of.close()
+print 'Done.'
 
 # clean temp folder
 if isZip:
