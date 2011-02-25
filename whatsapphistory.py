@@ -15,6 +15,7 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import os, sys, re, zipfile, tempfile, time, codecs, shutil
+import vobject
 from datetime import datetime
 from mako.template import Template
 from mako.lookup import TemplateLookup
@@ -116,16 +117,27 @@ for message in messages:
   tmessage = tlookup.get_template('message.mako')
   mcontent = ''
 
-#  if (message.text.find('vCard attached') > 0):
-#    # insert vcard info
-#    vcard = message.text.replace('vCard attached: ', '')
-#    print vcard
+  if (re.match(r'vCard attached: ', message.text) != None):
+    vcfile = re.sub(r'^vCard attached: (.*)$', r'\1', message.text)
+    copy.append(vcfile)
+    vcfd = codecs.open(os.path.join(temp, vcfile), encoding='utf-8', mode='r')
 
-  if (message.text.find('.jpg <attached>') > 0):
-    # copy image and replace <attached> string with image link
+    vcard = vobject.readOne(vcfd.read())
+    tvcard = tlookup.get_template('vcard.mako')
+
+    try:
+      vemail = vcard.email.value
+    except:
+      vemail = ''
+
+    mcontent = tvcard.render_unicode(name=vcard.fn.value, email=vemail, card=vcfile)
+    vcfd.close()
+
+  elif (message.text.find('.jpg <attached>') > 0):
     image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <attached>', r'\1', message.text)
     copy.append(image)
     mcontent = '<div class="img"><a href="assets/{0}" class="thickbox"><img src="assets/{0}" width="320" height="240" /></a></div>'.format(image)
+
   else:
     mcontent  = message.text
 
@@ -142,6 +154,8 @@ shutil.copy(os.path.join('templates', 'jquery.pack.js'), os.path.join(dest, 'ass
 shutil.copy(os.path.join('templates', 'thickbox-compressed.js'), os.path.join(dest, 'assets'))
 shutil.copy(os.path.join('templates', 'loadingAnimation.gif'), os.path.join(dest, 'assets'))
 shutil.copy(os.path.join('templates', 'thickbox.css'), os.path.join(dest, 'assets'))
+
+shutil.copy(os.path.join('templates', 'vcard.png'), os.path.join(dest, 'assets'))
 
 shutil.copy(os.path.join('templates', 'bg.png'), os.path.join(dest, 'assets'))
 shutil.copy(os.path.join('templates', 'style.css'), os.path.join(dest, 'assets'))

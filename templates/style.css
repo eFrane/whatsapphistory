@@ -69,6 +69,19 @@ h1 {
   overflow: hidden;
 }
 
+.vcard, .vcard .name, .vcard .card {
+  background: none;
+}
+
+.vcard .name {
+  text-align: left;
+}
+
+.vcard .card {
+  width: 140px;
+  padding: 6px;
+}
+
 footer {
   text-align: center;
 }

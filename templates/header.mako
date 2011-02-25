@@ -8,7 +8,9 @@
   <script type="text/javascript" src="assets/thickbox-compressed.js"></script>
 
   <link rel="stylesheet" type="text/css" href="assets/style.css" />
-  <style type="text/css" media="all">@import "assets/thickbox.css";</style>
+  <style type="text/css" media="all">
+    @import "assets/thickbox.css";
+  </style>
  </head>
  <body>
   <h1>WhatsApp Chat History</h1>

@@ -59,3 +59,9 @@ or to check, where the python binary you are using looks for modules:
 ## License
 
 This software is released under the terms of the GNU Affero General Public License
+
+## Credits where credits are due
+
+-  [Mako Templating Language](http://www.makotemplates.org/)
+-  [vCard Icon by everaldo.com](http://www.mricons.com/icon/5396/128/vcard-icon)
+-  [jQuery](http://www.jquery.com)
