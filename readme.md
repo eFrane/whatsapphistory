@@ -4,6 +4,15 @@ WhatsApp Chat History Beautifier
 This python script parses a WhatsApp Chat History (as Zip-File)
 into a HTML Package.
 
+## Depends
+
+-  Python >=2.7.1
+
+### via pip or easy_install
+
+-  Mako
+-  VObject
+
 ## Howto
 
 1.  get the WhatsApp History of a user
