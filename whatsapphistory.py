@@ -19,6 +19,7 @@ import vobject
 from datetime import datetime
 from mako.template import Template
 from mako.lookup import TemplateLookup
+import Image
 
 class Message:
   def __init__(self, timestamp, author, text):
@@ -136,7 +137,14 @@ for message in messages:
   elif (message.text.find('.jpg <attached>') > 0):
     image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <attached>', r'\1', message.text)
     copy.append(image)
-    mcontent = '<div class="img"><a href="assets/{0}" class="thickbox"><img src="assets/{0}" width="320" height="240" /></a></div>'.format(image)
+
+    imeta = Image.open(os.path.join(temp, image))
+    width, height = imeta.size
+
+    mcontent = '<div class="img" style="width:{1}px;height:{2}px;">'
+    mcontent+= '<a href="assets/{0}" class="thickbox">'
+    mcontent+= '<img src="assets/{0}" width="{1}" height="{2}" /></a></div>'
+    mcontent = mcontent.format(image, int(width*0.33), int(height*0.33))
 
   else:
     mcontent  = message.text
