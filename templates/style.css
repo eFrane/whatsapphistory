@@ -25,7 +25,9 @@ body, div {
 
 h1 {
   text-align: center;
-  font-style: smallcaps;
+  font-variant: small-caps;
+  margin-bottom: 30px;
+  margin-top:    15px;
 }
 
 #history {
@@ -69,4 +71,8 @@ h1 {
 
 footer {
   text-align: center;
+}
+
+#TB_caption, #TB_closeWindow {
+  background: none;
 }
