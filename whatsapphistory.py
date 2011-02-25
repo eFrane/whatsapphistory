@@ -125,7 +125,7 @@ for message in messages:
     # copy image and replace <attached> string with image link
     image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <attached>', r'\1', message.text)
     copy.append(image)
-    mcontent = '<img src="assets/{0}" />'.format(image)
+    mcontent = '<div class="img"><a href="assets/{0}" class="thickbox"><img src="assets/{0}" width="320" height="240" /></a></div>'.format(image)
   else:
     mcontent  = message.text
 
@@ -138,6 +138,12 @@ print 'Copying assets...'
 for f in copy:
   shutil.copy(os.path.join(temp, f), os.path.join(dest, 'assets'))
 
+shutil.copy(os.path.join('templates', 'jquery.pack.js'), os.path.join(dest, 'assets'))
+shutil.copy(os.path.join('templates', 'thickbox-compressed.js'), os.path.join(dest, 'assets'))
+shutil.copy(os.path.join('templates', 'loadingAnimation.gif'), os.path.join(dest, 'assets'))
+shutil.copy(os.path.join('templates', 'thickbox.css'), os.path.join(dest, 'assets'))
+
+shutil.copy(os.path.join('templates', 'bg.png'), os.path.join(dest, 'assets'))
 shutil.copy(os.path.join('templates', 'style.css'), os.path.join(dest, 'assets'))
 print 'Done'
 

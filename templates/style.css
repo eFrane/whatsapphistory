@@ -15,3 +15,58 @@
 #  You should have received a copy of the GNU Affero General Public License
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+body, div {
+  font: 16px Helvetica
+  margin: 0;
+  padding: 0;
+  background: url(bg.png);
+}
+
+h1 {
+  text-align: center;
+  font-style: smallcaps;
+}
+
+#history {
+  width: 50%;
+  background: #fefefe;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+  border: 1px solid black;
+}
+
+.message {
+  background: none;
+  padding: 15px;
+}
+
+.message .author {
+  background: none;
+  float: left;
+}
+
+.message .timestamp {
+  background: none;
+  float: right;
+}
+
+.message .content {
+  background: none;
+  padding-top: 7px;
+  margin-top:  14px;
+  border-top: 1px dashed #000;
+  clear: both;
+}
+
+.message .content .img {
+  width: 320px;
+  height: 240px;
+  margin: auto;
+  overflow: hidden;
+}
+
+footer {
+  text-align: center;
+}

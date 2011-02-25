@@ -4,6 +4,6 @@
   <div class="timestamp">${timestamp}</div>
  </div>
  <div class="content">
-  ${message}
+  ${text}
  </div>
 </div>
