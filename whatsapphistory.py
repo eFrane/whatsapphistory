@@ -86,24 +86,18 @@ for file in dirlist:
     lines = log.readlines()
     log.close()
 
+    i = 0
     for line in lines:
-      linedata = re.split('^.*?(?=[0-9/: a-zA-Z]+)((?:[0-9/]*) (?:[0-9:]+ (?:AM|PM))): ([a-zA-Z ]+): (.*\n)', line, re.DOTALL)
+      if line != u'\r\n':
+        linedata = re.split('^.*?([0-9/]{10}\s+?[0-9:]{8}):\s+?([\w ]+):\s+?(.*?)$', line, re.DOTALL)
+        if len(linedata) != 5 and current:
+          messages[i-1].text += u'<br /><br />' + line
+        else:
+          timestamp = datetime.strptime(linedata[1].strip(), '%d/%m/%Y %H:%M:%S')
+          current = Message(timestamp, linedata[2].strip(), linedata[3].strip())
+          messages.append(current)
+          i+=1
 
-      """
-      lineData[0]: empty
-      lineData[1]: timestamp
-      lineData[2]: author
-      lineData[3]: message
-      lineData[4]: empty
-      """
-
-      if len(linedata) == 5:
-        stamp = re.sub(r'^((?:[0-9]?)(?=/)(?:[0-9/]+))', r'0\1', linedata[1])
-        stamp = re.sub(r'^([0-9]{2})/((?:[0-9]?)(?=/)(?:[0-9/]+))', r'\1/0\2', stamp)
-        stamp = re.sub(r'^((?:[0-9/]*)) ([0-9]?)(?=:)((?:[0-9:]+ (?:AM|PM)))', r'\1 0\2\3', stamp)
-        timestamp = datetime.strptime(stamp, '%m/%d/%y %I:%M:%S %p')
-
-        messages.append(Message(timestamp, linedata[2].strip(), linedata[3].strip()))
 print 'Done.'
 
 # parse messages into history
