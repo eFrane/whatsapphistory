@@ -93,7 +93,6 @@ for file in dirlist:
         if len(linedata) != 5 and i > 0:
           messages[i-1].text += u'<br /><br />' + line
         else:
-          print linedata
           timestamp = datetime.strptime(linedata[1].strip(), '%d/%m/%Y %H:%M:%S')
           current = Message(timestamp, linedata[2].strip(), linedata[3].strip())
           messages.append(current)
