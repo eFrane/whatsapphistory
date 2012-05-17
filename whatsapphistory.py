@@ -140,6 +140,15 @@ for message in messages:
     mcontent+= '<img src="assets/{0}" width="{1}" height="{2}" /></a></div>'
     mcontent = mcontent.format(image, int(width*0.33), int(height*0.33))
 
+  # quicktime movies, need to use embed
+  elif (message.text.find('.MOV <attached>') > 0) or (message.text.find('.mov <attached>') > 0):
+    movie = re.sub(r'^([a-zA-Z0-9]+\.(mov|MOV)) <attached>', r'\1', message.text)
+    copy.append(movie)
+
+    mcontent  = '<embed src="assets/{0}" loop="false" pluginspage="http://www.apple.com/quicktime/" />'
+    mcontent += '<br /><br /><a href="assets/{0}" target="_blank">Open video in new window.</a>'
+    mcontent = mcontent.format(movie)
+
   else:
     mcontent  = message.text
 
