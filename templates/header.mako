@@ -11,6 +11,10 @@
   <style type="text/css" media="all">
     @import "assets/thickbox.css";
   </style>
+
+  <script type="text/javascript">
+    tb_pathToImage = 'assets/loadingAnimation.gif';
+  </script>
  </head>
  <body>
   <h1>WhatsApp Chat History</h1>

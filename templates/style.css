@@ -62,7 +62,7 @@ h1 {
   clear: both;
 }
 
-.message .content .img {
+.message .content .img, .message .content embed {
   margin: auto;
   overflow: hidden;
 }
