@@ -89,11 +89,15 @@ for file in dirlist:
     i = 0
     for line in lines:
       if line != u'\r\n':
-        linedata = re.split('^.*?([0-9/]{10}\s+?[0-9:]{8}):\s+?([\w ]+):\s+?(.*?)$', line, re.DOTALL)
+        linedata = re.split('^.*?([0-9/-]{8,10}\s+?[0-9:]{8}):\s+?([\w ]+):\s+?(.*?)$', line, re.DOTALL)
         if len(linedata) != 5 and i > 0:
           messages[i-1].text += u'<br /><br />' + line
         else:
-          timestamp = datetime.strptime(linedata[1].strip(), '%d/%m/%Y %H:%M:%S')
+          try:
+            timestamp = datetime.strptime(linedata[1].strip(), '%d/%m/%Y %H:%M:%S')
+          except ValueError:
+            timestamp = datetime.strptime(linedata[1].strip(), '%d-%m-%y %H:%M:%S')
+
           current = Message(timestamp, linedata[2].strip(), linedata[3].strip())
           messages.append(current)
           i+=1
@@ -128,8 +132,8 @@ for message in messages:
     mcontent = tvcard.render_unicode(name=vcard.fn.value, email=vemail, card=vcfile)
     vcfd.close()
 
-  elif (message.text.find('.jpg <attached>') > 0):
-    image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <attached>', r'\1', message.text)
+  elif (message.text.find('.jpg') > 0):
+    image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <(attached|.*media.*)>', r'\1', message.text)
     copy.append(image)
 
     imeta = Image.open(os.path.join(temp, image))
@@ -141,8 +145,8 @@ for message in messages:
     mcontent = mcontent.format(image, int(width*0.33), int(height*0.33))
 
   # quicktime movies, need to use embed
-  elif (message.text.find('.MOV <attached>') > 0) or (message.text.find('.mov <attached>') > 0):
-    movie = re.sub(r'^([a-zA-Z0-9]+\.(mov|MOV)) <attached>', r'\1', message.text)
+  elif (message.text.find('.MOV') > 0) or (message.text.find('.mov') > 0):
+    movie = re.sub(r'^([a-zA-Z0-9]+\.(mov|MOV)) <(attached|.*media.*)>', r'\1', message.text)
     copy.append(movie)
 
     mcontent  = '<embed src="assets/{0}" loop="false" pluginspage="http://www.apple.com/quicktime/" />'
