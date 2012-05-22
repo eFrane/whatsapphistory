@@ -136,13 +136,16 @@ for message in messages:
     image = re.sub(r'^([a-zA-Z0-9]+\.jpg) <(attached|.*media.*)>', r'\1', message.text)
     copy.append(image)
 
-    imeta = Image.open(os.path.join(temp, image))
-    width, height = imeta.size
+    if (os.path.exists(os.path.join(temp, image))):
+      imeta = Image.open(os.path.join(temp, image))
+      width, height = imeta.size
 
-    mcontent = '<div class="img" style="width:{1}px;height:{2}px;">'
-    mcontent+= '<a href="assets/{0}" class="thickbox">'
-    mcontent+= '<img src="assets/{0}" width="{1}" height="{2}" /></a></div>'
-    mcontent = mcontent.format(image, int(width*0.33), int(height*0.33))
+      mcontent = '<div class="img" style="width:{1}px;height:{2}px;">'
+      mcontent+= '<a href="assets/{0}" class="thickbox">'
+      mcontent+= '<img src="assets/{0}" width="{1}" height="{2}" /></a></div>'
+      mcontent = mcontent.format(image, int(width*0.33), int(height*0.33))
+    else:
+      mcontent = '<em>The attached image is not available.</em>'
 
   # quicktime movies, need to use embed
   elif (message.text.find('.MOV') > 0) or (message.text.find('.mov') > 0):
@@ -163,7 +166,10 @@ print 'Done.'
 
 print 'Copying assets...'
 for f in copy:
-  shutil.copy(os.path.join(temp, f), os.path.join(dest, 'assets'))
+  if (os.path.exists(os.path.join(temp, f))):
+    shutil.copy(os.path.join(temp, f), os.path.join(dest, 'assets'))
+  else:
+    print 'Attached resource not found:', f
 
 shutil.copy(os.path.join('templates', 'jquery.pack.js'), os.path.join(dest, 'assets'))
 shutil.copy(os.path.join('templates', 'thickbox-compressed.js'), os.path.join(dest, 'assets'))
