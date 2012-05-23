@@ -1304,7 +1304,34 @@
 					<string key="NSFrameSize">{500, 290}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
+					<bool key="NSViewIsLayerTreeHost">YES</bool>
+					<object class="NSDictionary" key="NSViewAnimations">
+						<string key="NS.key.0">subviews</string>
+						<object class="CATransition" key="NS.object.0">
+							<object class="CIPageCurlWithShadowTransition" key="filter">
+								<object class="CIVector" key="CI_inputExtent">
+									<int key="CICount">4</int>
+									<string key="CIVector">{{0, 0}, {0, 0}}</string>
+								</object>
+								<real value="0.0" key="CI_inputTime"/>
+								<real value="0.0" key="CI_inputAngle"/>
+								<real value="100" key="CI_inputRadius"/>
+								<real value="0.5" key="CI_inputShadowSize"/>
+								<real value="0.69999999999999996" key="CI_inputShadowAmount"/>
+								<object class="CIVector" key="CI_inputShadowExtent">
+									<int key="CICount">4</int>
+									<string key="CIVector">{{0, 0}, {0, 0}}</string>
+								</object>
+								<bool key="CIEnabled">YES</bool>
+							</object>
+							<string key="type">fade</string>
+							<array key="__CACodingContents">
+								<string>filter</string>
+								<string>type</string>
+							</array>
+						</object>
+					</object>
+					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>

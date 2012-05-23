@@ -11,12 +11,12 @@
 #import "WHHistory.h"
 
 @interface WHSelectViewController ()
-
+- (void)changeSourceURL:(NSNotification *)notification;
 @end
 
 @implementation WHSelectViewController
 
-@synthesize dropZone, sourceURL, displayedSourceURL;
+@synthesize dropZone, sourceURL, displayedSourceURL, selectButton, processButton;
 
 - (id)init
 {
@@ -27,7 +27,15 @@
                forKeyPath:@"sourceURL" 
                   options:NSKeyValueObservingOptionNew 
                   context:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(changeSourceURL:) 
+                                                     name:WHSelectDropEndedNotification 
+                                                   object:nil];
+        
         displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", @"");
+        
+        sourceURL = nil;
     }
     return self;
 }
@@ -35,6 +43,7 @@
 - (void)dealloc
 {
     [self removeObserver:self forKeyPath:@"sourceURL"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -47,11 +56,17 @@
         if ([sourceURL class] == [NSURL class])
         {
             self.displayedSourceURL = [NSString stringWithFormat:NSLocalizedString(@"Currently selected: %@", @""), [sourceURL lastPathComponent]];
+            [processButton becomeFirstResponder];
         } else 
         {
             self.displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", @"");
         }
     }
+}
+
+- (void)awakeFromNib
+{
+    [selectButton becomeFirstResponder];
 }
 
 - (void)selectSource:(id)sender
@@ -74,9 +89,15 @@
     }];
 }
 
+- (void)changeSourceURL:(NSNotification *)notification
+{
+    self.sourceURL = [notification object];
+    NSLog(@"%@", self.sourceURL.absoluteString);
+}
+
 - (void)process:(id)sender
 {
-    if (sourceURL)
+    if (sourceURL != nil)
     {
         NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:sourceURL, 
                                   @"sourceURL", nil];

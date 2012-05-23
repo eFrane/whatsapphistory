@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const WHSelectDropEndedNotification;
 extern NSString * const WHBeginProcessingNotification;
 extern NSString * const WHHistoryErrorNotification;
+extern NSString * const WHHistoryProgressNotification;
 
 extern NSString * const WHErrorDomain;
 

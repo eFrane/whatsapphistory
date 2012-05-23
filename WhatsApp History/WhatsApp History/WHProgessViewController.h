@@ -16,7 +16,7 @@
 @property (readwrite) NSUInteger currentProgress;
 @property (readwrite, copy) NSString *message;
 
-@property (readwrite, copy) WHHistory *history;
+@property (readwrite, retain) WHHistory *history;
 
 - (id)initWithHistory:(WHHistory *)aHistory;
 

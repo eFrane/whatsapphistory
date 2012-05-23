@@ -14,6 +14,9 @@
 @property (readwrite, copy) NSURL *sourceURL;
 @property (readwrite, copy) NSString *displayedSourceURL;
 
+@property (assign) IBOutlet NSButton *selectButton;
+@property (assign) IBOutlet NSButton *processButton;
+
 - (IBAction)selectSource:(id)sender;
 - (IBAction)process:(id)sender;
 

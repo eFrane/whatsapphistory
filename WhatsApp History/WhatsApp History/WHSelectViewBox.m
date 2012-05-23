@@ -7,6 +7,7 @@
 //
 
 #import "WHSelectViewBox.h"
+#import "WHHistory.h"
 
 @interface WHSelectViewBox ()
 
@@ -16,7 +17,8 @@
 
 - (void)awakeFromNib
 {
-    [self registerForDraggedTypes:[NSArray arrayWithObject:NSFilenamesPboardType]];
+    [self registerForDraggedTypes:
+     [NSArray arrayWithObjects:NSURLPboardType, nil]];
 }
 
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender
@@ -30,11 +32,22 @@
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender
 {
     NSPasteboard *pBoard = [sender draggingPasteboard];
-    NSArray *files = [pBoard propertyListForType:NSFilenamesPboardType];
-    [files enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        // TODO: finish dragging implementation
-    }];
-    return YES;
+    
+    if ([[pBoard types] containsObject:NSURLPboardType])
+    {
+        NSURL *url = [NSURL URLFromPasteboard:pBoard];
+        if ([WHHistory validateHistoryAtURL:url]) 
+        {
+            NSNotification *notification = [NSNotification 
+                                            notificationWithName:WHSelectDropEndedNotification 
+                                            object:url];
+            [[NSNotificationCenter defaultCenter] postNotification:notification];            
+            
+            return YES;
+        }
+    }
+
+    return NO;
 }
 
 @end

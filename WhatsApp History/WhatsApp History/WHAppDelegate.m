@@ -35,6 +35,7 @@
 {
     selectViewController = [[WHSelectViewController alloc] init];
     
+    
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(beginProcessing:) 
                                                  name:WHBeginProcessingNotification
@@ -72,6 +73,8 @@
     [window setContentView:nil];
     [window setFrame:windowFrame display:YES animate:YES];    
     [window setContentView:view];
+    
+    [[window contentView] becomeFirstResponder];
 }
 
 - (void)beginProcessing:(NSNotification *)notification

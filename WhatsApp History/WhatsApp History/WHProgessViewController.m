@@ -10,7 +10,7 @@
 #import "WHHistory.h"
 
 @interface WHProgessViewController ()
-
+- (void)progress:(NSNotification *)notification;
 @end
 
 @implementation WHProgessViewController
@@ -22,13 +22,53 @@
     self = [super initWithNibName:@"ProgressView" bundle:[NSBundle mainBundle]];
     if (self)
     {
-        self.message = NSLocalizedString(@"Beginning processing", @"");
-        self.maximumProgress = 1;
-        self.currentProgress = 0;
-        
         self.history = aHistory;
+        self.currentProgress = 0;
+        self.message = NSLocalizedString(@"Beginning processing", @"");
+        
+        self.maximumProgress = 2;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self 
+                                                 selector:@selector(progress:) 
+                                                     name:WHHistoryProgressNotification 
+                                                   object:nil];
+        
+        [history addObserver:self forKeyPath:@"lineCount" options:NSKeyValueObservingOptionNew context:nil];
+        [history addObserver:self forKeyPath:@"mediaCount" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)awakeFromNib
+{
+    [history process];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath 
+                      ofObject:(id)object
+                        change:(NSDictionary *)change
+                       context:(void *)context
+{
+    maximumProgress = history.lineCount + history.mediaCount + 2;
+}
+
+- (void)progress:(NSNotification *)notification
+{
+    NSDictionary *dict = [notification userInfo];
+    if ([[dict valueForKey:@"step"] integerValue] + self.currentProgress < self.maximumProgress)
+    {
+        self.currentProgress += [[dict valueForKey:@"step"] integerValue];
+    }
+    
+    if ([dict valueForKey:@"message"] != nil)
+    {
+        self.message = [dict valueForKey:@"message"];        
+    }
 }
 
 @end
