@@ -92,7 +92,6 @@
 - (void)changeSourceURL:(NSNotification *)notification
 {
     self.sourceURL = [notification object];
-    NSLog(@"%@", self.sourceURL.absoluteString);
 }
 
 - (void)process:(id)sender
