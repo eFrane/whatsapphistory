@@ -11,12 +11,15 @@
 @interface WHHistory : NSObject
 
 @property (readwrite, retain) NSURL *sourceURL;
-@property (readonly) NSUInteger lineCount;
-@property (readonly) NSUInteger mediaCount;
+
+@property (readwrite, copy) NSString *historyString;
+@property (readwrite, copy) NSMutableArray *messages;
+@property (readwrite) NSUInteger lineCount;
+@property (readwrite) NSUInteger mediaCount;
 
 - (id)initWithSourceURL:(NSURL *)sourceURL;
 - (void)process;
 
-+ (BOOL)validateHistoryAtURL:(NSURL *)historyURL;
++ (void)progress:(NSUInteger)step withMessage:(NSString *)message;
 
 @end

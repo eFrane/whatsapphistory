@@ -42,11 +42,14 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [history removeObserver:self forKeyPath:@"lineCount"];
+    [history removeObserver:self forKeyPath:@"mediaCount"];
 }
 
 - (void)awakeFromNib
 {
-    [history process];
+    [history performSelector:@selector(process) withObject:nil afterDelay:0.1];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath 
@@ -70,5 +73,6 @@
         self.message = [dict valueForKey:@"message"];        
     }
 }
+
 
 @end

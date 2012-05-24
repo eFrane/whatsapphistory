@@ -24,6 +24,7 @@
 - (void)beginProcessing:(NSNotification *)notification;
 
 - (void)displayHistoryErrorFromNotification:(NSNotification *)notification;
+- (void)displayedHistoryError:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 
 @end
 
@@ -90,7 +91,16 @@
 - (void)displayHistoryErrorFromNotification:(NSNotification *)notification
 {
     NSError *error = (NSError *)[notification object];
-    [[NSAlert alertWithError:error] runModal];
+    [[NSAlert alertWithError:error] beginSheetModalForWindow:window 
+                                               modalDelegate:self
+                                              didEndSelector:@selector(displayedHistoryError:returnCode:contextInfo:) 
+                                                 contextInfo:NULL];
+}
+
+- (void)displayedHistoryError:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    progressViewController = nil;
+    [self setView:[selectViewController view]];
 }
 
 @end

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB327638156E518F00150B64 /* List of Errors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB327637156E518F00150B64 /* List of Errors.txt */; };
+		BB32763C156E5AC100150B64 /* WHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763B156E5AC100150B64 /* WHMessage.m */; };
+		BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763E156EB5DC00150B64 /* NSString+Clinching.m */; };
 		BB39E0D9156BE28700CEA6CF /* WHSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */; };
 		BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DA156C016C00CEA6CF /* SelectView.xib */; };
 		BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */; };
@@ -23,6 +26,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB327637156E518F00150B64 /* List of Errors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "List of Errors.txt"; sourceTree = "<group>"; };
+		BB32763A156E5AC100150B64 /* WHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMessage.h; sourceTree = "<group>"; };
+		BB32763B156E5AC100150B64 /* WHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMessage.m; sourceTree = "<group>"; };
+		BB32763D156EB5DC00150B64 /* NSString+Clinching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Clinching.h"; sourceTree = "<group>"; };
+		BB32763E156EB5DC00150B64 /* NSString+Clinching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Clinching.m"; sourceTree = "<group>"; };
 		BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSelectViewController.h; sourceTree = "<group>"; };
 		BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSelectViewController.m; sourceTree = "<group>"; };
 		BB39E0DA156C016C00CEA6CF /* SelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectView.xib; sourceTree = "<group>"; };
@@ -111,8 +119,12 @@
 				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
 				BB39E0E1156C142900CEA6CF /* WHHistory.h */,
 				BB39E0E2156C142900CEA6CF /* WHHistory.m */,
+				BB32763A156E5AC100150B64 /* WHMessage.h */,
+				BB32763B156E5AC100150B64 /* WHMessage.m */,
 				BB39E0E4156C1FFD00CEA6CF /* WHPreferences.h */,
 				BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */,
+				BB32763D156EB5DC00150B64 /* NSString+Clinching.h */,
+				BB32763E156EB5DC00150B64 /* NSString+Clinching.m */,
 				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
 				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
@@ -129,6 +141,7 @@
 				BB8D5511156BB29600BA9A2F /* main.m */,
 				BB8D5513156BB29600BA9A2F /* WhatsApp History-Prefix.pch */,
 				BB8D5514156BB29600BA9A2F /* Credits.rtf */,
+				BB327637156E518F00150B64 /* List of Errors.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -189,6 +202,7 @@
 				BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */,
 				BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */,
 				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
+				BB327638156E518F00150B64 /* List of Errors.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +220,8 @@
 				BB39E0E3156C142900CEA6CF /* WHHistory.m in Sources */,
 				BB39E0E6156C1FFD00CEA6CF /* WHPreferences.m in Sources */,
 				BB39E0E9156C2BD300CEA6CF /* WHSelectViewBox.m in Sources */,
+				BB32763C156E5AC100150B64 /* WHMessage.m in Sources */,
+				BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
