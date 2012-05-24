@@ -36,15 +36,12 @@
     if ([[pBoard types] containsObject:NSURLPboardType])
     {
         NSURL *url = [NSURL URLFromPasteboard:pBoard];
-        if ([WHHistory validateHistoryAtURL:url]) 
-        {
-            NSNotification *notification = [NSNotification 
-                                            notificationWithName:WHSelectDropEndedNotification 
-                                            object:url];
-            [[NSNotificationCenter defaultCenter] postNotification:notification];            
-            
-            return YES;
-        }
+        NSNotification *notification = [NSNotification 
+                                        notificationWithName:WHSelectDropEndedNotification 
+                                        object:url];
+        [[NSNotificationCenter defaultCenter] postNotification:notification];            
+        
+        return YES;
     }
 
     return NO;

@@ -80,11 +80,7 @@
     [openPanel beginSheetModalForWindow:[[self view] window] completionHandler:^(NSInteger result) {
         if (result == NSFileHandlingPanelOKButton)
         {
-            // handle
-            if ([WHHistory validateHistoryAtURL:[openPanel URL]])
-            {
-                self.sourceURL = [openPanel URL];
-            }
+            self.sourceURL = [openPanel URL];
         }
     }];
 }
