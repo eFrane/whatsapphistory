@@ -12,8 +12,7 @@
 
 @interface WHProgessViewController : NSViewController
 
-@property (readwrite) NSUInteger maximumProgress;
-@property (readwrite) NSUInteger currentProgress;
+@property (assign) IBOutlet NSProgressIndicator *progressIndicator; 
 @property (readwrite, copy) NSString *message;
 
 @property (readwrite, retain) WHHistory *history;
