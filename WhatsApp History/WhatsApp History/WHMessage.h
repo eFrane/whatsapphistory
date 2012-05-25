@@ -12,6 +12,8 @@
 
 @property (readwrite, copy) NSString *messageText;
 
-- initWithString:(NSString *)string;
+- (id)initWithString:(NSString *)string;
+- (void)process;
+- (NSDictionary *)serializableRepresentation;
 
 @end

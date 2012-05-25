@@ -7,18 +7,31 @@
 //
 
 #import "WHMessage.h"
+#import "WHHistory.h"
 
 @implementation WHMessage
 
 @synthesize messageText;
 
-- initWithString:(NSString *)string
+- (id)initWithString:(NSString *)string
 {
     self = [super init];
     if (self)
+    {
         self.messageText = string;
+    }
     
     return self;
+}
+
+- (void)process
+{
+    [WHHistory message:[NSString stringWithFormat:NSLocalizedString(@"Processing \"%@\"", @""), messageText]];
+}
+
+- (NSDictionary *)serializableRepresentation
+{
+    return [NSDictionary dictionaryWithObjectsAndKeys:messageText, @"message", nil];
 }
 
 @end

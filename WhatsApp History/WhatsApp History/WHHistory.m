@@ -12,11 +12,18 @@
 #import "WHHistory.h"
 #import "WHMessage.h"
 
-#import "NSString+Clinching.h"
+#import "NSFileManager+TemporaryFolder.h"
 
 @interface WHHistory ()
+{
+    NSArray *lines;
+}
 - (NSURL *)unarchiveSourceURLWithArchiveType:(NSString *)archiveType;
 - (NSError *)errorWithCode:(NSUInteger)code localizedDescription:(NSString *)description;
+
+- (void)obtainHistoryString;
+- (void)splitLines;
+- (void)consolidateData;
 @end
 
 static BOOL hasInstance = NO;
@@ -27,8 +34,7 @@ static BOOL hasInstance = NO;
 
 @synthesize historyString = _historyString;
 @synthesize messages      = _messages;
-@synthesize lineCount     = _lineCount;
-@synthesize mediaCount    = _mediaCount;
+@synthesize operations    = _operations;
 
 #pragma mark Init and dealloc
 
@@ -38,6 +44,10 @@ static BOOL hasInstance = NO;
     if (self)
     {
         self.sourceURL = sourceURL;
+        
+        _operations = [[NSOperationQueue alloc] init];
+        [_operations setSuspended:YES];
+        
         hasInstance = YES;
     }
     return self;
@@ -46,16 +56,17 @@ static BOOL hasInstance = NO;
 - (void)dealloc
 {
     hasInstance = NO;
+    
+    [_operations cancelAllOperations];
 }
 
 #pragma mark Helper methods
 
-+ (void)progress:(NSUInteger)step withMessage:(NSString *)message
++ (void)message:(NSString *)message
 {
     if (hasInstance)
     {
         NSMutableDictionary *progressDict = [[NSMutableDictionary alloc] initWithCapacity:2];
-        [progressDict setValue:[NSNumber numberWithInteger:step] forKey:@"step"];
         [progressDict setValue:message forKey:@"message"];
         [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryProgressNotification object:self userInfo:progressDict];
     }
@@ -69,57 +80,83 @@ static BOOL hasInstance = NO;
     return [NSError errorWithDomain:WHErrorDomain code:1 userInfo:dictionary];
 }
 
+#pragma mark Main parsing methods
+
+- (void)process
+{
+    NSInvocationOperation *locateHistory = [[NSInvocationOperation alloc] 
+                                            initWithTarget:self 
+                                            selector:@selector(obtainHistoryString) 
+                                            object:nil];
+    NSInvocationOperation *splitLines = [[NSInvocationOperation alloc] 
+                                         initWithTarget:self 
+                                         selector:@selector(countLines)
+                                         object:nil];
+    [splitLines addDependency:locateHistory];
+    
+    [_operations addOperation:locateHistory];
+    [_operations addOperation:splitLines];
+    
+    [_operations setSuspended:NO];
+    
+    NSInvocationOperation *consolidateData = [[NSInvocationOperation alloc] 
+                                              initWithTarget:self 
+                                              selector:@selector(consolidateData) 
+                                              object:nil];
+    
+    _messages = [[NSMutableArray alloc] initWithCapacity:[lines count]];
+    [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        WHMessage *message = [[WHMessage alloc] initWithString:obj];
+        [_messages addObject:message];
+        NSInvocationOperation *processMessage = [[NSInvocationOperation alloc] 
+                                                 initWithTarget:message
+                                                 selector:@selector(process) 
+                                                 object:nil];
+        [processMessage addDependency:splitLines];
+        
+        [_operations addOperation:processMessage];
+        [consolidateData addDependency:processMessage];
+    }];
+    
+    [_operations addOperation:consolidateData];
+}
+
 - (NSURL *)unarchiveSourceURLWithArchiveType:(NSString *)archiveType
 {
-    [WHHistory progress:0 withMessage:@"Unarchiving ..."];
+    [WHHistory message:@"Unarchiving ..."];
     
-    // create temporary folder
-    NSString *tempFolderTemplate = [NSTemporaryDirectory() 
-                                    stringByAppendingPathComponent:@"WAHistoryData.XXXXX"];
-    const char * tempFolderCStringTemplate = [tempFolderTemplate fileSystemRepresentation];
+    NSError *error;
+    NSURL *tempFolderURL = [[NSFileManager defaultManager] temporaryFolderWithBaseName:@"WAHistoryData" error:&error];
     
-    char * tempFolder = (char *)malloc(strlen(tempFolderCStringTemplate) + 1);
-    strcpy(tempFolder, tempFolderCStringTemplate);
-    
-    char * result = mkdtemp(tempFolder);
-    if (!result)
+    if (error != nil)
     {
-        NSError *error = [self errorWithCode:1 localizedDescription:NSLocalizedString(@"Could not create temporary folder.", @"" )];
         [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryErrorNotification object:error];
+        return nil;
     }
     
-    NSString *tempFolderString = [[NSFileManager defaultManager] 
-                                  stringWithFileSystemRepresentation:tempFolder length:strlen(result)];
-    free(tempFolder);
+    NSString *tempFolderString = [tempFolderURL relativePath];
     
-    BOOL success = NO;
+    NSTask *unarchive = [[NSTask alloc] init];
+    [unarchive setCurrentDirectoryPath:tempFolderString];
     
     if ([archiveType hasPrefix:@".tar"])
     {
         // use tar for unarchiving
-        NSTask *untar = [[NSTask alloc] init];
-        [untar setLaunchPath:@"/usr/bin/tar"];
-        [untar setArguments:[NSArray arrayWithObjects:@"-xf", tempFolderString, [_sourceURL absoluteString], nil]];
-        [untar launch];
-        [untar waitUntilExit];
-        
-        success = ([untar terminationStatus] == 0);
+        [unarchive setLaunchPath:@"/usr/bin/tar"];
+        [unarchive setArguments:[NSArray arrayWithObjects:@"-xf", tempFolderString, [_sourceURL relativePath], nil]];
     } else 
     {
         // use zip for unarchiving
-        NSTask *unzip = [[NSTask alloc] init];
-        [unzip setCurrentDirectoryPath:tempFolderString];
-        [unzip setLaunchPath:@"/usr/bin/unzip"];
-        [unzip setArguments:[NSArray arrayWithObject:[_sourceURL relativePath]]];
-        [unzip launch];
-        [unzip waitUntilExit];
-        
-        success = ([unzip terminationStatus] == 0);
+        [unarchive setLaunchPath:@"/usr/bin/unzip"];
+        [unarchive setArguments:[NSArray arrayWithObject:[_sourceURL relativePath]]];
     }
     
-    if (success)
+    [unarchive launch];
+    [unarchive waitUntilExit];
+    
+    if ([unarchive terminationStatus] == 0)
     {
-        return [NSURL URLWithString:tempFolderString];
+        return tempFolderURL;
     } else 
     {
         NSError *error = [self errorWithCode:2 localizedDescription:NSLocalizedString(@"Unarchiving failed.", @"")];
@@ -128,11 +165,9 @@ static BOOL hasInstance = NO;
     }
 }
 
-#pragma mark Main parsing methods
-
-- (void)process
+- (void)obtainHistoryString
 {
-    [WHHistory progress:0 withMessage:NSLocalizedString(@"Locating history file", @"")];
+    [WHHistory message:NSLocalizedString(@"Locating history file", @"")];
     if ([[_sourceURL absoluteString] hasSuffix:@".txt"])
     {
         NSError *error = nil;
@@ -163,7 +198,7 @@ static BOOL hasInstance = NO;
         NSDirectoryEnumerator *dirEnum = [fm enumeratorAtURL:historyFolder 
                                   includingPropertiesForKeys:NULL
                                                      options:NSDirectoryEnumerationSkipsHiddenFiles | 
-                                                             NSDirectoryEnumerationSkipsSubdirectoryDescendants 
+                                          NSDirectoryEnumerationSkipsSubdirectoryDescendants 
                                                 errorHandler:nil];
         for (NSURL *file in dirEnum)
         {
@@ -181,27 +216,40 @@ static BOOL hasInstance = NO;
             }
         }
     }
-     
+    
     if (!_historyString)
     {
         NSError *error = [self errorWithCode:3 localizedDescription:NSLocalizedString(@"No history file found.", @"")];
         [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryErrorNotification object:error];
         return;
     }
-    
-    [WHHistory progress:0 withMessage:NSLocalizedString(@"Counting Lines...", @"")];
-    
-    NSArray *lines = [[self historyString] componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
-    
-    self.lineCount = [lines count];
-    
-    _messages = [[NSMutableArray alloc] initWithCapacity:_lineCount];
-    [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        NSString *shortenedMsg = [obj clinchedStringWithLength:60];
-        [WHHistory progress:1 withMessage:[NSString stringWithFormat:NSLocalizedString(@"Processing \"%@\"", @""), shortenedMsg]];
-        [_messages addObject:[[WHMessage alloc] initWithString:obj]];
-    }];
 }
 
+- (void)splitLines
+{
+    [WHHistory message:NSLocalizedString(@"Splitting lines...", @"")];
+    lines = [[self historyString] componentsSeparatedByCharactersInSet:
+             [NSCharacterSet newlineCharacterSet]];
+}
+
+- (void)consolidateData
+{
+    [WHHistory message:NSLocalizedString(@"Consolidating data...", @"")];
+    NSMutableArray *data = [[NSMutableArray alloc] initWithCapacity:[_messages count]];
+    
+    [_messages enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        [data addObject:[obj serializableRepresentation]];
+    }];
+    
+    NSError *error;
+    NSURL *tempFolder = [[NSFileManager defaultManager] temporaryFolderWithBaseName:@"WAHistory_processed" error:&error];
+    
+    NSURL *url = [NSURL URLWithString:@"data.json" relativeToURL:tempFolder];
+    
+    NSOutputStream *outStream = [[NSOutputStream alloc] initWithURL:url append:NO];
+    
+    [NSJSONSerialization writeJSONObject:data toStream:outStream options:NSJSONWritingPrettyPrinted error:&error];
+    NSLog(@"%@", url);
+}
 
 @end

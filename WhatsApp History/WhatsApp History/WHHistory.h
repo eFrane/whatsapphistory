@@ -14,12 +14,12 @@
 
 @property (readwrite, copy) NSString *historyString;
 @property (readwrite, copy) NSMutableArray *messages;
-@property (readwrite) NSUInteger lineCount;
-@property (readwrite) NSUInteger mediaCount;
+
+@property (readwrite, retain) NSOperationQueue *operations;
 
 - (id)initWithSourceURL:(NSURL *)sourceURL;
 - (void)process;
 
-+ (void)progress:(NSUInteger)step withMessage:(NSString *)message;
++ (void)message:(NSString *)message;
 
 @end
