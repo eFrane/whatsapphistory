@@ -10,6 +10,7 @@
 		BB327638156E518F00150B64 /* List of Errors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB327637156E518F00150B64 /* List of Errors.txt */; };
 		BB32763C156E5AC100150B64 /* WHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763B156E5AC100150B64 /* WHMessage.m */; };
 		BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763E156EB5DC00150B64 /* NSString+Clinching.m */; };
+		BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */; };
 		BB39E0D9156BE28700CEA6CF /* WHSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */; };
 		BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DA156C016C00CEA6CF /* SelectView.xib */; };
 		BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */; };
@@ -31,6 +32,8 @@
 		BB32763B156E5AC100150B64 /* WHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMessage.m; sourceTree = "<group>"; };
 		BB32763D156EB5DC00150B64 /* NSString+Clinching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Clinching.h"; sourceTree = "<group>"; };
 		BB32763E156EB5DC00150B64 /* NSString+Clinching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Clinching.m"; sourceTree = "<group>"; };
+		BB327640156F6C7100150B64 /* NSFileManager+TemporaryFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TemporaryFolder.h"; sourceTree = "<group>"; };
+		BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TemporaryFolder.m"; sourceTree = "<group>"; };
 		BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSelectViewController.h; sourceTree = "<group>"; };
 		BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSelectViewController.m; sourceTree = "<group>"; };
 		BB39E0DA156C016C00CEA6CF /* SelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectView.xib; sourceTree = "<group>"; };
@@ -70,6 +73,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB327643156F8D7E00150B64 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
+				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
+				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
+				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
+				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
+				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
+				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
+				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
+				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		BB327644156F8D9800150B64 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				BB39E0E1156C142900CEA6CF /* WHHistory.h */,
+				BB39E0E2156C142900CEA6CF /* WHHistory.m */,
+				BB32763A156E5AC100150B64 /* WHMessage.h */,
+				BB32763B156E5AC100150B64 /* WHMessage.m */,
+			);
+			name = Parsing;
+			sourceTree = "<group>";
+		};
+		BB327645156F8DA500150B64 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				BB39E0E4156C1FFD00CEA6CF /* WHPreferences.h */,
+				BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */,
+				BB327640156F6C7100150B64 /* NSFileManager+TemporaryFolder.h */,
+				BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */,
+				BB32763D156EB5DC00150B64 /* NSString+Clinching.h */,
+				BB32763E156EB5DC00150B64 /* NSString+Clinching.m */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
 		BB8D54F6156BB29500BA9A2F = {
 			isa = PBXGroup;
 			children = (
@@ -111,23 +154,9 @@
 			children = (
 				BB8D5517156BB29600BA9A2F /* WHAppDelegate.h */,
 				BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */,
-				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
-				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
-				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
-				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
-				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
-				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
-				BB39E0E1156C142900CEA6CF /* WHHistory.h */,
-				BB39E0E2156C142900CEA6CF /* WHHistory.m */,
-				BB32763A156E5AC100150B64 /* WHMessage.h */,
-				BB32763B156E5AC100150B64 /* WHMessage.m */,
-				BB39E0E4156C1FFD00CEA6CF /* WHPreferences.h */,
-				BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */,
-				BB32763D156EB5DC00150B64 /* NSString+Clinching.h */,
-				BB32763E156EB5DC00150B64 /* NSString+Clinching.m */,
-				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
-				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
-				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
+				BB327643156F8D7E00150B64 /* UI */,
+				BB327644156F8D9800150B64 /* Parsing */,
+				BB327645156F8DA500150B64 /* Misc */,
 				BB8D550C156BB29600BA9A2F /* Supporting Files */,
 			);
 			path = "WhatsApp History";
@@ -222,6 +251,7 @@
 				BB39E0E9156C2BD300CEA6CF /* WHSelectViewBox.m in Sources */,
 				BB32763C156E5AC100150B64 /* WHMessage.m in Sources */,
 				BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */,
+				BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
