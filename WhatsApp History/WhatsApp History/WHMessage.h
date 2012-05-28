@@ -10,7 +10,13 @@
 
 @interface WHMessage : NSObject
 
-@property (readwrite, copy) NSString *messageText;
+@property (readwrite, assign) WHMessage *parent;
+
+@property (readwrite, copy) NSString *originalMessage;
+
+@property (readwrite, retain) NSDate *timestamp;
+@property (readwrite, retain) NSString *author;
+@property (readwrite, retain) NSString *message;
 
 - (id)initWithString:(NSString *)string;
 - (void)process;

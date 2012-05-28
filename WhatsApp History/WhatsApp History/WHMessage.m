@@ -11,14 +11,14 @@
 
 @implementation WHMessage
 
-@synthesize messageText;
+@synthesize parent = _parent, originalMessage = _originalMessage, timestamp = _timestamp, author = _author, message = _message;
 
 - (id)initWithString:(NSString *)string
 {
     self = [super init];
     if (self)
     {
-        self.messageText = string;
+        self.originalMessage = string;
     }
     
     return self;
@@ -26,12 +26,27 @@
 
 - (void)process
 {
-    [WHHistory message:[NSString stringWithFormat:NSLocalizedString(@"Processing \"%@\"", @""), messageText]];
+    [WHHistory message:[NSString stringWithFormat:NSLocalizedString(@"Processing \"%@\"", @""), _originalMessage]];
+    NSScanner *scanner = [NSScanner scannerWithString:_originalMessage];
+    
+    NSString *dateString1, *dateString2;
+    
+    [scanner scanUpToCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&dateString1];
+    [scanner scanUpToCharactersFromSet:[NSCharacterSet whitespaceCharacterSet] intoString:&dateString2];
+    
+    NSString *author;
+    [scanner scanUpToString:@": " intoString:&author];
+    self.author = author;
+    
+    self.message = [scanner string];
 }
 
 - (NSDictionary *)serializableRepresentation
 {
-    return [NSDictionary dictionaryWithObjectsAndKeys:messageText, @"message", nil];
+    return [NSDictionary dictionaryWithObjectsAndKeys:
+            _timestamp, @"timestamp", 
+            _author, @"author", 
+            _message, @"message", nil];
 }
 
 @end

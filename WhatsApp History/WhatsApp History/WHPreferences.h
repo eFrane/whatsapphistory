@@ -9,7 +9,10 @@
 #import <Foundation/Foundation.h>
 
 extern NSString * const WHSelectDropEndedNotification;
+
 extern NSString * const WHBeginProcessingNotification;
+extern NSString * const WHEndProcessingNotification;
+
 extern NSString * const WHHistoryErrorNotification;
 extern NSString * const WHHistoryProgressNotification;
 

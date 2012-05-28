@@ -72,7 +72,7 @@
     windowFrame.size.height += deltaHeight;
     
     [window setContentView:nil];
-    [window setFrame:windowFrame display:YES animate:YES];    
+    [window setFrame:windowFrame display:YES animate:YES];
     [window setContentView:view];
     
     [[window contentView] becomeFirstResponder];

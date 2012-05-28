@@ -11,7 +11,10 @@
 #import "WHPreferences.h"
 
 NSString * const WHSelectDropEndedNotification = @"WHSelectDropEndedNotification";
+
 NSString * const WHBeginProcessingNotification = @"WHBeginProcessingNotification";
+NSString * const WHEndProcessingNotification   = @"WHEndProcessingNotification";
+
 NSString * const WHHistoryErrorNotification    = @"WHHistoryErrorNotification";
 NSString * const WHHistoryProgressNotification = @"WHHistoryProgressNotification";
 

@@ -77,48 +77,73 @@ static BOOL hasInstance = NO;
     NSDictionary *dictionary = [NSDictionary 
                                 dictionaryWithObjectsAndKeys:description,
                                 NSLocalizedDescriptionKey, nil];
-    return [NSError errorWithDomain:WHErrorDomain code:1 userInfo:dictionary];
+    return [NSError errorWithDomain:WHErrorDomain code:code userInfo:dictionary];
 }
 
 #pragma mark Main parsing methods
 
 - (void)process
 {
+/*    
     NSInvocationOperation *locateHistory = [[NSInvocationOperation alloc] 
                                             initWithTarget:self 
                                             selector:@selector(obtainHistoryString) 
                                             object:nil];
+    
+    [_operations addOperation:locateHistory];
+    
     NSInvocationOperation *splitLines = [[NSInvocationOperation alloc] 
                                          initWithTarget:self 
                                          selector:@selector(countLines)
                                          object:nil];
     [splitLines addDependency:locateHistory];
+    [splitLines setCompletionBlock:^{
+        
+        
+        _messages = [[NSMutableArray alloc] initWithCapacity:[lines count]];
+        [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            WHMessage *message = [[WHMessage alloc] initWithString:obj];
+            [_messages addObject:message];
+            [message process];
+        }];
+        
+        
+    }];
     
-    [_operations addOperation:locateHistory];
+    
     [_operations addOperation:splitLines];
-    
-    [_operations setSuspended:NO];
     
     NSInvocationOperation *consolidateData = [[NSInvocationOperation alloc] 
                                               initWithTarget:self 
                                               selector:@selector(consolidateData) 
                                               object:nil];
     
+    [_operations addOperation:consolidateData];
+    
+    [_operations setSuspended:NO];    
+*/
+    
+    [self obtainHistoryString];
+    [self splitLines];
+    
     _messages = [[NSMutableArray alloc] initWithCapacity:[lines count]];
     [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        WHMessage *message = [[WHMessage alloc] initWithString:obj];
-        [_messages addObject:message];
-        NSInvocationOperation *processMessage = [[NSInvocationOperation alloc] 
-                                                 initWithTarget:message
-                                                 selector:@selector(process) 
-                                                 object:nil];
-        [processMessage addDependency:splitLines];
-        
-        [_operations addOperation:processMessage];
-        [consolidateData addDependency:processMessage];
+        if ([(NSString *)obj length] > 1)
+        {
+            WHMessage *message = [[WHMessage alloc] initWithString:obj];
+            if (idx > 0)
+            {
+                [message setParent:[_messages objectAtIndex:idx-1]];
+            }
+            [_messages addObject:message];
+            
+            [message process];
+        }
     }];
     
-    [_operations addOperation:consolidateData];
+    [self consolidateData];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:WHEndProcessingNotification object:nil];
 }
 
 - (NSURL *)unarchiveSourceURLWithArchiveType:(NSString *)archiveType
@@ -246,10 +271,8 @@ static BOOL hasInstance = NO;
     
     NSURL *url = [NSURL URLWithString:@"data.json" relativeToURL:tempFolder];
     
-    NSOutputStream *outStream = [[NSOutputStream alloc] initWithURL:url append:NO];
-    
-    [NSJSONSerialization writeJSONObject:data toStream:outStream options:NSJSONWritingPrettyPrinted error:&error];
-    NSLog(@"%@", url);
+    NSData *json = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+    [json writeToURL:url atomically:YES];
 }
 
 @end
