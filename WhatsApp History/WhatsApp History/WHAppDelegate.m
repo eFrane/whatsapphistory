@@ -10,18 +10,23 @@
 
 #import "WHSelectViewController.h"
 #import "WHProgessViewController.h"
+#import "WHPreviewViewController.h"
 
 #import "WHHistory.h"
+
+#import "MSBlockAlert.h"
 
 @interface WHAppDelegate ()
 {
     WHSelectViewController *selectViewController;
     WHProgessViewController *progressViewController;
+    WHPreviewViewController *previewViewController;
 }
 
 - (void)setView:(NSView *)view;
 
 - (void)beginProcessing:(NSNotification *)notification;
+- (void)endProcessing:(NSNotification *)notification;
 
 - (void)displayHistoryErrorFromNotification:(NSNotification *)notification;
 - (void)displayedHistoryError:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -41,6 +46,11 @@
                                              selector:@selector(beginProcessing:) 
                                                  name:WHBeginProcessingNotification
                                                object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(endProcessing:) 
+                                                 name:WHEndProcessingNotification 
+                                               object:nil];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(displayHistoryErrorFromNotification:) 
                                                  name:WHHistoryErrorNotification 
@@ -86,6 +96,29 @@
     progressViewController = [[WHProgessViewController alloc] initWithHistory:history];
     
     [self setView:[progressViewController view]];
+}
+
+- (void)endProcessing:(NSNotification *)notification
+{
+    WHHistory *history = [notification object];
+    if (history != nil)
+    {
+        previewViewController = [[WHPreviewViewController alloc] init];
+        [self setView:[previewViewController view]];
+    } else {
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Something went wrong.", @"") 
+                                         defaultButton:NSLocalizedString(@"OK", @"") 
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:NSLocalizedString(@"Something went wrong. Please try again or file a bug report at %@",
+                                                                                   @""), @"http://github.com/eFrane/whatsapphistory/issues"];
+        MSBlockAlert *blockAlert = [[MSBlockAlert alloc] initWithAlert:alert];
+        
+        //[alert beginSheetModalForWindow:window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
+        [blockAlert beginSheetModalForWindow:window withCompletionBlock:^(NSAlert *alert, NSInteger returnCode, void *contextInfo) {
+            NSLog(@"%ld", returnCode);
+        } contextInfo:NULL];
+    }
 }
 
 - (void)displayHistoryErrorFromNotification:(NSNotification *)notification

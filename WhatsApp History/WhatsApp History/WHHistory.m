@@ -84,45 +84,6 @@ static BOOL hasInstance = NO;
 
 - (void)process
 {
-/*    
-    NSInvocationOperation *locateHistory = [[NSInvocationOperation alloc] 
-                                            initWithTarget:self 
-                                            selector:@selector(obtainHistoryString) 
-                                            object:nil];
-    
-    [_operations addOperation:locateHistory];
-    
-    NSInvocationOperation *splitLines = [[NSInvocationOperation alloc] 
-                                         initWithTarget:self 
-                                         selector:@selector(countLines)
-                                         object:nil];
-    [splitLines addDependency:locateHistory];
-    [splitLines setCompletionBlock:^{
-        
-        
-        _messages = [[NSMutableArray alloc] initWithCapacity:[lines count]];
-        [lines enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-            WHMessage *message = [[WHMessage alloc] initWithString:obj];
-            [_messages addObject:message];
-            [message process];
-        }];
-        
-        
-    }];
-    
-    
-    [_operations addOperation:splitLines];
-    
-    NSInvocationOperation *consolidateData = [[NSInvocationOperation alloc] 
-                                              initWithTarget:self 
-                                              selector:@selector(consolidateData) 
-                                              object:nil];
-    
-    [_operations addOperation:consolidateData];
-    
-    [_operations setSuspended:NO];    
-*/
-    
     [self obtainHistoryString];
     [self splitLines];
     
@@ -131,9 +92,10 @@ static BOOL hasInstance = NO;
         if ([(NSString *)obj length] > 1)
         {
             WHMessage *message = [[WHMessage alloc] initWithString:obj];
+            
             if (idx > 0)
             {
-                [message setParent:[_messages objectAtIndex:idx-1]];
+                [message setParent:[_messages objectAtIndex:[_messages indexOfObject:[_messages lastObject]]]];
             }
             [_messages addObject:message];
             

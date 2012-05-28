@@ -24,6 +24,8 @@
 		BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D5514156BB29600BA9A2F /* Credits.rtf */; };
 		BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */; };
 		BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8D551A156BB29600BA9A2F /* MainMenu.xib */; };
+		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
+		BBBE00EF157356BA00609D95 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBE00ED157356BA00609D95 /* PreviewViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,9 @@
 		BB8D5517156BB29600BA9A2F /* WHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHAppDelegate.h; sourceTree = "<group>"; };
 		BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAppDelegate.m; sourceTree = "<group>"; };
 		BB8D551B156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
+		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
+		BBBE00ED157356BA00609D95 /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,12 +84,15 @@
 				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
 				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
+				BBBE00ED157356BA00609D95 /* PreviewViewController.xib */,
 				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
 				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
 				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
 				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
 				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
 				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
+				BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */,
+				BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */,
 				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
 				BB327638156E518F00150B64 /* List of Errors.txt in Resources */,
+				BBBE00EF157356BA00609D95 /* PreviewViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +261,7 @@
 				BB32763C156E5AC100150B64 /* WHMessage.m in Sources */,
 				BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */,
 				BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */,
+				BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +349,7 @@
 				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -350,6 +361,7 @@
 				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -24,7 +24,7 @@
     char * result = mkdtemp(tempFolder);
     if (!result)
     {
-        if (&error != nil) *error = nil;
+        if (*error == NULL) *error = nil; // NULL dereferencing
         
         *error = [NSError errorWithDomain:WHErrorDomain 
                                      code:1 
