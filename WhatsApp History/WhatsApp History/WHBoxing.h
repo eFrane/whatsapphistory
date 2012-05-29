@@ -8,9 +8,24 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum WHBoxingAttachmentHandlingMode_enum {
+    WHMoveBoxingAttachmentHandlingMode, 
+    WHDeleteBoxingAttachmentHandlingMode, 
+    WHInPlaceBoxingAttachmentHandlingMode
+} WHBoxingAttachmentHandlingMode;
+
+@class WHHistory;
+
 @interface WHBoxing : NSObject
 
-@property (readwrite, copy) NSURL *filename;
-@property (readwrite, copy) NSMutableArray *messages;
+@property (readwrite, retain) WHHistory *history;
+@property (readwrite, retain) NSURL   *templateSetURL;
+
+@property (readwrite, assign) WHBoxingAttachmentHandlingMode attachmentHandlingMode;
+
+- (id)initWithTemplateSetAtURL:(NSURL *)templateSetURL history:(WHHistory *)history;
+
+- (BOOL)saveToURL:(NSURL *)saveURL error:(NSError *__autoreleasing *)error;
+- (void)applyTemplateSet;
 
 @end

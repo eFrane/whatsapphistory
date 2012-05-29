@@ -26,7 +26,7 @@
     return self;
 }
 
-- (BOOL)saveDataRelativeToBaseURL:(NSURL *)baseURL error:(NSError **)error
+- (BOOL)saveDataRelativeToBaseURL:(NSURL *)baseURL error:(NSError *__autoreleasing *)error
 {
     NSURL *saveURL = [NSURL URLWithString:_filename relativeToURL:baseURL];
     return [_data writeToURL:saveURL options:NSDataWritingAtomic error:error];

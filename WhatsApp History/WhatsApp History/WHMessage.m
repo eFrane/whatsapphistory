@@ -8,10 +8,13 @@
 
 #import "WHMessage.h"
 #import "WHHistory.h"
+#import "WHAttachment.h"
 
 @implementation WHMessage
 
-@synthesize parent = _parent, originalMessage = _originalMessage, timestamp = _timestamp, author = _author, message = _message;
+@synthesize parent = _parent, originalMessage = _originalMessage, 
+            timestamp = _timestamp, author = _author, 
+            message = _message, attachment = _attachment;
 
 - (id)initWithString:(NSString *)string
 {

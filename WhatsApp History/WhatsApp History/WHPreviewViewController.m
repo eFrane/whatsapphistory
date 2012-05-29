@@ -7,6 +7,9 @@
 //
 
 #import "WHPreviewViewController.h"
+#import "WHPreviewViewSavePanelAccessoryViewController.h"
+
+#import "WHBoxing.h"
 
 @interface WHPreviewViewController ()
 - (void)discardAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -60,8 +63,27 @@
 {
     NSSavePanel *savePanel = [NSSavePanel savePanel];
     [savePanel setAllowedFileTypes:[NSArray arrayWithObject:@"webarchive"]];
+    
+    WHPreviewViewSavePanelAccessoryViewController __block *accessoryViewController;
+    accessoryViewController = [[WHPreviewViewSavePanelAccessoryViewController alloc] init];
+    [accessoryViewController setAvailableFileTypes:
+     [NSArray arrayWithObjects:@"Web Archive", @"Folder", nil]];
+    
+    [savePanel setAccessoryView:[accessoryViewController view]];
+    
     [savePanel beginSheetModalForWindow:[[self view] window] completionHandler:^(NSInteger result) {
-        NSLog(@"%ld", result);
+        if (result == NSAlertDefaultReturn)
+        {
+            NSString *selectedFileType = [[[accessoryViewController fileType] selectedCell] stringValue];
+            Class cls = NSClassFromString([NSString stringWithFormat:@"WH%@Boxing", 
+                                           [selectedFileType stringByReplacingOccurrencesOfString:@" " withString:@""]]);
+            
+            NSURL *templateURL = nil;
+            NSError *error;
+            
+            WHBoxing *boxingObject = [(WHBoxing *)[cls alloc] initWithTemplateSetAtURL:templateURL history:self.history];
+            [boxingObject saveToURL:[savePanel URL] error:&error];
+        }
     }];
 }
 

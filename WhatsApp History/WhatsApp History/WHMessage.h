@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class WHAttachment;
+
 @interface WHMessage : NSObject
 
 @property (readwrite, assign) WHMessage *parent;
@@ -17,6 +19,8 @@
 @property (readwrite, retain) NSDate *timestamp;
 @property (readwrite, retain) NSString *author;
 @property (readwrite, retain) NSString *message;
+
+@property (readwrite, copy) WHAttachment *attachment;
 
 - (id)initWithString:(NSString *)string;
 - (void)process;

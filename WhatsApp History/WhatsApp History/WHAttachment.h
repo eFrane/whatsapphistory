@@ -25,6 +25,6 @@ typedef enum WHAttachmentType_enum {
                     data:(NSData *)data 
         originalFilename:(NSString *)originalFilename;
 
-- (BOOL)saveDataRelativeToBaseURL:(NSURL *)baseURL error:(NSError **)error;
+- (BOOL)saveDataRelativeToBaseURL:(NSURL *)baseURL error:(NSError *__autoreleasing *)error;
 
 @end
