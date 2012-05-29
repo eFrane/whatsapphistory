@@ -24,8 +24,10 @@
 		BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D5514156BB29600BA9A2F /* Credits.rtf */; };
 		BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */; };
 		BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8D551A156BB29600BA9A2F /* MainMenu.xib */; };
+		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; };
+		BB9900E71573E80A001C55BB /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = BB9900E61573E80A001C55BB /* Templates */; };
 		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
-		BBBE00EF157356BA00609D95 /* PreviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBE00ED157356BA00609D95 /* PreviewViewController.xib */; };
+		BBBE00EF157356BA00609D95 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBE00ED157356BA00609D95 /* PreviewView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,9 +63,11 @@
 		BB8D5517156BB29600BA9A2F /* WHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHAppDelegate.h; sourceTree = "<group>"; };
 		BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAppDelegate.m; sourceTree = "<group>"; };
 		BB8D551B156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BB9900E41573E72F001C55BB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BB9900E61573E80A001C55BB /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Templates; path = ../Templates; sourceTree = "<group>"; };
 		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
 		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
-		BBBE00ED157356BA00609D95 /* PreviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewController.xib; sourceTree = "<group>"; };
+		BBBE00ED157356BA00609D95 /* PreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; path = PreviewView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */,
 				BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -84,7 +89,7 @@
 				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
 				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
-				BBBE00ED157356BA00609D95 /* PreviewViewController.xib */,
+				BBBE00ED157356BA00609D95 /* PreviewView.xib */,
 				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
 				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
 				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
@@ -141,6 +146,7 @@
 		BB8D5504156BB29600BA9A2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BB9900E41573E72F001C55BB /* WebKit.framework */,
 				BB8D5505156BB29600BA9A2F /* Cocoa.framework */,
 				BB8D5507156BB29600BA9A2F /* Other Frameworks */,
 			);
@@ -164,6 +170,7 @@
 				BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */,
 				BB327643156F8D7E00150B64 /* UI */,
 				BB327644156F8D9800150B64 /* Parsing */,
+				BB9900E61573E80A001C55BB /* Templates */,
 				BB327645156F8DA500150B64 /* Misc */,
 				BB8D550C156BB29600BA9A2F /* Supporting Files */,
 			);
@@ -240,7 +247,8 @@
 				BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */,
 				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
 				BB327638156E518F00150B64 /* List of Errors.txt in Resources */,
-				BBBE00EF157356BA00609D95 /* PreviewViewController.xib in Resources */,
+				BBBE00EF157356BA00609D95 /* PreviewView.xib in Resources */,
+				BB9900E71573E80A001C55BB /* Templates in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

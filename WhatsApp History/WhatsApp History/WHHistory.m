@@ -17,7 +17,10 @@
 @interface WHHistory ()
 {
     NSArray *lines;
+    NSURL   *_tempURL;
+    NSURL   *_buildURL;
 }
+
 - (NSURL *)unarchiveSourceURLWithArchiveType:(NSString *)archiveType;
 - (NSError *)errorWithCode:(NSUInteger)code localizedDescription:(NSString *)description;
 
@@ -56,6 +59,45 @@ static BOOL hasInstance = NO;
 - (void)dealloc
 {
     hasInstance = NO;
+    
+    void (^recursiveUnlink)(NSURL *) = ^(NSURL *baseURL)
+    {
+        NSFileManager *fm = [[NSFileManager alloc] init];
+        
+        NSDirectoryEnumerator *dir_enum = [fm enumeratorAtURL:baseURL 
+                                   includingPropertiesForKeys:nil 
+                                                      options:0 
+                                                 errorHandler:
+                                           ^BOOL(NSURL *url, NSError *error) {
+                                               [[NSNotificationCenter defaultCenter] 
+                                                postNotificationName:WHHistoryErrorNotification object:error];
+                                               return YES;
+                                           }];
+        
+        NSURL *item;
+        while (item = [dir_enum nextObject])
+        {
+            NSError *error;
+            [fm removeItemAtURL:item error:&error];
+            
+            if (error != nil)
+            {
+                [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryErrorNotification object:error];
+            }
+        }
+    };
+    
+    if (_tempURL != nil)
+    {
+        // delete temp data (from unarchiving)
+        recursiveUnlink(_tempURL);
+    }
+    
+    if (_buildURL != nil)
+    {
+        // delete build data
+        recursiveUnlink(_buildURL);
+    }
     
     [_operations cancelAllOperations];
 }
@@ -105,7 +147,7 @@ static BOOL hasInstance = NO;
     
     [self consolidateData];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:WHEndProcessingNotification object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:WHEndProcessingNotification object:self];
 }
 
 - (NSURL *)unarchiveSourceURLWithArchiveType:(NSString *)archiveType
@@ -143,6 +185,7 @@ static BOOL hasInstance = NO;
     
     if ([unarchive terminationStatus] == 0)
     {
+        _tempURL = tempFolderURL;
         return tempFolderURL;
     } else 
     {
@@ -230,6 +273,7 @@ static BOOL hasInstance = NO;
     
     NSError *error;
     NSURL *tempFolder = [[NSFileManager defaultManager] temporaryFolderWithBaseName:@"WAHistory_processed" error:&error];
+    _buildURL = tempFolder;
     
     NSURL *url = [NSURL URLWithString:@"data.json" relativeToURL:tempFolder];
     

@@ -14,8 +14,6 @@
 
 #import "WHHistory.h"
 
-#import "MSBlockAlert.h"
-
 @interface WHAppDelegate ()
 {
     WHSelectViewController *selectViewController;
@@ -26,7 +24,10 @@
 - (void)setView:(NSView *)view;
 
 - (void)beginProcessing:(NSNotification *)notification;
+- (void)discardProcessing:(NSNotification *)notification;
 - (void)endProcessing:(NSNotification *)notification;
+
+- (void)resetApplicationState;
 
 - (void)displayHistoryErrorFromNotification:(NSNotification *)notification;
 - (void)displayedHistoryError:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -45,6 +46,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(beginProcessing:) 
                                                  name:WHBeginProcessingNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self 
+                                             selector:@selector(discardProcessing:)
+                                                 name:WHDiscardProcessingNotification 
                                                object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(endProcessing:) 
@@ -98,6 +103,11 @@
     [self setView:[progressViewController view]];
 }
 
+- (void)discardProcessing:(NSNotification *)notification
+{
+    [self resetApplicationState];
+}
+
 - (void)endProcessing:(NSNotification *)notification
 {
     WHHistory *history = [notification object];
@@ -112,12 +122,10 @@
                                            otherButton:nil
                              informativeTextWithFormat:NSLocalizedString(@"Something went wrong. Please try again or file a bug report at %@",
                                                                                    @""), @"http://github.com/eFrane/whatsapphistory/issues"];
-        MSBlockAlert *blockAlert = [[MSBlockAlert alloc] initWithAlert:alert];
-        
-        //[alert beginSheetModalForWindow:window modalDelegate:nil didEndSelector:NULL contextInfo:NULL];
-        [blockAlert beginSheetModalForWindow:window withCompletionBlock:^(NSAlert *alert, NSInteger returnCode, void *contextInfo) {
-            NSLog(@"%ld", returnCode);
-        } contextInfo:NULL];
+        [alert beginSheetModalForWindow:window 
+                          modalDelegate:self
+                         didEndSelector:@selector(displayedHistoryError:returnCode:contextInfo:) 
+                            contextInfo:NULL];
     }
 }
 
@@ -132,8 +140,14 @@
 
 - (void)displayedHistoryError:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
 {
+    [self resetApplicationState];
+}
+
+- (void)resetApplicationState
+{
     progressViewController = nil;
-    [self setView:[selectViewController view]];
+    previewViewController  = nil;
+    [self setView:[selectViewController view]];    
 }
 
 @end

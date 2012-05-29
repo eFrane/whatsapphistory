@@ -12,8 +12,9 @@
 
 NSString * const WHSelectDropEndedNotification = @"WHSelectDropEndedNotification";
 
-NSString * const WHBeginProcessingNotification = @"WHBeginProcessingNotification";
-NSString * const WHEndProcessingNotification   = @"WHEndProcessingNotification";
+NSString * const WHBeginProcessingNotification   = @"WHBeginProcessingNotification";
+NSString * const WHDiscardProcessingNotification = @"WHDiscardProcessingNotification";
+NSString * const WHEndProcessingNotification     = @"WHEndProcessingNotification";
 
 NSString * const WHHistoryErrorNotification    = @"WHHistoryErrorNotification";
 NSString * const WHHistoryProgressNotification = @"WHHistoryProgressNotification";

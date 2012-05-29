@@ -11,6 +11,7 @@
 extern NSString * const WHSelectDropEndedNotification;
 
 extern NSString * const WHBeginProcessingNotification;
+extern NSString * const WHDiscardProcessingNotification;
 extern NSString * const WHEndProcessingNotification;
 
 extern NSString * const WHHistoryErrorNotification;
