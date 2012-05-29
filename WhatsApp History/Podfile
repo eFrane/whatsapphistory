@@ -1,0 +1,2 @@
+platform :osx
+dependency 'GRMustache', '~> 3.0.1'

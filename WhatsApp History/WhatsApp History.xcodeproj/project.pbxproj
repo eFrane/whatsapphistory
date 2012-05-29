@@ -1,401 +1,1227 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		BB327638156E518F00150B64 /* List of Errors.txt in Resources */ = {isa = PBXBuildFile; fileRef = BB327637156E518F00150B64 /* List of Errors.txt */; };
-		BB32763C156E5AC100150B64 /* WHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763B156E5AC100150B64 /* WHMessage.m */; };
-		BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763E156EB5DC00150B64 /* NSString+Clinching.m */; };
-		BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */; };
-		BB39E0D9156BE28700CEA6CF /* WHSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */; };
-		BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DA156C016C00CEA6CF /* SelectView.xib */; };
-		BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */; };
-		BB39E0E0156C066500CEA6CF /* WHProgessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */; };
-		BB39E0E3156C142900CEA6CF /* WHHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E2156C142900CEA6CF /* WHHistory.m */; };
-		BB39E0E6156C1FFD00CEA6CF /* WHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */; };
-		BB39E0E9156C2BD300CEA6CF /* WHSelectViewBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */; };
-		BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D5505156BB29600BA9A2F /* Cocoa.framework */; };
-		BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB8D550E156BB29600BA9A2F /* InfoPlist.strings */; };
-		BB8D5512156BB29600BA9A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5511156BB29600BA9A2F /* main.m */; };
-		BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D5514156BB29600BA9A2F /* Credits.rtf */; };
-		BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */; };
-		BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8D551A156BB29600BA9A2F /* MainMenu.xib */; };
-		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; };
-		BB9900E71573E80A001C55BB /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = BB9900E61573E80A001C55BB /* Templates */; };
-		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
-		BBBE00EF157356BA00609D95 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBBE00ED157356BA00609D95 /* PreviewView.xib */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		BB327637156E518F00150B64 /* List of Errors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "List of Errors.txt"; sourceTree = "<group>"; };
-		BB32763A156E5AC100150B64 /* WHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMessage.h; sourceTree = "<group>"; };
-		BB32763B156E5AC100150B64 /* WHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMessage.m; sourceTree = "<group>"; };
-		BB32763D156EB5DC00150B64 /* NSString+Clinching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Clinching.h"; sourceTree = "<group>"; };
-		BB32763E156EB5DC00150B64 /* NSString+Clinching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Clinching.m"; sourceTree = "<group>"; };
-		BB327640156F6C7100150B64 /* NSFileManager+TemporaryFolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+TemporaryFolder.h"; sourceTree = "<group>"; };
-		BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TemporaryFolder.m"; sourceTree = "<group>"; };
-		BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSelectViewController.h; sourceTree = "<group>"; };
-		BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSelectViewController.m; sourceTree = "<group>"; };
-		BB39E0DA156C016C00CEA6CF /* SelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectView.xib; sourceTree = "<group>"; };
-		BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
-		BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHProgessViewController.h; sourceTree = "<group>"; };
-		BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHProgessViewController.m; sourceTree = "<group>"; };
-		BB39E0E1156C142900CEA6CF /* WHHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHHistory.h; sourceTree = "<group>"; };
-		BB39E0E2156C142900CEA6CF /* WHHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHHistory.m; sourceTree = "<group>"; };
-		BB39E0E4156C1FFD00CEA6CF /* WHPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreferences.h; sourceTree = "<group>"; };
-		BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreferences.m; sourceTree = "<group>"; };
-		BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSelectViewBox.h; sourceTree = "<group>"; };
-		BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSelectViewBox.m; sourceTree = "<group>"; };
-		BB8D5501156BB29600BA9A2F /* WhatsApp History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsApp History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BB8D5505156BB29600BA9A2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		BB8D5508156BB29600BA9A2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		BB8D5509156BB29600BA9A2F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		BB8D550A156BB29600BA9A2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		BB8D550D156BB29600BA9A2F /* WhatsApp History-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WhatsApp History-Info.plist"; sourceTree = "<group>"; };
-		BB8D550F156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		BB8D5511156BB29600BA9A2F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		BB8D5513156BB29600BA9A2F /* WhatsApp History-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhatsApp History-Prefix.pch"; sourceTree = "<group>"; };
-		BB8D5515156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		BB8D5517156BB29600BA9A2F /* WHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHAppDelegate.h; sourceTree = "<group>"; };
-		BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAppDelegate.m; sourceTree = "<group>"; };
-		BB8D551B156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		BB9900E41573E72F001C55BB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		BB9900E61573E80A001C55BB /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Templates; path = ../Templates; sourceTree = "<group>"; };
-		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
-		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
-		BBBE00ED157356BA00609D95 /* PreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; path = PreviewView.xib; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		BB8D54FE156BB29600BA9A2F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */,
-				BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		BB327643156F8D7E00150B64 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
-				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
-				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
-				BBBE00ED157356BA00609D95 /* PreviewView.xib */,
-				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
-				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
-				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
-				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
-				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
-				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
-				BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */,
-				BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */,
-			);
-			name = UI;
-			sourceTree = "<group>";
-		};
-		BB327644156F8D9800150B64 /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				BB39E0E1156C142900CEA6CF /* WHHistory.h */,
-				BB39E0E2156C142900CEA6CF /* WHHistory.m */,
-				BB32763A156E5AC100150B64 /* WHMessage.h */,
-				BB32763B156E5AC100150B64 /* WHMessage.m */,
-			);
-			name = Parsing;
-			sourceTree = "<group>";
-		};
-		BB327645156F8DA500150B64 /* Misc */ = {
-			isa = PBXGroup;
-			children = (
-				BB39E0E4156C1FFD00CEA6CF /* WHPreferences.h */,
-				BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */,
-				BB327640156F6C7100150B64 /* NSFileManager+TemporaryFolder.h */,
-				BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */,
-				BB32763D156EB5DC00150B64 /* NSString+Clinching.h */,
-				BB32763E156EB5DC00150B64 /* NSString+Clinching.m */,
-			);
-			name = Misc;
-			sourceTree = "<group>";
-		};
-		BB8D54F6156BB29500BA9A2F = {
-			isa = PBXGroup;
-			children = (
-				BB8D550B156BB29600BA9A2F /* WhatsApp History */,
-				BB8D5504156BB29600BA9A2F /* Frameworks */,
-				BB8D5502156BB29600BA9A2F /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		BB8D5502156BB29600BA9A2F /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				BB8D5501156BB29600BA9A2F /* WhatsApp History.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		BB8D5504156BB29600BA9A2F /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BB9900E41573E72F001C55BB /* WebKit.framework */,
-				BB8D5505156BB29600BA9A2F /* Cocoa.framework */,
-				BB8D5507156BB29600BA9A2F /* Other Frameworks */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		BB8D5507156BB29600BA9A2F /* Other Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				BB8D5508156BB29600BA9A2F /* AppKit.framework */,
-				BB8D5509156BB29600BA9A2F /* CoreData.framework */,
-				BB8D550A156BB29600BA9A2F /* Foundation.framework */,
-			);
-			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		BB8D550B156BB29600BA9A2F /* WhatsApp History */ = {
-			isa = PBXGroup;
-			children = (
-				BB8D5517156BB29600BA9A2F /* WHAppDelegate.h */,
-				BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */,
-				BB327643156F8D7E00150B64 /* UI */,
-				BB327644156F8D9800150B64 /* Parsing */,
-				BB9900E61573E80A001C55BB /* Templates */,
-				BB327645156F8DA500150B64 /* Misc */,
-				BB8D550C156BB29600BA9A2F /* Supporting Files */,
-			);
-			path = "WhatsApp History";
-			sourceTree = "<group>";
-		};
-		BB8D550C156BB29600BA9A2F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				BB8D550D156BB29600BA9A2F /* WhatsApp History-Info.plist */,
-				BB8D550E156BB29600BA9A2F /* InfoPlist.strings */,
-				BB8D5511156BB29600BA9A2F /* main.m */,
-				BB8D5513156BB29600BA9A2F /* WhatsApp History-Prefix.pch */,
-				BB8D5514156BB29600BA9A2F /* Credits.rtf */,
-				BB327637156E518F00150B64 /* List of Errors.txt */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		BB8D5500156BB29600BA9A2F /* WhatsApp History */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BB8D551F156BB29600BA9A2F /* Build configuration list for PBXNativeTarget "WhatsApp History" */;
-			buildPhases = (
-				BB8D54FD156BB29600BA9A2F /* Sources */,
-				BB8D54FE156BB29600BA9A2F /* Frameworks */,
-				BB8D54FF156BB29600BA9A2F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "WhatsApp History";
-			productName = "WhatsApp History";
-			productReference = BB8D5501156BB29600BA9A2F /* WhatsApp History.app */;
-			productType = "com.apple.product-type.application";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		BB8D54F8156BB29500BA9A2F /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				CLASSPREFIX = WH;
-				LastUpgradeCheck = 0430;
-			};
-			buildConfigurationList = BB8D54FB156BB29500BA9A2F /* Build configuration list for PBXProject "WhatsApp History" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-			);
-			mainGroup = BB8D54F6156BB29500BA9A2F;
-			productRefGroup = BB8D5502156BB29600BA9A2F /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				BB8D5500156BB29600BA9A2F /* WhatsApp History */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		BB8D54FF156BB29600BA9A2F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */,
-				BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */,
-				BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */,
-				BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */,
-				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
-				BB327638156E518F00150B64 /* List of Errors.txt in Resources */,
-				BBBE00EF157356BA00609D95 /* PreviewView.xib in Resources */,
-				BB9900E71573E80A001C55BB /* Templates in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		BB8D54FD156BB29600BA9A2F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BB8D5512156BB29600BA9A2F /* main.m in Sources */,
-				BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */,
-				BB39E0D9156BE28700CEA6CF /* WHSelectViewController.m in Sources */,
-				BB39E0E0156C066500CEA6CF /* WHProgessViewController.m in Sources */,
-				BB39E0E3156C142900CEA6CF /* WHHistory.m in Sources */,
-				BB39E0E6156C1FFD00CEA6CF /* WHPreferences.m in Sources */,
-				BB39E0E9156C2BD300CEA6CF /* WHSelectViewBox.m in Sources */,
-				BB32763C156E5AC100150B64 /* WHMessage.m in Sources */,
-				BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */,
-				BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */,
-				BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		BB8D550E156BB29600BA9A2F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB8D550F156BB29600BA9A2F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		BB8D5514156BB29600BA9A2F /* Credits.rtf */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB8D5515156BB29600BA9A2F /* en */,
-			);
-			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		BB8D551A156BB29600BA9A2F /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB8D551B156BB29600BA9A2F /* en */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		BB8D551D156BB29600BA9A2F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		BB8D551E156BB29600BA9A2F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_ARC = YES;
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		BB8D5520156BB29600BA9A2F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
-				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		BB8D5521156BB29600BA9A2F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
-				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				RUN_CLANG_STATIC_ANALYZER = YES;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		BB8D54FB156BB29500BA9A2F /* Build configuration list for PBXProject "WhatsApp History" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB8D551D156BB29600BA9A2F /* Debug */,
-				BB8D551E156BB29600BA9A2F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BB8D551F156BB29600BA9A2F /* Build configuration list for PBXNativeTarget "WhatsApp History" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BB8D5520156BB29600BA9A2F /* Debug */,
-				BB8D5521156BB29600BA9A2F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-/* End XCConfigurationList section */
-	};
-	rootObject = BB8D54F8156BB29500BA9A2F /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>0580F1F9C6F94845B6D9A4BB</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Pods-resources.sh"
+</string>
+		</dict>
+		<key>26A4C6682F834B2B8785E5D7</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>archive.ar</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>libPods.a</string>
+			<key>path</key>
+			<string>libPods.a</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4C90DFDCCE9643A2AFC80839</key>
+		<dict>
+			<key>fileRef</key>
+			<string>26A4C6682F834B2B8785E5D7</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>AC055C82C8AE4E7896D3CB73</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Pods.xcconfig</string>
+			<key>sourceTree</key>
+			<string>SOURCE_ROOT</string>
+		</dict>
+		<key>BB327637156E518F00150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text</string>
+			<key>name</key>
+			<string>List of Errors.txt</string>
+			<key>path</key>
+			<string>List of Errors.txt</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB32763A156E5AC100150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHMessage.h</string>
+			<key>path</key>
+			<string>WHMessage.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB32763B156E5AC100150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHMessage.m</string>
+			<key>path</key>
+			<string>WHMessage.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB32763C156E5AC100150B64</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB32763B156E5AC100150B64</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB32763D156EB5DC00150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NSString+Clinching.h</string>
+			<key>path</key>
+			<string>NSString+Clinching.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB32763E156EB5DC00150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NSString+Clinching.m</string>
+			<key>path</key>
+			<string>NSString+Clinching.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB32763F156EB5DC00150B64</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB32763E156EB5DC00150B64</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB327640156F6C7100150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>NSFileManager+TemporaryFolder.h</string>
+			<key>path</key>
+			<string>NSFileManager+TemporaryFolder.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB327641156F6C7100150B64</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>NSFileManager+TemporaryFolder.m</string>
+			<key>path</key>
+			<string>NSFileManager+TemporaryFolder.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB327642156F6C7100150B64</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB327641156F6C7100150B64</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB327643156F8D7E00150B64</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D551A156BB29600BA9A2F</string>
+				<string>BB39E0DA156C016C00CEA6CF</string>
+				<string>BB39E0DC156C01BB00CEA6CF</string>
+				<string>BBADDABA1575026900785091</string>
+				<string>BB39E0E7156C2BD300CEA6CF</string>
+				<string>BB39E0E8156C2BD300CEA6CF</string>
+				<string>BB39E0D7156BE28700CEA6CF</string>
+				<string>BB39E0D8156BE28700CEA6CF</string>
+				<string>BB39E0DE156C066500CEA6CF</string>
+				<string>BB39E0DF156C066500CEA6CF</string>
+				<string>BBBE00EB157356BA00609D95</string>
+				<string>BBBE00EC157356BA00609D95</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>UI</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB327644156F8D9800150B64</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB39E0E1156C142900CEA6CF</string>
+				<string>BB39E0E2156C142900CEA6CF</string>
+				<string>BB32763A156E5AC100150B64</string>
+				<string>BB32763B156E5AC100150B64</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Parsing</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB327645156F8DA500150B64</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB39E0E4156C1FFD00CEA6CF</string>
+				<string>BB39E0E5156C1FFD00CEA6CF</string>
+				<string>BB327640156F6C7100150B64</string>
+				<string>BB327641156F6C7100150B64</string>
+				<string>BB32763D156EB5DC00150B64</string>
+				<string>BB32763E156EB5DC00150B64</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Misc</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0D7156BE28700CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHSelectViewController.h</string>
+			<key>path</key>
+			<string>WHSelectViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0D8156BE28700CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHSelectViewController.m</string>
+			<key>path</key>
+			<string>WHSelectViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0D9156BE28700CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0D8156BE28700CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB39E0DA156C016C00CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>SelectView.xib</string>
+			<key>path</key>
+			<string>SelectView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0DB156C016C00CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0DA156C016C00CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB39E0DC156C01BB00CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>ProgressView.xib</string>
+			<key>path</key>
+			<string>ProgressView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0DD156C01BB00CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0DC156C01BB00CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB39E0DE156C066500CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHProgessViewController.h</string>
+			<key>path</key>
+			<string>WHProgessViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0DF156C066500CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHProgessViewController.m</string>
+			<key>path</key>
+			<string>WHProgessViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E0156C066500CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0DF156C066500CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB39E0E1156C142900CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHHistory.h</string>
+			<key>path</key>
+			<string>WHHistory.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E2156C142900CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHHistory.m</string>
+			<key>path</key>
+			<string>WHHistory.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E3156C142900CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0E2156C142900CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB39E0E4156C1FFD00CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHPreferences.h</string>
+			<key>path</key>
+			<string>WHPreferences.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E5156C1FFD00CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHPreferences.m</string>
+			<key>path</key>
+			<string>WHPreferences.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E6156C1FFD00CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0E5156C1FFD00CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB39E0E7156C2BD300CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHSelectViewBox.h</string>
+			<key>path</key>
+			<string>WHSelectViewBox.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E8156C2BD300CEA6CF</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHSelectViewBox.m</string>
+			<key>path</key>
+			<string>WHSelectViewBox.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB39E0E9156C2BD300CEA6CF</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB39E0E8156C2BD300CEA6CF</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D54F6156BB29500BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D550B156BB29600BA9A2F</string>
+				<string>BB8D5504156BB29600BA9A2F</string>
+				<string>BB8D5502156BB29600BA9A2F</string>
+				<string>AC055C82C8AE4E7896D3CB73</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D54F8156BB29500BA9A2F</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>CLASSPREFIX</key>
+				<string>WH</string>
+				<key>LastUpgradeCheck</key>
+				<string>0430</string>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>BB8D54FB156BB29500BA9A2F</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+			</array>
+			<key>mainGroup</key>
+			<string>BB8D54F6156BB29500BA9A2F</string>
+			<key>productRefGroup</key>
+			<string>BB8D5502156BB29600BA9A2F</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>BB8D5500156BB29600BA9A2F</string>
+			</array>
+		</dict>
+		<key>BB8D54FB156BB29500BA9A2F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BB8D551D156BB29600BA9A2F</string>
+				<string>BB8D551E156BB29600BA9A2F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BB8D54FD156BB29600BA9A2F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BB8D5512156BB29600BA9A2F</string>
+				<string>BB8D5519156BB29600BA9A2F</string>
+				<string>BB39E0D9156BE28700CEA6CF</string>
+				<string>BB39E0E0156C066500CEA6CF</string>
+				<string>BB39E0E3156C142900CEA6CF</string>
+				<string>BB39E0E6156C1FFD00CEA6CF</string>
+				<string>BB39E0E9156C2BD300CEA6CF</string>
+				<string>BB32763C156E5AC100150B64</string>
+				<string>BB32763F156EB5DC00150B64</string>
+				<string>BB327642156F6C7100150B64</string>
+				<string>BBBE00EE157356BA00609D95</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BB8D54FE156BB29600BA9A2F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BB9900E51573E72F001C55BB</string>
+				<string>BB8D5506156BB29600BA9A2F</string>
+				<string>4C90DFDCCE9643A2AFC80839</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BB8D54FF156BB29600BA9A2F</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>BB8D5510156BB29600BA9A2F</string>
+				<string>BB8D5516156BB29600BA9A2F</string>
+				<string>BB8D551C156BB29600BA9A2F</string>
+				<string>BB39E0DB156C016C00CEA6CF</string>
+				<string>BB39E0DD156C01BB00CEA6CF</string>
+				<string>BBADDABB1575026900785091</string>
+				<string>BB9900E71573E80A001C55BB</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>BB8D5500156BB29600BA9A2F</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>BB8D551F156BB29600BA9A2F</string>
+			<key>buildPhases</key>
+			<array>
+				<string>BB8D54FD156BB29600BA9A2F</string>
+				<string>BB8D54FE156BB29600BA9A2F</string>
+				<string>BB8D54FF156BB29600BA9A2F</string>
+				<string>0580F1F9C6F94845B6D9A4BB</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>WhatsApp History</string>
+			<key>productName</key>
+			<string>WhatsApp History</string>
+			<key>productReference</key>
+			<string>BB8D5501156BB29600BA9A2F</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>BB8D5501156BB29600BA9A2F</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>name</key>
+			<string>WhatsApp History.app</string>
+			<key>path</key>
+			<string>WhatsApp History.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>BB8D5502156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D5501156BB29600BA9A2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5504156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB9900E41573E72F001C55BB</string>
+				<string>BB8D5505156BB29600BA9A2F</string>
+				<string>BB8D5507156BB29600BA9A2F</string>
+				<string>26A4C6682F834B2B8785E5D7</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5505156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Cocoa.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Cocoa.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BB8D5506156BB29600BA9A2F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB8D5505156BB29600BA9A2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D5507156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D5508156BB29600BA9A2F</string>
+				<string>BB8D5509156BB29600BA9A2F</string>
+				<string>BB8D550A156BB29600BA9A2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Other Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5508156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>AppKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/AppKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BB8D5509156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>CoreData.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/CoreData.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BB8D550A156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>Foundation.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/Foundation.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BB8D550B156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D5517156BB29600BA9A2F</string>
+				<string>BB8D5518156BB29600BA9A2F</string>
+				<string>BB327643156F8D7E00150B64</string>
+				<string>BB327644156F8D9800150B64</string>
+				<string>BB9900E61573E80A001C55BB</string>
+				<string>BB327645156F8DA500150B64</string>
+				<string>BB8D550C156BB29600BA9A2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>WhatsApp History</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D550C156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D550D156BB29600BA9A2F</string>
+				<string>BB8D550E156BB29600BA9A2F</string>
+				<string>BB8D5511156BB29600BA9A2F</string>
+				<string>BB8D5513156BB29600BA9A2F</string>
+				<string>BB8D5514156BB29600BA9A2F</string>
+				<string>BB327637156E518F00150B64</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Supporting Files</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D550D156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>name</key>
+			<string>WhatsApp History-Info.plist</string>
+			<key>path</key>
+			<string>WhatsApp History-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D550E156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D550F156BB29600BA9A2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D550F156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.strings</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/InfoPlist.strings</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5510156BB29600BA9A2F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB8D550E156BB29600BA9A2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D5511156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>main.m</string>
+			<key>path</key>
+			<string>main.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5512156BB29600BA9A2F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB8D5511156BB29600BA9A2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D5513156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WhatsApp History-Prefix.pch</string>
+			<key>path</key>
+			<string>WhatsApp History-Prefix.pch</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5514156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D5515156BB29600BA9A2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Credits.rtf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5515156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.rtf</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/Credits.rtf</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5516156BB29600BA9A2F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB8D5514156BB29600BA9A2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D5517156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHAppDelegate.h</string>
+			<key>path</key>
+			<string>WHAppDelegate.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5518156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHAppDelegate.m</string>
+			<key>path</key>
+			<string>WHAppDelegate.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D5519156BB29600BA9A2F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB8D5518156BB29600BA9A2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D551A156BB29600BA9A2F</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>BB8D551B156BB29600BA9A2F</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>MainMenu.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D551B156BB29600BA9A2F</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>en</string>
+			<key>path</key>
+			<string>en.lproj/MainMenu.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB8D551C156BB29600BA9A2F</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB8D551A156BB29600BA9A2F</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB8D551D156BB29600BA9A2F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_64_BIT)</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
+				<string>NO</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.7</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BB8D551E156BB29600BA9A2F</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>ARCHS</key>
+				<string>$(ARCHS_STANDARD_64_BIT)</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>YES</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
+				<string>YES</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>MACOSX_DEPLOYMENT_TARGET</key>
+				<string>10.7</string>
+				<key>SDKROOT</key>
+				<string>macosx</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BB8D551F156BB29600BA9A2F</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>BB8D5520156BB29600BA9A2F</string>
+				<string>BB8D5521156BB29600BA9A2F</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>BB8D5520156BB29600BA9A2F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>AC055C82C8AE4E7896D3CB73</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>WhatsApp History/WhatsApp History-Prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INFOPLIST_FILE</key>
+				<string>WhatsApp History/WhatsApp History-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>RUN_CLANG_STATIC_ANALYZER</key>
+				<string>YES</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>BB8D5521156BB29600BA9A2F</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>AC055C82C8AE4E7896D3CB73</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>DSTROOT</key>
+				<string>/tmp/xcodeproj.dst</string>
+				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
+				<string>YES</string>
+				<key>GCC_PREFIX_HEADER</key>
+				<string>WhatsApp History/WhatsApp History-Prefix.pch</string>
+				<key>GCC_VERSION</key>
+				<string>com.apple.compilers.llvm.clang.1_0</string>
+				<key>INFOPLIST_FILE</key>
+				<string>WhatsApp History/WhatsApp History-Info.plist</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>RUN_CLANG_STATIC_ANALYZER</key>
+				<string>YES</string>
+				<key>SKIP_INSTALL</key>
+				<string>YES</string>
+				<key>WRAPPER_EXTENSION</key>
+				<string>app</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>BB9900E41573E72F001C55BB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.framework</string>
+			<key>name</key>
+			<string>WebKit.framework</string>
+			<key>path</key>
+			<string>System/Library/Frameworks/WebKit.framework</string>
+			<key>sourceTree</key>
+			<string>SDKROOT</string>
+		</dict>
+		<key>BB9900E51573E72F001C55BB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB9900E41573E72F001C55BB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BB9900E61573E80A001C55BB</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder</string>
+			<key>name</key>
+			<string>Templates</string>
+			<key>path</key>
+			<string>../Templates</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BB9900E71573E80A001C55BB</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BB9900E61573E80A001C55BB</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BBADDABA1575026900785091</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.xib</string>
+			<key>name</key>
+			<string>PreviewView.xib</string>
+			<key>path</key>
+			<string>PreviewView.xib</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BBADDABB1575026900785091</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BBADDABA1575026900785091</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>BBBE00EB157356BA00609D95</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>WHPreviewViewController.h</string>
+			<key>path</key>
+			<string>WHPreviewViewController.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BBBE00EC157356BA00609D95</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>WHPreviewViewController.m</string>
+			<key>path</key>
+			<string>WHPreviewViewController.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>BBBE00EE157356BA00609D95</key>
+		<dict>
+			<key>fileRef</key>
+			<string>BBBE00EC157356BA00609D95</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>BB8D54F8156BB29500BA9A2F</string>
+</dict>
+</plist>
