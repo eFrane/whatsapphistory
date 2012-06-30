@@ -1,13 +1,13 @@
 //
-//  WHWebArchiveBoxing.h
+//  WHWebBoxing.m
 //  WhatsApp History
 //
-//  Created by Stefan Graupner on 5/29/12.
+//  Created by Stefan Graupner on 6/7/12.
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
 #import "WHWebBoxing.h"
 
-@interface WHWebArchiveBoxing : WHWebBoxing
+@implementation WHWebBoxing
 
 @end

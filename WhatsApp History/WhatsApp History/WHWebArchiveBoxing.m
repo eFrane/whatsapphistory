@@ -14,9 +14,6 @@
 
 - (BOOL)saveToURL:(NSURL *)saveURL error:(NSError *__autoreleasing *)error
 {
-    self.attachmentHandlingMode = WHMoveBoxingAttachmentHandlingMode;
-    [self applyTemplateSet];
-    
     WebView *webView = [[WebView alloc] init];
     NSURL *url = [NSURL URLWithString:@"http://www.google.com"];
     NSURLRequest *loadRequest = [[NSURLRequest alloc] initWithURL:url];
