@@ -10,6 +10,12 @@
 
 #import "WHPreferences.h"
 
+#pragma mark Preferences
+
+NSString * const WHCurrentTemplatePluginBundleKey = @"WHCurrentTemplatePluginBundle";
+
+#pragma mark Notifications
+
 NSString * const WHSelectDropEndedNotification = @"WHSelectDropEndedNotification";
 
 NSString * const WHBeginProcessingNotification   = @"WHBeginProcessingNotification";
@@ -19,8 +25,16 @@ NSString * const WHEndProcessingNotification     = @"WHEndProcessingNotification
 NSString * const WHHistoryErrorNotification    = @"WHHistoryErrorNotification";
 NSString * const WHHistoryProgressNotification = @"WHHistoryProgressNotification";
 
+#pragma mark Errors
+
 NSString * const WHErrorDomain = @"com.meanderingsoul.WhatsApp-History.ErrorDomain";
 
 @implementation WHPreferences
+
++ (void)initialize
+{
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"Plain", WHCurrentTemplatePluginBundleKey, nil];
+    [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
+}
 
 @end

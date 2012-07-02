@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+#pragma mark Preferences
+
+extern NSString * const WHCurrentTemplatePluginBundleKey;
+
+#pragma mark Notifications
+
 extern NSString * const WHSelectDropEndedNotification;
 
 extern NSString * const WHBeginProcessingNotification;
@@ -16,6 +22,8 @@ extern NSString * const WHEndProcessingNotification;
 
 extern NSString * const WHHistoryErrorNotification;
 extern NSString * const WHHistoryProgressNotification;
+
+#pragma mark Errors
 
 extern NSString * const WHErrorDomain;
 

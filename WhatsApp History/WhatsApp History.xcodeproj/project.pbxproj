@@ -24,8 +24,8 @@
 		BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D5514156BB29600BA9A2F /* Credits.rtf */; };
 		BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */; };
 		BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8D551A156BB29600BA9A2F /* MainMenu.xib */; };
+		BB8F104A158133FA009A40B6 /* WHWebBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8F1049158133FA009A40B6 /* WHWebBoxing.m */; };
 		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; };
-		BB9900E71573E80A001C55BB /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = BB9900E61573E80A001C55BB /* Templates */; };
 		BB9B8BD5157509D500F2B6D9 /* WHBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */; };
 		BB9B8BD915750F5D00F2B6D9 /* WHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD815750F5C00F2B6D9 /* WHAttachment.m */; };
 		BB9B8BDC1575143E00F2B6D9 /* WHWebArchiveBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BDB1575143E00F2B6D9 /* WHWebArchiveBoxing.m */; };
@@ -34,6 +34,18 @@
 		BBADDABB1575026900785091 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBADDABA1575026900785091 /* PreviewView.xib */; };
 		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BB8F106E1581EEEF009A40B6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		26A4C6682F834B2B8785E5D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,8 +82,9 @@
 		BB8D5517156BB29600BA9A2F /* WHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WHAppDelegate.h; sourceTree = "<group>"; };
 		BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAppDelegate.m; sourceTree = "<group>"; };
 		BB8D551B156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BB8F1048158133FA009A40B6 /* WHWebBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHWebBoxing.h; sourceTree = "<group>"; };
+		BB8F1049158133FA009A40B6 /* WHWebBoxing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHWebBoxing.m; sourceTree = "<group>"; };
 		BB9900E41573E72F001C55BB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		BB9900E61573E80A001C55BB /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Templates; path = ../Templates; sourceTree = "<group>"; };
 		BB9B8BD3157509D500F2B6D9 /* WHBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHBoxing.h; sourceTree = "<group>"; };
 		BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHBoxing.m; sourceTree = "<group>"; };
 		BB9B8BD715750F5C00F2B6D9 /* WHAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHAttachment.h; sourceTree = "<group>"; };
@@ -152,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				BB8D550B156BB29600BA9A2F /* WhatsApp History */,
+				BB8F10711581EFA5009A40B6 /* Template Plugins */,
 				BB8D5504156BB29600BA9A2F /* Frameworks */,
 				BB8D5502156BB29600BA9A2F /* Products */,
 				AC055C82C8AE4E7896D3CB73 /* Pods.xcconfig */,
@@ -195,7 +209,6 @@
 				BB327643156F8D7E00150B64 /* UI */,
 				BB327644156F8D9800150B64 /* Parsing */,
 				BB9B8BDD1575144A00F2B6D9 /* Boxing */,
-				BB9900E61573E80A001C55BB /* Templates */,
 				BB327645156F8DA500150B64 /* Misc */,
 				BB8D550C156BB29600BA9A2F /* Supporting Files */,
 			);
@@ -215,11 +228,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BB8F10711581EFA5009A40B6 /* Template Plugins */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Template Plugins";
+			sourceTree = "<group>";
+		};
 		BB9B8BDD1575144A00F2B6D9 /* Boxing */ = {
 			isa = PBXGroup;
 			children = (
 				BB9B8BDA1575143E00F2B6D9 /* WHWebArchiveBoxing.h */,
 				BB9B8BDB1575143E00F2B6D9 /* WHWebArchiveBoxing.m */,
+				BB8F1048158133FA009A40B6 /* WHWebBoxing.h */,
+				BB8F1049158133FA009A40B6 /* WHWebBoxing.m */,
 				BB9B8BD3157509D500F2B6D9 /* WHBoxing.h */,
 				BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */,
 			);
@@ -236,6 +258,7 @@
 				BB8D54FD156BB29600BA9A2F /* Sources */,
 				BB8D54FE156BB29600BA9A2F /* Frameworks */,
 				BB8D54FF156BB29600BA9A2F /* Resources */,
+				BB8F106E1581EEEF009A40B6 /* CopyFiles */,
 				0580F1F9C6F94845B6D9A4BB /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -284,7 +307,6 @@
 				BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */,
 				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
 				BBADDABB1575026900785091 /* PreviewView.xib in Resources */,
-				BB9900E71573E80A001C55BB /* Templates in Resources */,
 				BB9B8BDF1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,6 +350,7 @@
 				BB9B8BD915750F5D00F2B6D9 /* WHAttachment.m in Sources */,
 				BB9B8BDC1575143E00F2B6D9 /* WHWebArchiveBoxing.m in Sources */,
 				BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */,
+				BB8F104A158133FA009A40B6 /* WHWebBoxing.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +438,10 @@
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
@@ -431,7 +457,10 @@
 				DSTROOT = /tmp/xcodeproj.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_UNDECLARED_SELECTOR = NO;
+				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;

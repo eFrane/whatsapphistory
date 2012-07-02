@@ -38,11 +38,19 @@
 
 @synthesize window;
 
+- (id)init
+{
+    self = [super init];
+    if (self)
+    {
+        selectViewController = [[WHSelectViewController alloc] init];
+        [WHPreferences initialize];
+    }
+    return self;
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    selectViewController = [[WHSelectViewController alloc] init];
-    
-    
     [[NSNotificationCenter defaultCenter] addObserver:self 
                                              selector:@selector(beginProcessing:) 
                                                  name:WHBeginProcessingNotification
@@ -113,7 +121,7 @@
     WHHistory *history = [notification object];
     if (history != nil)
     {
-        previewViewController = [[WHPreviewViewController alloc] init];
+        previewViewController = [[WHPreviewViewController alloc] initWithHistory:history];
         [self setView:[previewViewController view]];
     } else {
         NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Something went wrong.", @"") 

@@ -9,15 +9,19 @@
 #import "WHPreviewViewController.h"
 #import "WHPreviewViewSavePanelAccessoryViewController.h"
 
-#import "WHBoxing.h"
+#import "WHMessage.h"
 
 @interface WHPreviewViewController ()
+{
+}
+
+- (void)displayMessages;
 - (void)discardAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 @end
 
 @implementation WHPreviewViewController
 
-@synthesize history = _history, webView;
+@synthesize history = _history, displayScrollView = _displayScrollView;
 
 - (id)initWithHistory:(WHHistory *)history;
 {
@@ -30,10 +34,40 @@
 }
 
 - (void)awakeFromNib
+{    
+    [self performSelector:@selector(displayMessages) withObject:nil afterDelay:0.5];
+}
+
+- (void)displayMessages
 {
-    NSURL *indexURL = [[NSBundle mainBundle] URLForResource:@"index" withExtension:@"html" subdirectory:@"Templates"];
-    [[webView mainFrame] loadRequest:[NSURLRequest requestWithURL:indexURL]];
-    [[self view] layout];
+    NSFont *font = [NSFont controlContentFontOfSize:12.0];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
+    
+    NSPoint origin = NSMakePoint(8, 8);
+    NSSize  size;
+    
+    CGFloat lastY = origin.y;
+    NSView *relativeView = _displayScrollView;
+    for (WHMessage *message in [_history messages])
+    {
+        NSString *labelString = [message message];
+        size = [labelString sizeWithAttributes:attributes];
+        size.width += size.width * [labelString length];
+        lastY += size.height + 8;
+        
+        NSRect bounds = {origin, size};
+        
+        NSTextField *textField = [[NSTextField alloc] initWithFrame:bounds];
+        [textField setStringValue:labelString];
+        [textField setFont:font];
+        [textField setEditable:NO];
+        [textField setSelectable:YES];
+        [textField setDrawsBackground:NO];
+        [textField setBordered:NO];
+        
+        [_displayScrollView addSubview:textField positioned:NSWindowBelow relativeTo:relativeView];
+        relativeView = textField;
+    }
 }
 
 - (void)discardButton:(id)sender
@@ -74,15 +108,7 @@
     [savePanel beginSheetModalForWindow:[[self view] window] completionHandler:^(NSInteger result) {
         if (result == NSAlertDefaultReturn)
         {
-            NSString *selectedFileType = [[[accessoryViewController fileType] selectedCell] stringValue];
-            Class cls = NSClassFromString([NSString stringWithFormat:@"WH%@Boxing", 
-                                           [selectedFileType stringByReplacingOccurrencesOfString:@" " withString:@""]]);
-            
-            NSURL *templateURL = nil;
-            NSError *error;
-            
-            WHBoxing *boxingObject = [(WHBoxing *)[cls alloc] initWithTemplateSetAtURL:templateURL history:self.history];
-            [boxingObject saveToURL:[savePanel URL] error:&error];
+            // TODO: do save
         }
     }];
 }
