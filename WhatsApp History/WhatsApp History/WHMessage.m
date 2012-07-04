@@ -92,6 +92,12 @@ static NSMutableDictionary *userImageCache;
     {
         self.message = [_message substringFromIndex:2];
     }
+    
+    if (![_timestamp isKindOfClass:[NSDate class]])
+    {
+        _parent.message = [NSString stringWithFormat:@"%@\n%@", _parent.message, _originalMessage];
+        _message = nil;
+    }
 }
 
 - (NSDictionary *)serializableRepresentation

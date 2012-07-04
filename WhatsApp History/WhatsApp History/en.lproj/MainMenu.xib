@@ -1292,7 +1292,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{379, 309}, {346, 185}}</string>
+				<string key="NSWindowRect">{{109, 218}, {346, 185}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">WhatsApp History</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1304,7 +1304,6 @@
 					<string key="NSFrameSize">{346, 185}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 					<bool key="NSViewIsLayerTreeHost">YES</bool>
 					<object class="NSDictionary" key="NSViewAnimations">
 						<string key="NS.key.0">subviews</string>
@@ -1334,9 +1333,9 @@
 					</object>
 					<int key="NSViewLayerContentsRedrawPolicy">2</int>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1280, 800}}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
-				<bool key="NSWindowIsRestorable">YES</bool>
+				<bool key="NSWindowIsRestorable">NO</bool>
 			</object>
 			<object class="NSCustomObject" id="976324537">
 				<string key="NSClassName">WHAppDelegate</string>
