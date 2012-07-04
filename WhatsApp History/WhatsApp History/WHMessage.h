@@ -21,6 +21,7 @@
 @property (readwrite, retain) NSString *message;
 
 @property (readwrite, retain) NSAttributedString *attributedMessage;
+@property (readwrite, retain) NSImage *userImage;
 
 @property (readwrite, copy) WHAttachment *attachment;
 

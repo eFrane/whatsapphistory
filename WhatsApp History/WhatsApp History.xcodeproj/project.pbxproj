@@ -20,6 +20,8 @@
 		BB39E0E9156C2BD300CEA6CF /* WHSelectViewBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */; };
 		BB7B051215A42D82002088D7 /* NSArray+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051115A42D82002088D7 /* NSArray+Reverse.m */; };
 		BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */; };
+		BB7B051815A44322002088D7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7B051715A44322002088D7 /* AddressBook.framework */; };
+		BB7B051B15A44963002088D7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7B051A15A44963002088D7 /* user.png */; };
 		BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D5505156BB29600BA9A2F /* Cocoa.framework */; };
 		BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB8D550E156BB29600BA9A2F /* InfoPlist.strings */; };
 		BB8D5512156BB29600BA9A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5511156BB29600BA9A2F /* main.m */; };
@@ -76,6 +78,8 @@
 		BB7B051115A42D82002088D7 /* NSArray+Reverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Reverse.m"; sourceTree = "<group>"; };
 		BB7B051415A4363A002088D7 /* NSDate+JSONFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSONFormat.h"; sourceTree = "<group>"; };
 		BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONFormat.m"; sourceTree = "<group>"; };
+		BB7B051715A44322002088D7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		BB7B051A15A44963002088D7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		BB8D5501156BB29600BA9A2F /* WhatsApp History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsApp History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8D5505156BB29600BA9A2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BB8D5508156BB29600BA9A2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -113,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB7B051815A44322002088D7 /* AddressBook.framework in Frameworks */,
 				BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */,
 				BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */,
 				4C90DFDCCE9643A2AFC80839 /* libPods.a in Frameworks */,
@@ -125,6 +130,7 @@
 		BB327643156F8D7E00150B64 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BB7B051915A4494F002088D7 /* Images */,
 				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
 				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
@@ -176,6 +182,14 @@
 			name = Misc;
 			sourceTree = "<group>";
 		};
+		BB7B051915A4494F002088D7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				BB7B051A15A44963002088D7 /* user.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		BB8D54F6156BB29500BA9A2F = {
 			isa = PBXGroup;
 			children = (
@@ -198,8 +212,9 @@
 		BB8D5504156BB29600BA9A2F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BB9900E41573E72F001C55BB /* WebKit.framework */,
+				BB7B051715A44322002088D7 /* AddressBook.framework */,
 				BB8D5505156BB29600BA9A2F /* Cocoa.framework */,
+				BB9900E41573E72F001C55BB /* WebKit.framework */,
 				BB8D5507156BB29600BA9A2F /* Other Frameworks */,
 				26A4C6682F834B2B8785E5D7 /* libPods.a */,
 			);
@@ -323,6 +338,7 @@
 				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
 				BBADDABB1575026900785091 /* PreviewView.xib in Resources */,
 				BB9B8BDF1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib in Resources */,
+				BB7B051B15A44963002088D7 /* user.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
