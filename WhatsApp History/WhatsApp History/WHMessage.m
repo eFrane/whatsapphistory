@@ -17,6 +17,11 @@
 static NSImage *defaultImage;
 static NSMutableDictionary *userImageCache;
 
+@interface WHMessage ()
+- (void)generateAttributedMessage;
+- (void)lookupUserImage;
+@end
+
 @implementation WHMessage
 
 @synthesize parent = _parent, originalMessage = _originalMessage, 
@@ -53,58 +58,11 @@ static NSMutableDictionary *userImageCache;
 {
     if ([keyPath isEqualToString:@"message"] && _message)
     {
-        NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
-                                    [NSFont controlContentFontOfSize:12.0], NSFontAttributeName, 
-                                    [NSColor blackColor], NSForegroundColorAttributeName, 
-                                    nil];
-        self.attributedMessage = [[NSAttributedString alloc] initWithString:self.message 
-                                                                 attributes:attributes];
+        [self generateAttributedMessage];
     }
     if ([keyPath isEqualToString:@"author"] && _author)
     {
-        if (![userImageCache objectForKey:_author])
-        {
-            NSString *firstName, *lastName;
-            NSScanner *scanner = [NSScanner scannerWithString:_author];
-            [scanner scanUpToString:@" " intoString:&firstName];
-            lastName = [scanner string];
-            
-            ABSearchElement *firstNameSearchElement = [ABPerson searchElementForProperty:kABFirstNameProperty 
-                                                                                   label:nil
-                                                                                     key:nil
-                                                                                   value:firstName 
-                                                                              comparison:kABPrefixMatchCaseInsensitive];
-            ABSearchElement *lastNameSearchElement = [ABPerson searchElementForProperty:kABLastNameProperty 
-                                                                                  label:nil
-                                                                                    key:nil
-                                                                                  value:lastName
-                                                                             comparison:kABSuffixMatchCaseInsensitive];
-            ABSearchElement *searchName = [ABSearchElement searchElementForConjunction:kABSearchAnd 
-                                                                              children:[NSArray arrayWithObjects:firstNameSearchElement, 
-                                                                                        lastNameSearchElement, nil]];
-            
-            ABSearchElement *nicknameSearchElement = [ABPerson searchElementForProperty:kABNicknameProperty
-                                                                                  label:nil
-                                                                                    key:nil
-                                                                                  value:_author
-                                                                             comparison:kABEqualCaseInsensitive];
-            ABSearchElement *search = [ABSearchElement searchElementForConjunction:kABSearchOr 
-                                                                          children:[NSArray arrayWithObjects:searchName,
-                                                                                    nicknameSearchElement, nil]];
-            
-            NSArray *found = [[ABAddressBook sharedAddressBook] recordsMatchingSearchElement:search];
-            if ([found count] >= 1)
-            {
-                ABPerson *person = [found objectAtIndex:0];
-                NSImage *image = [[NSImage alloc] initWithData:[person imageData]];
-                [userImageCache setObject:image forKey:_author];
-            } else 
-            {
-                [userImageCache setObject:defaultImage forKey:_author];
-            }
-        }
-        
-        self.userImage = [userImageCache objectForKey:_author];
+        [self lookupUserImage];
     }
 }
 
@@ -130,6 +88,10 @@ static NSMutableDictionary *userImageCache;
                                             dateString1, dateString2]];
     
     self.message = [_originalMessage substringFromIndex:[scanner scanLocation]];
+    if ([_message length] > 2 && [[_message substringWithRange:NSMakeRange(0, 2)] isEqualToString:@": "])
+    {
+        self.message = [_message substringFromIndex:2];
+    }
 }
 
 - (NSDictionary *)serializableRepresentation
@@ -138,6 +100,64 @@ static NSMutableDictionary *userImageCache;
             [_timestamp JSONFormat], @"timestamp", 
             _author, @"author", 
             _message, @"message", nil];
+}
+
+- (void)generateAttributedMessage
+{
+    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSFont controlContentFontOfSize:12.0], NSFontAttributeName, 
+                                [NSColor blackColor], NSForegroundColorAttributeName, 
+                                nil];
+    self.attributedMessage = [[NSAttributedString alloc] initWithString:self.message 
+                                                             attributes:attributes];
+}
+
+- (void)lookupUserImage
+{
+    if (![userImageCache objectForKey:_author])
+    {
+        NSString *firstName, *lastName;
+        NSScanner *scanner = [NSScanner scannerWithString:_author];
+        [scanner scanUpToString:@" " intoString:&firstName];
+        lastName = ([_author length] > [scanner scanLocation]) ? [_author substringFromIndex:[scanner scanLocation] + 1]
+        : _author;
+        
+        ABSearchElement *firstNameSearchElement = [ABPerson searchElementForProperty:kABFirstNameProperty 
+                                                                               label:nil
+                                                                                 key:nil
+                                                                               value:firstName 
+                                                                          comparison:kABPrefixMatchCaseInsensitive];
+        ABSearchElement *lastNameSearchElement = [ABPerson searchElementForProperty:kABLastNameProperty 
+                                                                              label:nil
+                                                                                key:nil
+                                                                              value:lastName
+                                                                         comparison:kABSuffixMatchCaseInsensitive];
+        ABSearchElement *searchName = [ABSearchElement searchElementForConjunction:kABSearchAnd 
+                                                                          children:[NSArray arrayWithObjects:firstNameSearchElement, 
+                                                                                    lastNameSearchElement, nil]];
+        
+        ABSearchElement *nicknameSearchElement = [ABPerson searchElementForProperty:kABNicknameProperty
+                                                                              label:nil
+                                                                                key:nil
+                                                                              value:_author
+                                                                         comparison:kABEqualCaseInsensitive];
+        ABSearchElement *search = [ABSearchElement searchElementForConjunction:kABSearchOr 
+                                                                      children:[NSArray arrayWithObjects:searchName,
+                                                                                nicknameSearchElement, nil]];
+        
+        NSArray *found = [[ABAddressBook sharedAddressBook] recordsMatchingSearchElement:search];
+        if ([found count] >= 1)
+        {
+            ABPerson *person = [found objectAtIndex:0];
+            NSImage *image = [[NSImage alloc] initWithData:[person imageData]];
+            [userImageCache setObject:image forKey:_author];
+        } else 
+        {
+            [userImageCache setObject:defaultImage forKey:_author];
+        }
+    }
+    
+    self.userImage = [userImageCache objectForKey:_author];
 }
 
 @end
