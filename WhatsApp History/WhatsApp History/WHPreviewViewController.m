@@ -15,13 +15,12 @@
 {
 }
 
-- (void)displayMessages;
 - (void)discardAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
 @end
 
 @implementation WHPreviewViewController
 
-@synthesize history = _history, displayScrollView = _displayScrollView;
+@synthesize history = _history;
 
 - (id)initWithHistory:(WHHistory *)history;
 {
@@ -31,43 +30,6 @@
         self.history = history;
     }
     return self;
-}
-
-- (void)awakeFromNib
-{    
-    [self performSelector:@selector(displayMessages) withObject:nil afterDelay:0.5];
-}
-
-- (void)displayMessages
-{
-    NSFont *font = [NSFont controlContentFontOfSize:12.0];
-    NSDictionary *attributes = [NSDictionary dictionaryWithObjectsAndKeys:font, NSFontAttributeName, nil];
-    
-    NSPoint origin = NSMakePoint(8, 8);
-    NSSize  size;
-    
-    CGFloat lastY = origin.y;
-    NSView *relativeView = _displayScrollView;
-    for (WHMessage *message in [_history messages])
-    {
-        NSString *labelString = [message message];
-        size = [labelString sizeWithAttributes:attributes];
-        size.width += size.width * [labelString length];
-        lastY += size.height + 8;
-        
-        NSRect bounds = {origin, size};
-        
-        NSTextField *textField = [[NSTextField alloc] initWithFrame:bounds];
-        [textField setStringValue:labelString];
-        [textField setFont:font];
-        [textField setEditable:NO];
-        [textField setSelectable:YES];
-        [textField setDrawsBackground:NO];
-        [textField setBordered:NO];
-        
-        [_displayScrollView addSubview:textField positioned:NSWindowBelow relativeTo:relativeView];
-        relativeView = textField;
-    }
 }
 
 - (void)discardButton:(id)sender

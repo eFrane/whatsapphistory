@@ -1292,7 +1292,7 @@
 			<object class="NSWindowTemplate" id="972006081">
 				<int key="NSWindowStyleMask">15</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{379, 309}, {251, 3}}</string>
+				<string key="NSWindowRect">{{379, 309}, {346, 185}}</string>
 				<int key="NSWTFlags">1954021376</int>
 				<string key="NSWindowTitle">WhatsApp History</string>
 				<string key="NSWindowClass">NSWindow</string>
@@ -1301,7 +1301,7 @@
 				<object class="NSView" key="NSWindowView" id="439893737">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
-					<string key="NSFrameSize">{251, 3}</string>
+					<string key="NSFrameSize">{346, 185}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView"/>

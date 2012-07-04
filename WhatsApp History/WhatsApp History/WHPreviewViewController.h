@@ -14,7 +14,6 @@
 @interface WHPreviewViewController : NSViewController
 
 @property (readwrite, assign) WHHistory *history;
-@property (assign) IBOutlet NSScrollView *displayScrollView;
 
 - (id)initWithHistory:(WHHistory *)history;
 - (IBAction)discardButton:(id)sender;

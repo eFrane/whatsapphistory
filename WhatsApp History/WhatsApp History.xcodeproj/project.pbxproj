@@ -18,6 +18,8 @@
 		BB39E0E3156C142900CEA6CF /* WHHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E2156C142900CEA6CF /* WHHistory.m */; };
 		BB39E0E6156C1FFD00CEA6CF /* WHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */; };
 		BB39E0E9156C2BD300CEA6CF /* WHSelectViewBox.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */; };
+		BB7B051215A42D82002088D7 /* NSArray+Reverse.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051115A42D82002088D7 /* NSArray+Reverse.m */; };
+		BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */; };
 		BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D5505156BB29600BA9A2F /* Cocoa.framework */; };
 		BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB8D550E156BB29600BA9A2F /* InfoPlist.strings */; };
 		BB8D5512156BB29600BA9A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5511156BB29600BA9A2F /* main.m */; };
@@ -33,6 +35,7 @@
 		BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */; };
 		BBADDABB1575026900785091 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBADDABA1575026900785091 /* PreviewView.xib */; };
 		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
+		BBFE214715A21ADA00EFD47F /* WHPreviewViewMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +72,10 @@
 		BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreferences.m; sourceTree = "<group>"; };
 		BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSelectViewBox.h; sourceTree = "<group>"; };
 		BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSelectViewBox.m; sourceTree = "<group>"; };
+		BB7B051015A42D82002088D7 /* NSArray+Reverse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Reverse.h"; sourceTree = "<group>"; };
+		BB7B051115A42D82002088D7 /* NSArray+Reverse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Reverse.m"; sourceTree = "<group>"; };
+		BB7B051415A4363A002088D7 /* NSDate+JSONFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+JSONFormat.h"; sourceTree = "<group>"; };
+		BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONFormat.m"; sourceTree = "<group>"; };
 		BB8D5501156BB29600BA9A2F /* WhatsApp History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsApp History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8D5505156BB29600BA9A2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BB8D5508156BB29600BA9A2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -97,6 +104,8 @@
 		BBADDABA1575026900785091 /* PreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewView.xib; sourceTree = "<group>"; };
 		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
 		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
+		BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewMessageView.h; sourceTree = "<group>"; };
+		BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewMessageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +130,8 @@
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
 				BBADDABA1575026900785091 /* PreviewView.xib */,
 				BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */,
+				BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */,
+				BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */,
 				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
 				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
 				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
@@ -151,6 +162,10 @@
 		BB327645156F8DA500150B64 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
+				BB7B051415A4363A002088D7 /* NSDate+JSONFormat.h */,
+				BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */,
+				BB7B051015A42D82002088D7 /* NSArray+Reverse.h */,
+				BB7B051115A42D82002088D7 /* NSArray+Reverse.m */,
 				BB39E0E4156C1FFD00CEA6CF /* WHPreferences.h */,
 				BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */,
 				BB327640156F6C7100150B64 /* NSFileManager+TemporaryFolder.h */,
@@ -351,6 +366,9 @@
 				BB9B8BDC1575143E00F2B6D9 /* WHWebArchiveBoxing.m in Sources */,
 				BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */,
 				BB8F104A158133FA009A40B6 /* WHWebBoxing.m in Sources */,
+				BBFE214715A21ADA00EFD47F /* WHPreviewViewMessageView.m in Sources */,
+				BB7B051215A42D82002088D7 /* NSArray+Reverse.m in Sources */,
+				BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,6 +20,8 @@
 @property (readwrite, retain) NSString *author;
 @property (readwrite, retain) NSString *message;
 
+@property (readwrite, retain) NSAttributedString *attributedMessage;
+
 @property (readwrite, copy) WHAttachment *attachment;
 
 - (id)initWithString:(NSString *)string;

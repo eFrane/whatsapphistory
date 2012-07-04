@@ -13,6 +13,7 @@
 #import "WHMessage.h"
 
 #import "NSFileManager+TemporaryFolder.h"
+#import "NSArray+Reverse.h"
 
 @interface WHHistory ()
 {
@@ -139,11 +140,15 @@ static BOOL hasInstance = NO;
             {
                 [message setParent:[_messages objectAtIndex:[_messages indexOfObject:[_messages lastObject]]]];
             }
+            
             [_messages addObject:message];
             
             [message process];
         }
     }];
+    
+    [_messages filterUsingPredicate:[NSPredicate predicateWithFormat:@"message != nil"]];    
+    [_messages reverse];
     
     [self consolidateData];
     
