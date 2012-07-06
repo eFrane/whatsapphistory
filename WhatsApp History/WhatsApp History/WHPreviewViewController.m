@@ -16,6 +16,8 @@
 {
     NSMutableArray *messageViewHeights;
     CGFloat defaultRowHeight;
+    
+    WHPreviewViewTableCellView *measuringView;
 }
 
 - (void)discardAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -35,13 +37,13 @@
     {
         self.history = history;
         messageViewHeights = [NSMutableArray arrayWithCapacity:[history.messages count]];
-        defaultRowHeight = 47.0; // may be too small but should be sufficient in many cases
+        defaultRowHeight = 50.0; // may be too small but should be sufficient in many cases
     }
     return self;
 }
 
 - (void)awakeFromNib
-{
+{    
     [self.tableView setDelegate:self];
     [self.tableView setDataSource:self];
 }
@@ -99,6 +101,7 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
+    if (measuringView == nil) measuringView = [tableView makeViewWithIdentifier:@"MessageCellView" owner:self];
     WHPreviewViewTableCellView *view = [tableView makeViewWithIdentifier:@"MessageCellView" owner:self];
     
     WHMessage *message = [[_history messages] objectAtIndex:row];
@@ -114,21 +117,24 @@
 
 - (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
 {
-    WHPreviewViewTableCellView *view = [tableView viewAtColumn:0 row:row makeIfNecessary:NO];
-    if (view != nil)
+    CGFloat (^heightForStringDrawing)(NSAttributedString *, CGFloat) = ^(NSAttributedString *string, CGFloat width)
     {
-        NSLog(@"%f", view.messageView.frame.size.height);
-    }
+        NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:string];
+        //NSTextContainer *textContainer [NSTextContainer alloc] initWithContainerSize:NSMakeSize(width, FLT_MAX)];
+        NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(width, FLT_MAX)];
+        NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
+        
+        [layoutManager addTextContainer:textContainer];
+        [textStorage addLayoutManager:layoutManager];
+        
+        [textContainer setLineFragmentPadding:0.0];
+        (void) [layoutManager glyphRangeForTextContainer:textContainer];
+        
+        return [layoutManager usedRectForTextContainer:textContainer].size.height;
+    };
     
-    return 80.0;
-}
-
-#pragma mark -
-#pragma mark Message Text View Delegate methods
-
-- (void)textDidChange:(NSNotification *)notification
-{
-    NSLog(@"did change.");
+    WHMessage *message = [[_history messages] objectAtIndex:row];
+    return defaultRowHeight + heightForStringDrawing(message.attributedMessage, tableView.frame.size.width-16);
 }
 
 @end
