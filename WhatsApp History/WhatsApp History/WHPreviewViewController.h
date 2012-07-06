@@ -11,9 +11,10 @@
 
 #import "WHHistory.h"
 
-@interface WHPreviewViewController : NSViewController
+@interface WHPreviewViewController : NSViewController <NSTableViewDataSource, NSTableViewDelegate, NSTextViewDelegate>
 
 @property (readwrite, assign) WHHistory *history;
+@property (assign) IBOutlet NSTableView *tableView;
 
 - (id)initWithHistory:(WHHistory *)history;
 - (IBAction)discardButton:(id)sender;

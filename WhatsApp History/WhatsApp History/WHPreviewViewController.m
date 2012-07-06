@@ -8,11 +8,14 @@
 
 #import "WHPreviewViewController.h"
 #import "WHPreviewViewSavePanelAccessoryViewController.h"
+#import "WHPreviewViewTableCellView.h"
 
 #import "WHMessage.h"
 
 @interface WHPreviewViewController ()
 {
+    NSMutableArray *messageViewHeights;
+    CGFloat defaultRowHeight;
 }
 
 - (void)discardAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -20,7 +23,10 @@
 
 @implementation WHPreviewViewController
 
-@synthesize history = _history;
+@synthesize history = _history, tableView = _tableView;
+
+#pragma mark -
+#pragma mark General View Controller Stuff
 
 - (id)initWithHistory:(WHHistory *)history;
 {
@@ -28,8 +34,16 @@
     if (self)
     {
         self.history = history;
+        messageViewHeights = [NSMutableArray arrayWithCapacity:[history.messages count]];
+        defaultRowHeight = 47.0; // may be too small but should be sufficient in many cases
     }
     return self;
+}
+
+- (void)awakeFromNib
+{
+    [self.tableView setDelegate:self];
+    [self.tableView setDataSource:self];
 }
 
 - (void)discardButton:(id)sender
@@ -75,5 +89,46 @@
     }];
 }
 
+#pragma mark -
+#pragma mark Table View Datasource and Delegate methods
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
+{
+    return [_history.messages count];
+}
+
+- (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+    WHPreviewViewTableCellView *view = [tableView makeViewWithIdentifier:@"MessageCellView" owner:self];
+    
+    WHMessage *message = [[_history messages] objectAtIndex:row];
+    
+    [view.userName setStringValue:message.author];
+    [view.timestamp setObjectValue:message.timestamp];
+    [view.userImage setImage:message.userImage];
+    [[view.messageView textStorage] setAttributedString:message.attributedMessage];
+    [view.messageView setDelegate:self];
+    
+    return view;
+}
+
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+{
+    WHPreviewViewTableCellView *view = [tableView viewAtColumn:0 row:row makeIfNecessary:NO];
+    if (view != nil)
+    {
+        NSLog(@"%f", view.messageView.frame.size.height);
+    }
+    
+    return 80.0;
+}
+
+#pragma mark -
+#pragma mark Message Text View Delegate methods
+
+- (void)textDidChange:(NSNotification *)notification
+{
+    NSLog(@"did change.");
+}
 
 @end

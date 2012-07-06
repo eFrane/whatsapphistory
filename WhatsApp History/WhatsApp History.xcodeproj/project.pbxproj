@@ -22,6 +22,7 @@
 		BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */; };
 		BB7B051815A44322002088D7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7B051715A44322002088D7 /* AddressBook.framework */; };
 		BB7B051B15A44963002088D7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7B051A15A44963002088D7 /* user.png */; };
+		BB7B051E15A4F323002088D7 /* WHPreviewViewTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */; };
 		BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D5505156BB29600BA9A2F /* Cocoa.framework */; };
 		BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB8D550E156BB29600BA9A2F /* InfoPlist.strings */; };
 		BB8D5512156BB29600BA9A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5511156BB29600BA9A2F /* main.m */; };
@@ -80,6 +81,8 @@
 		BB7B051515A4363A002088D7 /* NSDate+JSONFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+JSONFormat.m"; sourceTree = "<group>"; };
 		BB7B051715A44322002088D7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		BB7B051A15A44963002088D7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		BB7B051C15A4F322002088D7 /* WHPreviewViewTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewTableCellView.h; sourceTree = "<group>"; };
+		BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewTableCellView.m; sourceTree = "<group>"; };
 		BB8D5501156BB29600BA9A2F /* WhatsApp History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsApp History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8D5505156BB29600BA9A2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BB8D5508156BB29600BA9A2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -136,8 +139,6 @@
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
 				BBADDABA1575026900785091 /* PreviewView.xib */,
 				BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */,
-				BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */,
-				BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */,
 				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
 				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
 				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
@@ -148,6 +149,10 @@
 				BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */,
 				BB9B8BE0157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.h */,
 				BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */,
+				BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */,
+				BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */,
+				BB7B051C15A4F322002088D7 /* WHPreviewViewTableCellView.h */,
+				BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -385,6 +390,7 @@
 				BBFE214715A21ADA00EFD47F /* WHPreviewViewMessageView.m in Sources */,
 				BB7B051215A42D82002088D7 /* NSArray+Reverse.m in Sources */,
 				BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */,
+				BB7B051E15A4F323002088D7 /* WHPreviewViewTableCellView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
