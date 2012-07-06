@@ -133,20 +133,8 @@
 				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
 				BBADDABA1575026900785091 /* PreviewView.xib */,
 				BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */,
-				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
-				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
-				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
-				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
-				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
-				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
-				BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */,
-				BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */,
-				BB9B8BE0157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.h */,
-				BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */,
-				BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */,
-				BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */,
-				BB7B051C15A4F322002088D7 /* WHPreviewViewTableCellView.h */,
-				BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */,
+				BBC233EE15A74BA800B6BA94 /* Controllers */,
+				BBC233EF15A74BB900B6BA94 /* Views */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -271,6 +259,34 @@
 				BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */,
 			);
 			name = Boxing;
+			sourceTree = "<group>";
+		};
+		BBC233EE15A74BA800B6BA94 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
+				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
+				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
+				BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */,
+				BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */,
+				BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */,
+				BB9B8BE0157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.h */,
+				BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BBC233EF15A74BB900B6BA94 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB39E0E7156C2BD300CEA6CF /* WHSelectViewBox.h */,
+				BB39E0E8156C2BD300CEA6CF /* WHSelectViewBox.m */,
+				BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */,
+				BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */,
+				BB7B051C15A4F322002088D7 /* WHPreviewViewTableCellView.h */,
+				BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

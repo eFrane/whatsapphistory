@@ -98,7 +98,10 @@
     [window setFrame:windowFrame display:YES animate:YES];
     [window setContentView:view];
     
-    [[window contentView] becomeFirstResponder];
+    if ([[view nextKeyView] isKindOfClass:[NSResponder class]])
+    {
+        [window makeFirstResponder:[view nextKeyView]];
+    }
 }
 
 - (void)beginProcessing:(NSNotification *)notification

@@ -56,17 +56,13 @@
         if ([sourceURL class] == [NSURL class])
         {
             self.displayedSourceURL = [NSString stringWithFormat:NSLocalizedString(@"Currently selected: %@", @""), [sourceURL lastPathComponent]];
-            //            [processButton becomeFirstResponder];
+            [selectButton  resignFirstResponder];
+            [processButton becomeFirstResponder];
         } else 
         {
             self.displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", @"");
         }
     }
-}
-
-- (void)awakeFromNib
-{
-    [selectButton becomeFirstResponder];
 }
 
 - (void)selectSource:(id)sender

@@ -70,12 +70,12 @@
 - (void)saveButton:(id)sender
 {
     NSSavePanel *savePanel = [NSSavePanel savePanel];
-    [savePanel setAllowedFileTypes:[NSArray arrayWithObject:@"webarchive"]];
+    //    [savePanel setAllowedFileTypes:[NSArray arrayWithObject:@""]];
     
     WHPreviewViewSavePanelAccessoryViewController __block *accessoryViewController;
     accessoryViewController = [[WHPreviewViewSavePanelAccessoryViewController alloc] init];
     [accessoryViewController setAvailableFileTypes:
-     [NSArray arrayWithObjects:@"Web Archive", @"Folder", nil]];
+     [NSArray arrayWithObjects:@"Folder", nil]];
     
     [savePanel setAccessoryView:[accessoryViewController view]];
     
