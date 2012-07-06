@@ -113,6 +113,7 @@
 
 - (void)discardProcessing:(NSNotification *)notification
 {
+    NSLog(@"called.");
     [self resetApplicationState];
 }
 
@@ -128,8 +129,9 @@
                                          defaultButton:NSLocalizedString(@"OK", @"") 
                                        alternateButton:nil
                                            otherButton:nil
-                             informativeTextWithFormat:NSLocalizedString(@"Something went wrong. Please try again or file a bug report at %@",
-                                                                                   @""), @"http://github.com/eFrane/whatsapphistory/issues"];
+                             informativeTextWithFormat:
+                          NSLocalizedString(@"Something went wrong. Please try again or file a bug report at %@",
+                                            @""), @"http://github.com/eFrane/whatsapphistory/issues"];
         [alert beginSheetModalForWindow:window 
                           modalDelegate:self
                          didEndSelector:@selector(displayedHistoryError:returnCode:contextInfo:) 

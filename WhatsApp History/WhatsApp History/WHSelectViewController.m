@@ -56,7 +56,7 @@
         if ([sourceURL class] == [NSURL class])
         {
             self.displayedSourceURL = [NSString stringWithFormat:NSLocalizedString(@"Currently selected: %@", @""), [sourceURL lastPathComponent]];
-            [processButton becomeFirstResponder];
+            //            [processButton becomeFirstResponder];
         } else 
         {
             self.displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", @"");
