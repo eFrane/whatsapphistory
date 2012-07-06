@@ -43,7 +43,7 @@
 - (void)awakeFromNib
 {
     [progressIndicator startAnimation:self];
-    [history performSelector:@selector(process) withObject:nil afterDelay:0.1];
+    [history performSelector:@selector(process) withObject:nil afterDelay:0.4];
 }
 
 - (void)progress:(NSNotification *)notification
