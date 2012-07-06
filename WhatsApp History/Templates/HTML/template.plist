@@ -1,0 +1,18 @@
+{
+	displayName = HTML;
+	"attachmentHandlingStyle" = move;
+	templates = (
+		{
+			name = message;
+			saveStyle = intermediate;
+			repetitionFrequency = each;
+			processingOrder = normal;
+		},
+		{
+			name = index;
+			saveStyle = final;
+			repetitionFrequency = once;
+			processingOrder = last;
+		},
+	);
+}

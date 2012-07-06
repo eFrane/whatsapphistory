@@ -14,10 +14,7 @@
 
 @interface WHPreviewViewController ()
 {
-    NSMutableArray *messageViewHeights;
     CGFloat defaultRowHeight;
-    
-    WHPreviewViewTableCellView *measuringView;
 }
 
 - (void)discardAlertDidEnd:(NSAlert *)alert returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo;
@@ -36,7 +33,6 @@
     if (self)
     {
         self.history = history;
-        messageViewHeights = [NSMutableArray arrayWithCapacity:[history.messages count]];
         defaultRowHeight = 50.0; // may be too small but should be sufficient in many cases
     }
     return self;
@@ -101,7 +97,6 @@
 
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
-    if (measuringView == nil) measuringView = [tableView makeViewWithIdentifier:@"MessageCellView" owner:self];
     WHPreviewViewTableCellView *view = [tableView makeViewWithIdentifier:@"MessageCellView" owner:self];
     
     WHMessage *message = [[_history messages] objectAtIndex:row];
