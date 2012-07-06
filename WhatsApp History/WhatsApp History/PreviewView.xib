@@ -150,16 +150,17 @@
 										<object class="NSColor" key="NSGridColor">
 											<int key="NSColorSpace">6</int>
 											<string key="NSCatalogName">System</string>
-											<string key="NSColorName">gridColor</string>
+											<string key="NSColorName">scrollBarColor</string>
 											<object class="NSColor" key="NSColor">
 												<int key="NSColorSpace">3</int>
 												<bytes key="NSWhite">MC41AA</bytes>
 											</object>
 										</object>
 										<double key="NSRowHeight">152</double>
-										<int key="NSTvFlags">306184192</int>
+										<int key="NSTvFlags">843055104</int>
 										<reference key="NSDelegate"/>
 										<reference key="NSDataSource"/>
+										<int key="NSGridStyleMask">8</int>
 										<int key="NSColumnAutoresizingStyle">2</int>
 										<int key="NSDraggingSourceMaskForLocal">15</int>
 										<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -259,6 +260,7 @@
 						<string key="NSFrame">{{709, 12}, {69, 32}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSButtonCell" key="NSCell" id="436138711">
