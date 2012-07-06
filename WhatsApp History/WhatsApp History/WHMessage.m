@@ -95,7 +95,7 @@ static NSMutableDictionary *userImageCache;
     
     if (![_timestamp isKindOfClass:[NSDate class]])
     {
-        _parent.message = [NSString stringWithFormat:@"%@\n%@", _parent.message, _originalMessage];
+        _parent.message = [NSString stringWithFormat:@"%@\n\n%@", _parent.message, _originalMessage];
         _message = nil;
     }
 }
