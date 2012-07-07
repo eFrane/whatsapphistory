@@ -27,7 +27,7 @@
 
 - (void)obtainHistoryString;
 - (void)splitLines;
-- (void)consolidateData;
+//- (void)consolidateData;
 @end
 
 static BOOL hasInstance = NO;
@@ -150,7 +150,7 @@ static BOOL hasInstance = NO;
     [_messages filterUsingPredicate:[NSPredicate predicateWithFormat:@"message != nil"]];    
     [_messages reverse];
     
-    [self consolidateData];
+    //    [self consolidateData];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:WHEndProcessingNotification object:self];
 }
@@ -267,6 +267,7 @@ static BOOL hasInstance = NO;
              [NSCharacterSet newlineCharacterSet]];
 }
 
+/*
 - (void)consolidateData
 {
     [WHHistory message:NSLocalizedString(@"Consolidating data...", @"")];
@@ -285,5 +286,6 @@ static BOOL hasInstance = NO;
     NSData *json = [NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
     [json writeToURL:url atomically:YES];
 }
+*/
 
 @end

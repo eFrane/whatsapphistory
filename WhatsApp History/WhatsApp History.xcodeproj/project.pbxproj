@@ -29,13 +29,15 @@
 		BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB8D5514156BB29600BA9A2F /* Credits.rtf */; };
 		BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */; };
 		BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8D551A156BB29600BA9A2F /* MainMenu.xib */; };
-		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; };
+		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BB9B8BD5157509D500F2B6D9 /* WHBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */; };
 		BB9B8BD915750F5D00F2B6D9 /* WHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD815750F5C00F2B6D9 /* WHAttachment.m */; };
 		BB9B8BDF1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */; };
 		BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */; };
 		BBADDABB1575026900785091 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBADDABA1575026900785091 /* PreviewView.xib */; };
 		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
+		BBFD5D4315A878770072F4C3 /* WHPreviewViewMessagesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD5D4215A878770072F4C3 /* WHPreviewViewMessagesTableView.m */; };
+		BBFD5D4615A87AD60072F4C3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBFD5D4515A87AD60072F4C3 /* Quartz.framework */; };
 		BBFE214715A21ADA00EFD47F /* WHPreviewViewMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +107,9 @@
 		BBADDABA1575026900785091 /* PreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewView.xib; sourceTree = "<group>"; };
 		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
 		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
+		BBFD5D4115A878770072F4C3 /* WHPreviewViewMessagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewMessagesTableView.h; sourceTree = "<group>"; };
+		BBFD5D4215A878770072F4C3 /* WHPreviewViewMessagesTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewMessagesTableView.m; sourceTree = "<group>"; };
+		BBFD5D4515A87AD60072F4C3 /* Quartz.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quartz.framework; path = System/Library/Frameworks/Quartz.framework; sourceTree = SDKROOT; };
 		BBFE214515A21ADA00EFD47F /* WHPreviewViewMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewMessageView.h; sourceTree = "<group>"; };
 		BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewMessageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBFD5D4615A87AD60072F4C3 /* Quartz.framework in Frameworks */,
 				BB7B051815A44322002088D7 /* AddressBook.framework in Frameworks */,
 				BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */,
 				BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */,
@@ -201,6 +207,7 @@
 			children = (
 				BB7B051715A44322002088D7 /* AddressBook.framework */,
 				BB8D5505156BB29600BA9A2F /* Cocoa.framework */,
+				BBFD5D4515A87AD60072F4C3 /* Quartz.framework */,
 				BB9900E41573E72F001C55BB /* WebKit.framework */,
 				BB8D5507156BB29600BA9A2F /* Other Frameworks */,
 				26A4C6682F834B2B8785E5D7 /* libPods.a */,
@@ -285,6 +292,8 @@
 				BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */,
 				BB7B051C15A4F322002088D7 /* WHPreviewViewTableCellView.h */,
 				BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */,
+				BBFD5D4115A878770072F4C3 /* WHPreviewViewMessagesTableView.h */,
+				BBFD5D4215A878770072F4C3 /* WHPreviewViewMessagesTableView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -395,6 +404,7 @@
 				BB7B051215A42D82002088D7 /* NSArray+Reverse.m in Sources */,
 				BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */,
 				BB7B051E15A4F323002088D7 /* WHPreviewViewTableCellView.m in Sources */,
+				BBFD5D4315A878770072F4C3 /* WHPreviewViewMessagesTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

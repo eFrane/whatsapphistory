@@ -12,6 +12,8 @@
 
 #import "WHMessage.h"
 
+#import <Quartz/Quartz.h>
+
 @interface WHPreviewViewController ()
 {
     CGFloat defaultRowHeight;
@@ -69,20 +71,57 @@
 
 - (void)saveButton:(id)sender
 {
+    
     NSSavePanel *savePanel = [NSSavePanel savePanel];
-    //    [savePanel setAllowedFileTypes:[NSArray arrayWithObject:@""]];
+    [savePanel setDirectoryURL:[[NSURL fileURLWithPath:NSHomeDirectory()] URLByAppendingPathComponent:@"Desktop"]];
+    [savePanel setShowsHiddenFiles:NO];
+    [savePanel setExtensionHidden:YES];
     
     WHPreviewViewSavePanelAccessoryViewController __block *accessoryViewController;
     accessoryViewController = [[WHPreviewViewSavePanelAccessoryViewController alloc] init];
-    [accessoryViewController setAvailableFileTypes:
-     [NSArray arrayWithObjects:@"Folder", nil]];
+    [accessoryViewController setAvailableFileTypes:[NSArray arrayWithObjects:@"PDF", @"EPS", @"Website", nil]];
     
     [savePanel setAccessoryView:[accessoryViewController view]];
-    
     [savePanel beginSheetModalForWindow:[[self view] window] completionHandler:^(NSInteger result) {
-        if (result == NSAlertDefaultReturn)
+        if (result != NSOKButton) return;
+        
+        if ([accessoryViewController.fileType.stringValue isEqualToString:@"PDF"])
         {
-            // TODO: do save
+            NSString *fileName = [[savePanel.URL URLByAppendingPathExtension:@"pdf"] relativePath];
+            
+            NSPrintInfo *printInfo;
+            NSPrintInfo *sharedInfo;
+            NSPrintOperation *printOperation;
+            NSMutableDictionary *printInfoDict;
+            NSMutableDictionary *sharedDict;
+            
+            sharedInfo = [NSPrintInfo sharedPrintInfo];
+            sharedDict = [sharedInfo dictionary];
+            
+            printInfoDict = [NSMutableDictionary dictionaryWithDictionary:sharedDict];
+            [printInfoDict setObject:NSPrintSaveJob forKey:NSPrintJobDisposition];
+            [printInfoDict setObject:fileName forKey:NSPrintSavePath];
+            
+            printInfo = [[NSPrintInfo alloc] initWithDictionary:printInfoDict];
+            [printInfo setHorizontalPagination:NSAutoPagination];
+            [printInfo setVerticalPagination:NSAutoPagination];
+            
+            printOperation = [NSPrintOperation printOperationWithView:_tableView printInfo:printInfo];
+            [printOperation setShowsPrintPanel:NO];
+            [printOperation setShowsProgressPanel:YES];
+            
+            [printOperation runOperation];
+        }
+        
+        if ([accessoryViewController.fileType.stringValue isEqualToString:@"EPS"])
+        {
+            NSData *data = [_tableView dataWithEPSInsideRect:_tableView.bounds];
+            [data writeToURL:[[savePanel URL] URLByAppendingPathExtension:@"eps"] atomically:NO];
+        }
+        
+        if ([accessoryViewController.fileType.stringValue isEqualToString:@"Website"])
+        {
+            // TODO: save website
         }
     }];
 }
