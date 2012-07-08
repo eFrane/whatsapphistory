@@ -87,7 +87,10 @@
         
         if ([accessoryViewController.fileType.stringValue isEqualToString:@"PDF"])
         {
-            NSString *fileName = [[savePanel.URL URLByAppendingPathExtension:@"pdf"] relativePath];
+            NSString *fileName = [savePanel.URL relativePath];
+            
+            if (![fileName.pathExtension isEqualToString:@"pdf"])
+                fileName = [[savePanel.URL URLByAppendingPathExtension:@"pdf"] relativePath];
             
             NSPrintInfo *printInfo;
             NSPrintInfo *sharedInfo;
@@ -99,18 +102,20 @@
             sharedDict = [sharedInfo dictionary];
             
             printInfoDict = [NSMutableDictionary dictionaryWithDictionary:sharedDict];
-            [printInfoDict setObject:NSPrintSaveJob forKey:NSPrintJobDisposition];
             [printInfoDict setObject:fileName forKey:NSPrintSavePath];
             
             printInfo = [[NSPrintInfo alloc] initWithDictionary:printInfoDict];
-            [printInfo setHorizontalPagination:NSAutoPagination];
+            [printInfo setHorizontalPagination:NSFitPagination];
             [printInfo setVerticalPagination:NSAutoPagination];
+            
+            [printInfo setJobDisposition:NSPrintSaveJob];
             
             printOperation = [NSPrintOperation printOperationWithView:_tableView printInfo:printInfo];
             [printOperation setShowsPrintPanel:NO];
             [printOperation setShowsProgressPanel:YES];
+            [printOperation setJobTitle:NSLocalizedString(@"PDF Export", @"")];
             
-            [printOperation runOperation];
+            [printOperation performSelector:@selector(runOperation) withObject:nil afterDelay:0.3];
         }
         
         if ([accessoryViewController.fileType.stringValue isEqualToString:@"EPS"])
@@ -168,7 +173,7 @@
     };
     
     WHMessage *message = [[_history messages] objectAtIndex:row];
-    return defaultRowHeight + heightForStringDrawing(message.attributedMessage, tableView.frame.size.width-16);
+    return defaultRowHeight + heightForStringDrawing(message.attributedMessage, 697);
 }
 
 @end

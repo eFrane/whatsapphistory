@@ -18,5 +18,6 @@
 @property (readwrite, retain) WHHistory *history;
 
 - (id)initWithHistory:(WHHistory *)aHistory;
+- (IBAction)cancel:(id)sender;
 
 @end

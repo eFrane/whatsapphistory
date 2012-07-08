@@ -19,6 +19,8 @@
     WHSelectViewController *selectViewController;
     WHProgessViewController *progressViewController;
     WHPreviewViewController *previewViewController;
+    
+    NSView *currentView;
 }
 
 - (void)setView:(NSView *)view;
@@ -69,6 +71,8 @@
                                                  name:WHHistoryErrorNotification 
                                                object:nil];
     
+    [[window contentView] addSubview:[selectViewController view]];
+    currentView = [selectViewController view];
     [self setView:[selectViewController view]];
 }
 
@@ -94,9 +98,22 @@
     windowFrame.size.width += deltaWidth;
     windowFrame.size.height += deltaHeight;
     
-    [window setContentView:nil];
-    [window setFrame:windowFrame display:YES animate:YES];
-    [window setContentView:view];
+    [[window contentView] setWantsLayer:YES];
+    
+    [NSAnimationContext beginGrouping];
+    
+    if ([[NSApp currentEvent] modifierFlags] & NSShiftKeyMask)
+    {
+        [[NSAnimationContext currentContext] setDuration:1.5];
+    }
+    
+    [[[window contentView] animator] replaceSubview:currentView with:view];
+    [[window animator] setFrame:windowFrame display:YES];
+    [[[[window.contentView subviews] objectAtIndex:0] animator] setFrameOrigin:NSMakePoint(0, currentView.frame.size.height - view.frame.size.height)];
+    
+    [NSAnimationContext endGrouping];
+    
+    currentView = (NSView *)view;
     
     if ([[view nextKeyView] isKindOfClass:[NSResponder class]])
     {

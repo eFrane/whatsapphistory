@@ -25,7 +25,7 @@
     if (self)
     {
         self.history = aHistory;
-        self.message = NSLocalizedString(@"Beginning processing", @"");
+        self.message = NSLocalizedString(@"Processing", @"");
         
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(progress:) 
@@ -57,5 +57,9 @@
     }
 }
 
+- (void)cancel:(id)sender
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryErrorNotification object:nil];
+}
 
 @end

@@ -68,6 +68,8 @@
 - (void)selectSource:(id)sender
 {
     NSOpenPanel *openPanel = [NSOpenPanel openPanel];
+    // default to ~/Downloads
+    [openPanel setDirectoryURL:[[NSURL fileURLWithPath:NSHomeDirectory()] URLByAppendingPathComponent:@"Downloads"]];
     [openPanel setCanChooseDirectories:YES];
     [openPanel setMessage:NSLocalizedString(@"Choose WhatsApp History file or archive", @"")];
     [openPanel setAllowedFileTypes:[NSArray arrayWithObjects:
