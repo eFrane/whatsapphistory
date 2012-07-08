@@ -102,14 +102,15 @@
     
     [NSAnimationContext beginGrouping];
     
-    if ([[NSApp currentEvent] modifierFlags] & NSShiftKeyMask)
-    {
-        [[NSAnimationContext currentContext] setDuration:1.5];
-    }
+    //    [[NSAnimationContext currentContext] setDuration:0.5];
     
     [[[window contentView] animator] replaceSubview:currentView with:view];
     [[window animator] setFrame:windowFrame display:YES];
-    [[[[window.contentView subviews] objectAtIndex:0] animator] setFrameOrigin:NSMakePoint(0, currentView.frame.size.height - view.frame.size.height)];
+    
+    CGFloat originY = [window.contentView frame].size.height;
+    originY -= view.frame.size.height;
+    
+    [[[[window.contentView subviews] objectAtIndex:0] animator] setFrameOrigin:NSMakePoint(0, originY)];
     
     [NSAnimationContext endGrouping];
     
