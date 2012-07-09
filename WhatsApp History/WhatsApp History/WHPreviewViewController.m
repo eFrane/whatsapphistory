@@ -12,6 +12,8 @@
 
 #import "WHMessage.h"
 
+#import "WHWebsiteExport.h"
+
 #import <Quartz/Quartz.h>
 
 @interface WHPreviewViewController ()
@@ -48,9 +50,9 @@
 
 - (void)discardButton:(id)sender
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Really discard?", @"") 
-                                     defaultButton:NSLocalizedString(@"Yes", @"") 
-                                   alternateButton:NSLocalizedString(@"No", @"") 
+    NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Really discard?", @"Processing discard evaluation question") 
+                                     defaultButton:NSLocalizedString(@"Yes", @"Generic yes button title") 
+                                   alternateButton:NSLocalizedString(@"No", @"Generic no button title") 
                                        otherButton:nil 
                          informativeTextWithFormat:@""];
     
@@ -79,13 +81,18 @@
     
     WHPreviewViewSavePanelAccessoryViewController __block *accessoryViewController;
     accessoryViewController = [[WHPreviewViewSavePanelAccessoryViewController alloc] init];
-    [accessoryViewController setAvailableFileTypes:[NSArray arrayWithObjects:@"PDF", @"EPS", @"Website", nil]];
+    [accessoryViewController setAvailableFileTypes:[NSArray arrayWithObjects:
+                                                    NSLocalizedString(@"PDF (Portable Document Format", @"PDF file format description"), 
+                                                    NSLocalizedString(@"EPS (Encapsulated Postscript", @"EPS file format description"), 
+                                                    NSLocalizedString(@"Website export", @"Website export. *drumroll*"), 
+                                                    nil]];
     
     [savePanel setAccessoryView:[accessoryViewController view]];
     [savePanel beginSheetModalForWindow:[[self view] window] completionHandler:^(NSInteger result) {
         if (result != NSOKButton) return;
         
-        if ([accessoryViewController.fileType.stringValue isEqualToString:@"PDF"])
+        if ([accessoryViewController.fileType.stringValue 
+             isEqualToString:NSLocalizedString(@"PDF (Portable Document Format", @"PDF file format description")])
         {
             NSString *fileName = [savePanel.URL relativePath];
             
@@ -113,20 +120,23 @@
             printOperation = [NSPrintOperation printOperationWithView:_tableView printInfo:printInfo];
             [printOperation setShowsPrintPanel:NO];
             [printOperation setShowsProgressPanel:YES];
-            [printOperation setJobTitle:NSLocalizedString(@"PDF Export", @"")];
             
+            // run the print operation with a short delay to end the modal state
             [printOperation performSelector:@selector(runOperation) withObject:nil afterDelay:0.3];
         }
         
-        if ([accessoryViewController.fileType.stringValue isEqualToString:@"EPS"])
+        if ([accessoryViewController.fileType.stringValue 
+             isEqualToString:NSLocalizedString(@"EPS (Encapsulated Postscript", @"EPS file format description")])
         {
             NSData *data = [_tableView dataWithEPSInsideRect:_tableView.bounds];
             [data writeToURL:[[savePanel URL] URLByAppendingPathExtension:@"eps"] atomically:NO];
         }
         
-        if ([accessoryViewController.fileType.stringValue isEqualToString:@"Website"])
+        if ([accessoryViewController.fileType.stringValue 
+             isEqualToString:NSLocalizedString(@"Website export", @"Website export. *drumroll*")])
         {
-            // TODO: save website
+            WHWebsiteExport *export = [[WHWebsiteExport alloc] initWithHistory:self.history folderURL:savePanel.URL];
+            [export save];
         }
     }];
 }
@@ -159,7 +169,6 @@
     CGFloat (^heightForStringDrawing)(NSAttributedString *, CGFloat) = ^(NSAttributedString *string, CGFloat width)
     {
         NSTextStorage *textStorage = [[NSTextStorage alloc] initWithAttributedString:string];
-        //NSTextContainer *textContainer [NSTextContainer alloc] initWithContainerSize:NSMakeSize(width, FLT_MAX)];
         NSTextContainer *textContainer = [[NSTextContainer alloc] initWithContainerSize:NSMakeSize(width, FLT_MAX)];
         NSLayoutManager *layoutManager = [[NSLayoutManager alloc] init];
         

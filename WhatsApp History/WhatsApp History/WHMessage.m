@@ -68,7 +68,9 @@ static NSMutableDictionary *userImageCache;
 
 - (void)process
 {
-    [WHHistory message:[NSString stringWithFormat:NSLocalizedString(@"Processing \"%@\"", @""), _originalMessage]];
+    [WHHistory message:[NSString stringWithFormat:NSLocalizedString(@"Processing \"%@\"", 
+                                                                    @"Message that indactes which chat message is currently being processed"), 
+                        _originalMessage]];
     NSScanner *scanner = [NSScanner scannerWithString:_originalMessage];
     
     NSString *dateString1, *dateString2;

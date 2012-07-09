@@ -29,7 +29,8 @@
         *error = [NSError errorWithDomain:WHErrorDomain 
                                      code:1 
                                  userInfo:[NSDictionary 
-                                           dictionaryWithObjectsAndKeys:NSLocalizedString(@"Could not create temporary directory", @""), 
+                                           dictionaryWithObjectsAndKeys:NSLocalizedString(@"Could not create temporary directory", 
+                                                                                          @"Error message if no temporary directory could be created."), 
                                            NSLocalizedDescriptionKey, nil]];
         return nil;
     }

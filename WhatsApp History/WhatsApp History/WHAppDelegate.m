@@ -102,8 +102,6 @@
     
     [NSAnimationContext beginGrouping];
     
-    //    [[NSAnimationContext currentContext] setDuration:0.5];
-    
     [[[window contentView] animator] replaceSubview:currentView with:view];
     [[window animator] setFrame:windowFrame display:YES];
     
@@ -146,13 +144,14 @@
         previewViewController = [[WHPreviewViewController alloc] initWithHistory:history];
         [self setView:[previewViewController view]];
     } else {
-        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Something went wrong.", @"") 
-                                         defaultButton:NSLocalizedString(@"OK", @"") 
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Something went wrong.", @"Generic error message") 
+                                         defaultButton:NSLocalizedString(@"OK", @"Generic OK button title") 
                                        alternateButton:nil
                                            otherButton:nil
                              informativeTextWithFormat:
                           NSLocalizedString(@"Something went wrong. Please try again or file a bug report at %@",
-                                            @""), @"http://github.com/eFrane/whatsapphistory/issues"];
+                                            @"Generic error message description"), 
+                          @"http://github.com/eFrane/whatsapphistory/issues"];
         [alert beginSheetModalForWindow:window 
                           modalDelegate:self
                          didEndSelector:@selector(displayedHistoryError:returnCode:contextInfo:) 

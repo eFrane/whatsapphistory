@@ -157,7 +157,7 @@ static BOOL hasInstance = NO;
 
 - (NSURL *)unarchiveSourceURLWithArchiveType:(NSString *)archiveType
 {
-    [WHHistory message:@"Unarchiving ..."];
+    [WHHistory message:NSLocalizedString(@"Unarchiving ...", @"Message while unarchiving a compressed history")];
     
     NSError *error;
     NSURL *tempFolderURL = [[NSFileManager defaultManager] temporaryFolderWithBaseName:@"WAHistoryData" error:&error];
@@ -194,7 +194,9 @@ static BOOL hasInstance = NO;
         return tempFolderURL;
     } else 
     {
-        NSError *error = [self errorWithCode:2 localizedDescription:NSLocalizedString(@"Unarchiving failed.", @"")];
+        NSError *error = [self errorWithCode:2 
+                        localizedDescription:NSLocalizedString(@"Unarchiving failed.", 
+                                                               @"Error message if the history archive could not be decompressed")];
         [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryErrorNotification object:error];
         return nil;
     }
@@ -202,7 +204,7 @@ static BOOL hasInstance = NO;
 
 - (void)obtainHistoryString
 {
-    [WHHistory message:NSLocalizedString(@"Locating history file", @"")];
+    [WHHistory message:NSLocalizedString(@"Locating history file", @"Message while looking for the history text file")];
     if ([[_sourceURL absoluteString] hasSuffix:@".txt"])
     {
         NSError *error = nil;
@@ -254,7 +256,9 @@ static BOOL hasInstance = NO;
     
     if (!_historyString)
     {
-        NSError *error = [self errorWithCode:3 localizedDescription:NSLocalizedString(@"No history file found.", @"")];
+        NSError *error = [self errorWithCode:3 
+                        localizedDescription:NSLocalizedString(@"No history file found.", 
+                                                               @"Error message if there was no history text file found.")];
         [[NSNotificationCenter defaultCenter] postNotificationName:WHHistoryErrorNotification object:error];
         return;
     }
@@ -262,7 +266,7 @@ static BOOL hasInstance = NO;
 
 - (void)splitLines
 {
-    [WHHistory message:NSLocalizedString(@"Splitting lines...", @"")];
+    [WHHistory message:NSLocalizedString(@"Splitting lines...", @"Message while splitting the lines (this actually can take a while)")];
     lines = [[self historyString] componentsSeparatedByCharactersInSet:
              [NSCharacterSet newlineCharacterSet]];
 }

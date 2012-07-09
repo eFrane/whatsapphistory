@@ -33,7 +33,8 @@
                                                      name:WHSelectDropEndedNotification 
                                                    object:nil];
         
-        displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", @"");
+        displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", 
+                                               @"Source URL text while nothing is selected. (e.g. 'hey, I am a drop target!'");
         
         sourceURL = nil;
     }
@@ -55,12 +56,15 @@
     {
         if ([sourceURL class] == [NSURL class])
         {
-            self.displayedSourceURL = [NSString stringWithFormat:NSLocalizedString(@"Currently selected: %@", @""), [sourceURL lastPathComponent]];
+            self.displayedSourceURL = [NSString stringWithFormat:NSLocalizedString(@"Currently selected: %@", 
+                                                                                   @"Source URL text when something is selected"),
+                                       [sourceURL lastPathComponent]];
             [selectButton  resignFirstResponder];
             [processButton becomeFirstResponder];
         } else 
         {
-            self.displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", @"");
+            self.displayedSourceURL = NSLocalizedString(@"Drop File or Folder here", 
+                                                        @"Source URL text while nothing is selected. (e.g. 'hey, I am a drop target!'");
         }
     }
 }

@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		4C90DFDCCE9643A2AFC80839 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26A4C6682F834B2B8785E5D7 /* libPods.a */; };
+		BB159A2415AB1EDB001D09AE /* SelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB159A2615AB1EDB001D09AE /* SelectView.xib */; };
+		BB159A2815AB1F5B001D09AE /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB159A2A15AB1F5B001D09AE /* ProgressView.xib */; };
+		BB159A2C15AB1F82001D09AE /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB159A2E15AB1F82001D09AE /* PreviewView.xib */; };
+		BB159A3015AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB159A3215AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib */; };
 		BB32763C156E5AC100150B64 /* WHMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763B156E5AC100150B64 /* WHMessage.m */; };
 		BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */ = {isa = PBXBuildFile; fileRef = BB32763E156EB5DC00150B64 /* NSString+Clinching.m */; };
 		BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */ = {isa = PBXBuildFile; fileRef = BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */; };
 		BB39E0D9156BE28700CEA6CF /* WHSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */; };
-		BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DA156C016C00CEA6CF /* SelectView.xib */; };
-		BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */; };
 		BB39E0E0156C066500CEA6CF /* WHProgessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */; };
 		BB39E0E3156C142900CEA6CF /* WHHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E2156C142900CEA6CF /* WHHistory.m */; };
 		BB39E0E6156C1FFD00CEA6CF /* WHPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = BB39E0E5156C1FFD00CEA6CF /* WHPreferences.m */; };
@@ -23,6 +25,7 @@
 		BB7B051815A44322002088D7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB7B051715A44322002088D7 /* AddressBook.framework */; };
 		BB7B051B15A44963002088D7 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7B051A15A44963002088D7 /* user.png */; };
 		BB7B051E15A4F323002088D7 /* WHPreviewViewTableCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */; };
+		BB8763CB15A9FD3300447618 /* WHWebsiteExport.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8763CA15A9FD3300447618 /* WHWebsiteExport.m */; };
 		BB8D5506156BB29600BA9A2F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB8D5505156BB29600BA9A2F /* Cocoa.framework */; };
 		BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BB8D550E156BB29600BA9A2F /* InfoPlist.strings */; };
 		BB8D5512156BB29600BA9A2F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5511156BB29600BA9A2F /* main.m */; };
@@ -30,32 +33,26 @@
 		BB8D5519156BB29600BA9A2F /* WHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */; };
 		BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8D551A156BB29600BA9A2F /* MainMenu.xib */; };
 		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		BB9B8BD5157509D500F2B6D9 /* WHBoxing.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */; };
 		BB9B8BD915750F5D00F2B6D9 /* WHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD815750F5C00F2B6D9 /* WHAttachment.m */; };
-		BB9B8BDF1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */; };
 		BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */; };
-		BBADDABB1575026900785091 /* PreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBADDABA1575026900785091 /* PreviewView.xib */; };
 		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
 		BBFD5D4315A878770072F4C3 /* WHPreviewViewMessagesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD5D4215A878770072F4C3 /* WHPreviewViewMessagesTableView.m */; };
 		BBFD5D4615A87AD60072F4C3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBFD5D4515A87AD60072F4C3 /* Quartz.framework */; };
 		BBFE214715A21ADA00EFD47F /* WHPreviewViewMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFE214615A21ADA00EFD47F /* WHPreviewViewMessageView.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		BB8F106E1581EEEF009A40B6 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		26A4C6682F834B2B8785E5D7 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC055C82C8AE4E7896D3CB73 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		BB159A2315AB1EB1001D09AE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BB159A2515AB1EDB001D09AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SelectView.xib; sourceTree = "<group>"; };
+		BB159A2715AB1EE8001D09AE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/SelectView.xib; sourceTree = "<group>"; };
+		BB159A2915AB1F5B001D09AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ProgressView.xib; sourceTree = "<group>"; };
+		BB159A2B15AB1F62001D09AE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/ProgressView.xib; sourceTree = "<group>"; };
+		BB159A2D15AB1F82001D09AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PreviewView.xib; sourceTree = "<group>"; };
+		BB159A2F15AB1F8B001D09AE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/PreviewView.xib; sourceTree = "<group>"; };
+		BB159A3115AB1FD5001D09AE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PreviewViewSavePanelAccessoryView.xib; sourceTree = "<group>"; };
+		BB159A3315AB1FDD001D09AE /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/PreviewViewSavePanelAccessoryView.xib; sourceTree = "<group>"; };
 		BB327637156E518F00150B64 /* List of Errors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "List of Errors.txt"; sourceTree = "<group>"; };
 		BB32763A156E5AC100150B64 /* WHMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHMessage.h; sourceTree = "<group>"; };
 		BB32763B156E5AC100150B64 /* WHMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHMessage.m; sourceTree = "<group>"; };
@@ -65,8 +62,6 @@
 		BB327641156F6C7100150B64 /* NSFileManager+TemporaryFolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+TemporaryFolder.m"; sourceTree = "<group>"; };
 		BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHSelectViewController.h; sourceTree = "<group>"; };
 		BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHSelectViewController.m; sourceTree = "<group>"; };
-		BB39E0DA156C016C00CEA6CF /* SelectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectView.xib; sourceTree = "<group>"; };
-		BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHProgessViewController.h; sourceTree = "<group>"; };
 		BB39E0DF156C066500CEA6CF /* WHProgessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHProgessViewController.m; sourceTree = "<group>"; };
 		BB39E0E1156C142900CEA6CF /* WHHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHHistory.h; sourceTree = "<group>"; };
@@ -83,6 +78,8 @@
 		BB7B051A15A44963002088D7 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
 		BB7B051C15A4F322002088D7 /* WHPreviewViewTableCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewTableCellView.h; sourceTree = "<group>"; };
 		BB7B051D15A4F322002088D7 /* WHPreviewViewTableCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewTableCellView.m; sourceTree = "<group>"; };
+		BB8763C915A9FD3300447618 /* WHWebsiteExport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHWebsiteExport.h; sourceTree = "<group>"; };
+		BB8763CA15A9FD3300447618 /* WHWebsiteExport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHWebsiteExport.m; sourceTree = "<group>"; };
 		BB8D5501156BB29600BA9A2F /* WhatsApp History.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WhatsApp History.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8D5505156BB29600BA9A2F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		BB8D5508156BB29600BA9A2F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -97,14 +94,10 @@
 		BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WHAppDelegate.m; sourceTree = "<group>"; };
 		BB8D551B156BB29600BA9A2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		BB9900E41573E72F001C55BB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		BB9B8BD3157509D500F2B6D9 /* WHBoxing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHBoxing.h; sourceTree = "<group>"; };
-		BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHBoxing.m; sourceTree = "<group>"; };
 		BB9B8BD715750F5C00F2B6D9 /* WHAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHAttachment.h; sourceTree = "<group>"; };
 		BB9B8BD815750F5C00F2B6D9 /* WHAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHAttachment.m; sourceTree = "<group>"; };
-		BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewViewSavePanelAccessoryView.xib; sourceTree = "<group>"; };
 		BB9B8BE0157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewSavePanelAccessoryViewController.h; sourceTree = "<group>"; };
 		BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewSavePanelAccessoryViewController.m; sourceTree = "<group>"; };
-		BBADDABA1575026900785091 /* PreviewView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviewView.xib; sourceTree = "<group>"; };
 		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
 		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
 		BBFD5D4115A878770072F4C3 /* WHPreviewViewMessagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewMessagesTableView.h; sourceTree = "<group>"; };
@@ -130,15 +123,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB159A3415AB22FD001D09AE /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
+				BB159A2615AB1EDB001D09AE /* SelectView.xib */,
+				BB159A2A15AB1F5B001D09AE /* ProgressView.xib */,
+				BB159A2E15AB1F82001D09AE /* PreviewView.xib */,
+				BB159A3215AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib */,
+			);
+			name = XIBs;
+			sourceTree = "<group>";
+		};
 		BB327643156F8D7E00150B64 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BB159A3415AB22FD001D09AE /* XIBs */,
 				BB7B051915A4494F002088D7 /* Images */,
-				BB8D551A156BB29600BA9A2F /* MainMenu.xib */,
-				BB39E0DA156C016C00CEA6CF /* SelectView.xib */,
-				BB39E0DC156C01BB00CEA6CF /* ProgressView.xib */,
-				BBADDABA1575026900785091 /* PreviewView.xib */,
-				BB9B8BDE1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib */,
 				BBC233EE15A74BA800B6BA94 /* Controllers */,
 				BBC233EF15A74BB900B6BA94 /* Views */,
 			);
@@ -187,7 +188,6 @@
 			isa = PBXGroup;
 			children = (
 				BB8D550B156BB29600BA9A2F /* WhatsApp History */,
-				BB8F10711581EFA5009A40B6 /* Template Plugins */,
 				BB8D5504156BB29600BA9A2F /* Frameworks */,
 				BB8D5502156BB29600BA9A2F /* Products */,
 				AC055C82C8AE4E7896D3CB73 /* Pods.xcconfig */,
@@ -232,7 +232,7 @@
 				BB8D5518156BB29600BA9A2F /* WHAppDelegate.m */,
 				BB327643156F8D7E00150B64 /* UI */,
 				BB327644156F8D9800150B64 /* Parsing */,
-				BB9B8BDD1575144A00F2B6D9 /* Boxing */,
+				BB9B8BDD1575144A00F2B6D9 /* Website Export */,
 				BB327645156F8DA500150B64 /* Misc */,
 				BB8D550C156BB29600BA9A2F /* Supporting Files */,
 			);
@@ -252,20 +252,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		BB8F10711581EFA5009A40B6 /* Template Plugins */ = {
+		BB9B8BDD1575144A00F2B6D9 /* Website Export */ = {
 			isa = PBXGroup;
 			children = (
+				BB8763C915A9FD3300447618 /* WHWebsiteExport.h */,
+				BB8763CA15A9FD3300447618 /* WHWebsiteExport.m */,
 			);
-			name = "Template Plugins";
-			sourceTree = "<group>";
-		};
-		BB9B8BDD1575144A00F2B6D9 /* Boxing */ = {
-			isa = PBXGroup;
-			children = (
-				BB9B8BD3157509D500F2B6D9 /* WHBoxing.h */,
-				BB9B8BD4157509D500F2B6D9 /* WHBoxing.m */,
-			);
-			name = Boxing;
+			name = "Website Export";
 			sourceTree = "<group>";
 		};
 		BBC233EE15A74BA800B6BA94 /* Controllers */ = {
@@ -308,8 +301,8 @@
 				BB8D54FD156BB29600BA9A2F /* Sources */,
 				BB8D54FE156BB29600BA9A2F /* Frameworks */,
 				BB8D54FF156BB29600BA9A2F /* Resources */,
-				BB8F106E1581EEEF009A40B6 /* CopyFiles */,
 				0580F1F9C6F94845B6D9A4BB /* Copy Pods Resources */,
+				BB159A2215AB1D70001D09AE /* Copy History Styles */,
 			);
 			buildRules = (
 			);
@@ -335,6 +328,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = BB8D54F6156BB29500BA9A2F;
 			productRefGroup = BB8D5502156BB29600BA9A2F /* Products */;
@@ -354,10 +348,10 @@
 				BB8D5510156BB29600BA9A2F /* InfoPlist.strings in Resources */,
 				BB8D5516156BB29600BA9A2F /* Credits.rtf in Resources */,
 				BB8D551C156BB29600BA9A2F /* MainMenu.xib in Resources */,
-				BB39E0DB156C016C00CEA6CF /* SelectView.xib in Resources */,
-				BB39E0DD156C01BB00CEA6CF /* ProgressView.xib in Resources */,
-				BBADDABB1575026900785091 /* PreviewView.xib in Resources */,
-				BB9B8BDF1575602B00F2B6D9 /* PreviewViewSavePanelAccessoryView.xib in Resources */,
+				BB159A2415AB1EDB001D09AE /* SelectView.xib in Resources */,
+				BB159A2815AB1F5B001D09AE /* ProgressView.xib in Resources */,
+				BB159A2C15AB1F82001D09AE /* PreviewView.xib in Resources */,
+				BB159A3015AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib in Resources */,
 				BB7B051B15A44963002088D7 /* user.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,6 +373,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
+		BB159A2215AB1D70001D09AE /* Copy History Styles */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy History Styles";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Templates/install-templates.sh\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -397,7 +405,6 @@
 				BB32763F156EB5DC00150B64 /* NSString+Clinching.m in Sources */,
 				BB327642156F6C7100150B64 /* NSFileManager+TemporaryFolder.m in Sources */,
 				BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */,
-				BB9B8BD5157509D500F2B6D9 /* WHBoxing.m in Sources */,
 				BB9B8BD915750F5D00F2B6D9 /* WHAttachment.m in Sources */,
 				BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */,
 				BBFE214715A21ADA00EFD47F /* WHPreviewViewMessageView.m in Sources */,
@@ -405,12 +412,49 @@
 				BB7B051615A4363A002088D7 /* NSDate+JSONFormat.m in Sources */,
 				BB7B051E15A4F323002088D7 /* WHPreviewViewTableCellView.m in Sources */,
 				BBFD5D4315A878770072F4C3 /* WHPreviewViewMessagesTableView.m in Sources */,
+				BB8763CB15A9FD3300447618 /* WHWebsiteExport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		BB159A2615AB1EDB001D09AE /* SelectView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB159A2515AB1EDB001D09AE /* en */,
+				BB159A2715AB1EE8001D09AE /* de */,
+			);
+			name = SelectView.xib;
+			sourceTree = "<group>";
+		};
+		BB159A2A15AB1F5B001D09AE /* ProgressView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB159A2915AB1F5B001D09AE /* en */,
+				BB159A2B15AB1F62001D09AE /* de */,
+			);
+			name = ProgressView.xib;
+			sourceTree = "<group>";
+		};
+		BB159A2E15AB1F82001D09AE /* PreviewView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB159A2D15AB1F82001D09AE /* en */,
+				BB159A2F15AB1F8B001D09AE /* de */,
+			);
+			name = PreviewView.xib;
+			sourceTree = "<group>";
+		};
+		BB159A3215AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB159A3115AB1FD5001D09AE /* en */,
+				BB159A3315AB1FDD001D09AE /* de */,
+			);
+			name = PreviewViewSavePanelAccessoryView.xib;
+			sourceTree = "<group>";
+		};
 		BB8D550E156BB29600BA9A2F /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -431,6 +475,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BB8D551B156BB29600BA9A2F /* en */,
+				BB159A2315AB1EB1001D09AE /* de */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";

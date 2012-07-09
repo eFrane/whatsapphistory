@@ -25,7 +25,7 @@
     if (self)
     {
         self.history = aHistory;
-        self.message = NSLocalizedString(@"Processing", @"");
+        self.message = NSLocalizedString(@"Processing", @"Generic processing message");
         
         [[NSNotificationCenter defaultCenter] addObserver:self 
                                                  selector:@selector(progress:) 
