@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>WhatsApp History</title>
+  <style type="text/css">
+    @import url("style.css");
+  </style>
+ </head>
+ <body>
+  <header>
+   <h1>WhatsApp History</h1>
+  </header>
+  <section id="messages">
+    {{#messages}}
+      <div>
+        {{message}}
+      </div>
+    {{/messages}}
+  </section>
+ </body>
+</html>
