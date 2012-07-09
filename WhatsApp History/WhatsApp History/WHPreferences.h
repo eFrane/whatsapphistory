@@ -10,7 +10,7 @@
 
 #pragma mark Preferences
 
-extern NSString * const WHCurrentTemplatePluginBundleKey;
+extern NSString * const WHCurrentHistoryStyleKey;
 
 #pragma mark Notifications
 

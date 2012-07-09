@@ -11,9 +11,7 @@
 #import "WHWebsiteExport.h"
 
 @interface WHWebsiteExport ()
-{
-    NSArray *defaultTemplateFiles;
-}
+- (NSBundle *)historyStyle;
 @end
 
 @implementation WHWebsiteExport
@@ -27,8 +25,6 @@
     {
         _history = history;
         _folderURL = folderURL;
-        
-        defaultTemplateFiles = [NSArray arrayWithObjects:@"index.html", nil];
     }
     return self;
 }
@@ -39,8 +35,33 @@
     NSError *error;
     [fm createDirectoryAtURL:self.folderURL withIntermediateDirectories:YES attributes:nil error:&error];
     
-    // apply template set and save files and stationary data
+    NSBundle *historyStyle = [self historyStyle];
+    NSData *infoData = [NSData dataWithContentsOfURL:[historyStyle URLForResource:@"info" withExtension:@"json"]];
+    NSDictionary *info = [NSJSONSerialization JSONObjectWithData:infoData options:0 error:&error];
     
+    // copy assets
+    for (NSString *asset in [info objectForKey:@"assets"])
+    {
+        NSURL *fromURL = [historyStyle URLForResource:[asset stringByDeletingPathExtension] withExtension:[asset pathExtension]];
+        NSURL *toURL   = [[self.folderURL URLByAppendingPathComponent:[asset stringByDeletingPathExtension]] 
+                          URLByAppendingPathExtension:[asset pathExtension]];
+        [fm copyItemAtURL:fromURL toURL:toURL error:&error];
+    }
+    
+    // apply template
+    NSURL *templateURL = [historyStyle URLForResource:@"index" withExtension:@"mustache"];
+    NSString *renderedTemplate = [GRMustacheTemplate renderObject:self.history fromContentsOfURL:templateURL error:&error];
+    [renderedTemplate writeToURL:[[self.folderURL URLByAppendingPathComponent:@"index"] URLByAppendingPathExtension:@"html"] 
+                      atomically:NO encoding:NSUTF8StringEncoding error:&error];
+    
+    [historyStyle unload]; // be kind and free memory
+}
+
+- (NSBundle *)historyStyle
+{
+    return [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Default" 
+                                                           withExtension:@"wahistorystyle" 
+                                                            subdirectory:@"Styles"]];
 }
 
 @end

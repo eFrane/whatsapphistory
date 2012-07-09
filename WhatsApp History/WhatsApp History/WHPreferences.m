@@ -12,7 +12,7 @@
 
 #pragma mark Preferences
 
-NSString * const WHCurrentTemplatePluginBundleKey = @"WHCurrentTemplatePluginBundle";
+NSString * const WHCurrentHistoryStyleKey = @"WHCurrentHistoryStyle";
 
 #pragma mark Notifications
 
@@ -33,7 +33,7 @@ NSString * const WHErrorDomain = @"com.meanderingsoul.WhatsApp-History.ErrorDoma
 
 + (void)initialize
 {
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"Plain", WHCurrentTemplatePluginBundleKey, nil];
+    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"Plain", WHCurrentHistoryStyleKey, nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dict];
 }
 

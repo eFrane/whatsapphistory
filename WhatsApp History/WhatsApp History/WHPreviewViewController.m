@@ -82,9 +82,9 @@
     WHPreviewViewSavePanelAccessoryViewController __block *accessoryViewController;
     accessoryViewController = [[WHPreviewViewSavePanelAccessoryViewController alloc] init];
     [accessoryViewController setAvailableFileTypes:[NSArray arrayWithObjects:
+                                                    NSLocalizedString(@"Website export", @"Website export. *drumroll*"),
                                                     NSLocalizedString(@"PDF (Portable Document Format", @"PDF file format description"), 
                                                     NSLocalizedString(@"EPS (Encapsulated Postscript", @"EPS file format description"), 
-                                                    NSLocalizedString(@"Website export", @"Website export. *drumroll*"), 
                                                     nil]];
     
     [savePanel setAccessoryView:[accessoryViewController view]];

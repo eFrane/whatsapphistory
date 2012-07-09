@@ -98,6 +98,7 @@
 		BB9B8BD815750F5C00F2B6D9 /* WHAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHAttachment.m; sourceTree = "<group>"; };
 		BB9B8BE0157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewSavePanelAccessoryViewController.h; sourceTree = "<group>"; };
 		BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewSavePanelAccessoryViewController.m; sourceTree = "<group>"; };
+		BBB3C90115AB50360042AE36 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
 		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
 		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
 		BBFD5D4115A878770072F4C3 /* WHPreviewViewMessagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewMessagesTableView.h; sourceTree = "<group>"; };
@@ -385,7 +386,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Templates/install-templates.sh\"";
+			shellScript = "mkdir -p \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Styles\"\n\ncd \"${STYLES_ROOT}\"\nfor style in `find . -type d -and -name \"*.wahistorystyle\"`\ndo\ncp -R $style \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Styles/\"\nSetFile -a B \"${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Styles/`basename $style`\"\ndone\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -467,6 +468,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				BB8D5515156BB29600BA9A2F /* en */,
+				BBB3C90115AB50360042AE36 /* de */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -539,12 +541,14 @@
 				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SKIP_INSTALL = YES;
+				STYLES_ROOT = "${SRCROOT}/Templates";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -558,12 +562,14 @@
 				GCC_PREFIX_HEADER = "WhatsApp History/WhatsApp History-Prefix.pch";
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SKIP_INSTALL = YES;
+				STYLES_ROOT = "${SRCROOT}/Templates";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
