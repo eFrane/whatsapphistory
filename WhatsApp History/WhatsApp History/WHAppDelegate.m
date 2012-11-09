@@ -12,6 +12,8 @@
 #import "WHProgessViewController.h"
 #import "WHPreviewViewController.h"
 
+#import "WHPreferencesWindowController.h"
+
 #import "WHHistory.h"
 
 @interface WHAppDelegate ()
@@ -19,6 +21,8 @@
     WHSelectViewController *selectViewController;
     WHProgessViewController *progressViewController;
     WHPreviewViewController *previewViewController;
+    
+    WHPreferencesWindowController *preferencesWindowController;
     
     NSView *currentView;
 }
@@ -79,6 +83,16 @@
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)displayPreferences:(id)sender
+{
+    if (preferencesWindowController == nil)
+    {
+        preferencesWindowController = [[WHPreferencesWindowController alloc] init];
+    }
+    
+    [preferencesWindowController.window makeKeyAndOrderFront:self ];
 }
 
 - (void)setView:(NSView *)view

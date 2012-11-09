@@ -13,7 +13,9 @@
   <section id="messages">
     {{#messages}}
       <div>
-        {{message}}
+        <div class="author">{{author}}</div>
+        <div class="timestamp">{{timestamp}}</div>
+        <div class="message">{{message}}</div>
       </div>
     {{/messages}}
   </section>

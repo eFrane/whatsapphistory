@@ -35,6 +35,8 @@
 		BB9900E51573E72F001C55BB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB9900E41573E72F001C55BB /* WebKit.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		BB9B8BD915750F5D00F2B6D9 /* WHAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BD815750F5C00F2B6D9 /* WHAttachment.m */; };
 		BB9B8BE2157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */; };
+		BBB91E9615ACE85500AAAE75 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBB91E9815ACE85500AAAE75 /* Preferences.xib */; };
+		BBBC0DB515B0B49B00BF02EB /* WHPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC0DB415B0B49B00BF02EB /* WHPreferencesWindowController.m */; };
 		BBBE00EE157356BA00609D95 /* WHPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */; };
 		BBFD5D4315A878770072F4C3 /* WHPreviewViewMessagesTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD5D4215A878770072F4C3 /* WHPreviewViewMessagesTableView.m */; };
 		BBFD5D4615A87AD60072F4C3 /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBFD5D4515A87AD60072F4C3 /* Quartz.framework */; };
@@ -99,6 +101,10 @@
 		BB9B8BE0157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewSavePanelAccessoryViewController.h; sourceTree = "<group>"; };
 		BB9B8BE1157561A700F2B6D9 /* WHPreviewViewSavePanelAccessoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewSavePanelAccessoryViewController.m; sourceTree = "<group>"; };
 		BBB3C90115AB50360042AE36 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = de; path = de.lproj/Credits.rtf; sourceTree = "<group>"; };
+		BBB91E9715ACE85500AAAE75 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/Preferences.xib; sourceTree = "<group>"; };
+		BBB91E9915ACE86200AAAE75 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = de; path = de.lproj/Preferences.xib; sourceTree = "<group>"; };
+		BBBC0DB315B0B49B00BF02EB /* WHPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreferencesWindowController.h; sourceTree = "<group>"; };
+		BBBC0DB415B0B49B00BF02EB /* WHPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreferencesWindowController.m; sourceTree = "<group>"; };
 		BBBE00EB157356BA00609D95 /* WHPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewController.h; sourceTree = "<group>"; };
 		BBBE00EC157356BA00609D95 /* WHPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WHPreviewViewController.m; sourceTree = "<group>"; };
 		BBFD5D4115A878770072F4C3 /* WHPreviewViewMessagesTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WHPreviewViewMessagesTableView.h; sourceTree = "<group>"; };
@@ -132,6 +138,7 @@
 				BB159A2A15AB1F5B001D09AE /* ProgressView.xib */,
 				BB159A2E15AB1F82001D09AE /* PreviewView.xib */,
 				BB159A3215AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib */,
+				BBB91E9815ACE85500AAAE75 /* Preferences.xib */,
 			);
 			name = XIBs;
 			sourceTree = "<group>";
@@ -265,6 +272,8 @@
 		BBC233EE15A74BA800B6BA94 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BBBC0DB315B0B49B00BF02EB /* WHPreferencesWindowController.h */,
+				BBBC0DB415B0B49B00BF02EB /* WHPreferencesWindowController.m */,
 				BB39E0D7156BE28700CEA6CF /* WHSelectViewController.h */,
 				BB39E0D8156BE28700CEA6CF /* WHSelectViewController.m */,
 				BB39E0DE156C066500CEA6CF /* WHProgessViewController.h */,
@@ -354,6 +363,7 @@
 				BB159A2C15AB1F82001D09AE /* PreviewView.xib in Resources */,
 				BB159A3015AB1FD5001D09AE /* PreviewViewSavePanelAccessoryView.xib in Resources */,
 				BB7B051B15A44963002088D7 /* user.png in Resources */,
+				BBB91E9615ACE85500AAAE75 /* Preferences.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +424,7 @@
 				BB7B051E15A4F323002088D7 /* WHPreviewViewTableCellView.m in Sources */,
 				BBFD5D4315A878770072F4C3 /* WHPreviewViewMessagesTableView.m in Sources */,
 				BB8763CB15A9FD3300447618 /* WHWebsiteExport.m in Sources */,
+				BBBC0DB515B0B49B00BF02EB /* WHPreferencesWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +493,15 @@
 			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
+		BBB91E9815ACE85500AAAE75 /* Preferences.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBB91E9715ACE85500AAAE75 /* en */,
+				BBB91E9915ACE86200AAAE75 /* de */,
+			);
+			name = Preferences.xib;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -545,6 +565,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SKIP_INSTALL = YES;
@@ -566,6 +587,7 @@
 				GCC_WARN_UNDECLARED_SELECTOR = NO;
 				GCC_WARN_UNUSED_FUNCTION = NO;
 				INFOPLIST_FILE = "WhatsApp History/WhatsApp History-Info.plist";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SKIP_INSTALL = YES;
